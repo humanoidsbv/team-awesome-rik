@@ -1,0 +1,1 @@
+{"version":3,"file":"5.a43a007ecaf7f2870db9.hot-update.js","sources":["webpack:///pages/index.js"],"sourcesContent":["import React from 'react';\n\nexport default () => (\n  <div>\n    Team Awesome!\n  </div>\n);\n\n\n\n// WEBPACK FOOTER //\n// pages/index.js"],"mappings":";;;;;;;;;;;;;AAAA;AAEA;AAAA;AACA;AAAA;AAAA;AAAA;AAAA;AADA;;;;;;;;;;;;;;;;;;;;;;;A","sourceRoot":""}
