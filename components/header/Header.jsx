@@ -3,16 +3,12 @@ import './header.scss';
 
 
 class Header extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { open: false };
-  }
+  state = { open: false };
 
   handleClick = () => {
     const { open } = this.state;
     this.setState({ open: !open });
   };
-
 
   render() {
     const { open } = this.state;
