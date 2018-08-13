@@ -163,13 +163,26 @@ $timesheet-button-plus-color: #b0edb8;
 /* timesheet*/
 $timesheet-sheet-border-left-color: #4f88ef;
 $timesheet-mobile-height: 21.866vw;
+$timesheet-mobile-margin-top: 16px;
+$timesheet-desktop-height: 82px;
+$timesheet-desktop-margin-top: 25px;
 
 /* new-timesheet */
 $timesheet-form-height: 112.533vw;
+$timesheet-form-height-desktop: 94px;
 $timesheet-form-background-color: #f5f8fa;
 $timesheet-form-border-color: #e6eaee;
+$timesheet-form-font-color: #68768c;
 $timesheet-form-select-width: 82.933vw;
+$timesheet-form-select-width-desktop-primary: 245px;
 $timesheet-form-select-border-color: #ced0da;
 $timesheet-form-select-background-primary: #f2f4f7;
-$timesheet-form-select-margin-top: 3.2vw;
-$timesheet-form-select-margin-bottom: 4.266vw;
+$timesheet-form-select-margin-top: 12px;
+$timesheet-form-select-height-desktop: 36px;
+$timesheet-form-item-margin-top: 16px;
+
+$timesheet-form-padding-left: 0;
+$timesheet-form-padding-right: 60px;
+$timesheet-button-add-margin-top: 42px;
+$timesheet-button-close-size: 7.1px;
+$timesheet-button-close-color: #354052;

@@ -4,38 +4,121 @@
   background-color: $timesheet-form-background-color;
   border: solid $default-border-height $timesheet-form-border-color;
   border-radius: $default-border-radius;
-  display: grid;
+  color: $timesheet-form-font-color;
+  display: flex;
+  flex-direction: column;
   font-family: $font-primary;
   font-size: $font-size-form;
+  height: $timesheet-form-height;
   margin-left: $timesheet-mobile-item-margin-horizontal;
   margin-top: $timesheet-mobile-item-margin-top;
-  min-height: $timesheet-form-height;
   width: $timesheet-mobile-item-width;
 
+  @include tablet {
+    align-items: center;
+    flex-direction: row;
+    height: $timesheet-form-height-desktop;
+    justify-content: space-between;
+    margin-bottom: 33px;
+  }
 
-  &__select-list {
-    border: solid 1px $timesheet-form-select-border-color;
+  & .first-row {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__button-close {
+    -webkit-mask: url("/static/icons/close.svg") no-repeat center;
+    -webkit-mask-size: $timesheet-button-close-size $timesheet-button-close-size;
+    background-color: $timesheet-button-close-color;
+    height: $timesheet-button-close-size;
+    mask: url("/static/icons/close.svg") no-repeat center;
+    width: $timesheet-button-close-size;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__list-item {
     font-size: $font-size-primary;
-    height: $timesheet-mobile-item-height;
-    margin-bottom: $timesheet-form-select-margin-bottom;
     margin-left: $timesheet-mobile-item-margin-horizontal;
     margin-right: $timesheet-mobile-item-margin-horizontal;
-    margin-top: $timesheet-form-select-margin-top;
-    width: $timesheet-form-select-width;
-  }
+    margin-top: $timesheet-form-item-margin-top;
 
-  & .half-width &__select-list {
-    width: 40%;
-  }
+    @include tablet {
+      flex-basis: $timesheet-form-select-width-desktop-primary;
+      margin-bottom: 20px;
+      margin-left: 0;
+      margin-right: 13px;
+    }
 
+    &--date {
+      @include tablet {
+        flex-basis: 130px;
+      }
+    }
+
+    &--first {
+
+      @include tablet {
+        margin-left: 31px;
+      }
+    }
+
+    & select {
+      border: solid $default-border-height $timesheet-form-select-border-color;
+      font-size: $font-size-primary;
+      height: $timesheet-mobile-item-height;
+      margin-top: $timesheet-form-select-margin-top;
+      width: 100%;
+
+      @include tablet {
+        height: $timesheet-form-select-height-desktop;
+        width: 100%;
+      }
+    }
+
+    &--half {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      @include tablet {
+        flex-basis: 141px;
+      }
+
+      select {
+        padding-left: $timesheet-form-padding-left;
+        padding-right: $timesheet-form-padding-right;
+
+        @include tablet {
+          padding-left: 0;
+          padding-right: 0;
+
+        }
+      }
+    }
+  }
 
   &__button-add {
     background-color: $timesheet-form-button-color;
+    border-radius: $default-border-radius;
     color: $color-letter-on-primary;
+    font-size: $font-size-primary;
     height: $timesheet-mobile-item-height;
     margin-left: $timesheet-mobile-item-margin-horizontal;
     margin-right: $timesheet-mobile-item-margin-horizontal;
-    margin-top: $timesheet-form-select-margin-top;
+    margin-top: $timesheet-button-add-margin-top;
     width: $timesheet-form-select-width;
+
+    @include tablet {
+      height: $timesheet-form-select-height-desktop;
+      margin-bottom: 20px;
+      margin-left: 213px;
+      width: 90px;
+    }
+
   }
 }

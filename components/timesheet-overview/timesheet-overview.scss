@@ -20,4 +20,8 @@
     margin-right: $timesheet-button-plus-right;
     width: $timesheet-button-plus-size;
   }
+
+  @include tablet {
+    display: none;
+  }
 }

@@ -11,6 +11,12 @@
   height: $timesheet-mobile-height;
   justify-content: space-around;
   margin-left: $timesheet-mobile-item-margin-horizontal;
+  margin-top: $timesheet-mobile-margin-top;
   width: $timesheet-mobile-item-width;
+
+  @include tablet {
+    height: $timesheet-desktop-height;
+    margin-top: $timesheet-desktop-margin-top;
+  }
 
 }

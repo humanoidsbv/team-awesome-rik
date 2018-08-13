@@ -1,6 +1,6 @@
 import React from 'react';
 import NewTimeSheet from './new-timesheet/NewTimeSheet';
-import TimeSheet from './sheets/sheet/TimeSheet';
+import TimeSheets from './sheets/TimeSheets';
 import './timesheet-overview.scss';
 
 class TimeSheetOverview extends React.Component {
@@ -29,7 +29,7 @@ class TimeSheetOverview extends React.Component {
           New time entry
         </button>
         <NewTimeSheet />
-        <TimeSheet />
+        <TimeSheets />
       </div>
     );
   }
