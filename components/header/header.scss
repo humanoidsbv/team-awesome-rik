@@ -14,8 +14,8 @@
 .menu-toggle {
   float: right;
   height: $header-mobile-button-height;
-  margin-right: 3%;
-  margin-top: 1%;
+  margin-right: $header-toggle-margin-right;
+  margin-top: $header-toggle-margin-top;
   padding-left: 0;
   width: $header-mobile-button-width;
 
@@ -42,14 +42,13 @@
   }
 }
 
-
-
 .title-bar {
   background: $color-primary;
-  padding-top: 2%;
+  padding-bottom: $header-title-bar-padding-vertical;
+  padding-top: $header-title-bar-padding-vertical;
   text-align: center;
   text-decoration: none;
-  width: 100vw;
+  width: 100%;
 
   @include tablet {
     display: none;
@@ -60,19 +59,18 @@
     font-family: $font-titlebar;
     font-size: $font-size-mobile;
     height: $font-height-mobile;
-    margin-left: 6%;
+    margin-left: $header-title-margin-left;
     text-decoration: none;
     width: $header-mobile-company-width;
   }
 }
 
 .main-nav {
-  align-items: center;
   background: $color-primary;
   height: 100vh;
-  justify-content: center;
   visibility: hidden;
   width: 100%;
+
   @include tablet {
     align-self: flex-start;
     display: block;
@@ -92,7 +90,7 @@
     align-items: center;
     display: flex;
     flex-direction: column;
-    padding-top: 10%;
+    padding-top: $header-mobile-item-padding;
 
     @include tablet {
       align-items: flex-start;
@@ -117,26 +115,22 @@
 
     @include tablet {
       display: inline;
-      font-size: $font-size-header;
+      font-size: $font-size-primary;
       font-weight: $font-weight-bold;
-      margin-left: 2%;
-      margin-right: 3%;
+      margin-left: $header-nav-item-margin-tablet;
       }
     @include desktop-large {
       font-size: $font-size-header-scaling;
+      margin-left: $header-nav-item-margin-desktop;
       }
-    }
 
-
-
-  &--active {
-    background: $color-highlight;
-    border-radius: $default-border-radius;
-    width: inherit;
-    @include tablet {
+    &--active {
+      background: $color-highlight;
+      border-radius: $default-border-radius;
       height: inherit;
+      width: inherit;
     }
-}
+  }
 
   & a {
     text-decoration: none;
@@ -147,55 +141,45 @@
 .profile {
   display: none;
 
+
   @include tablet {
+    align-items: center;
     align-self: flex-end;
     background-color: $color-monochrome-1;
     border-radius: $profile-border-radius;
     display: flex;
     height: $header-button-height;
     justify-content: space-between;
-    margin-bottom: 2%;
-    min-height: $header-button-min-height;
-    min-width: $header-button-min-width;
+    margin-bottom: $profile-margin-bottom;
     width: $header-button-width;
 
-    @include desktop-large {
-      border-radius: $profile-border-radius-scalable;
-      margin-bottom: 1.2%;
+    @include desktop-xlarge {
+      margin-bottom: $profile-margin-bottom-xl;
     }
 
     & .logo {
-      align-self: flex-start;
       height: $profile-logo-height;
-      margin-left: 5%;
-      margin-top: 8%;
       width: $profile-logo-width;
-
-      @include desktop-large {
-        height: $profile-logo-height-scalable;
-        width: $profile-logo-width-scalable;
-      }
     }
 
     & .picture {
-      align-self: flex-end;
       border-radius: $profile-border-radius;
       height: $profile-picture-size;
+      margin-left:  $profile-picture-margin;
       width: $profile-picture-size;
 
-      @include desktop-large {
-        border-radius: $profile-border-radius-scalable;
-        height: $profile-picture-size-scalable;
-        width: $profile-picture-size-scalable;
-      }
     }
-
-    .arrow-down {
-      margin-left: $header-arrow-margin;
-      margin-right: 3%;
-      @include desktop-xlarge {
-        width: $header-arrow-size;
-      }
-    }
+  }
 }
+
+.arrow-down {
+  display: none;
+  margin-left: $header-arrow-margin-left;
+  margin-right: $header-arrow-margin-right;
+  @include tablet {
+    display: block;
+  }
+  @include desktop-xlarge {
+    width: $header-arrow-size;
+  }
 }

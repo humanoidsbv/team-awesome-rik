@@ -3,22 +3,22 @@ import './header.scss';
 
 
 class Header extends React.Component {
-  state = { open: false };
+  state = { isMenuOpen: false };
 
   handleClick = () => {
-    const { open } = this.state;
-    this.setState({ open: !open });
+    const { isMenuOpen } = this.state;
+    this.setState({ isMenuOpen: !isMenuOpen });
   };
 
   render() {
-    const { open } = this.state;
+    const { isMenuOpen } = this.state;
     return (
       <header className="header">
         <div className="title-bar">
           <a href="/">
             team awesome
           </a>
-          <button className={`menu-toggle ${open ? '' : 'menu-toggle--open'}`} type="button" onClick={this.handleClick}>
+          <button className={`menu-toggle ${isMenuOpen ? 'menu-toggle--close' : 'menu-toggle--open'}`} type="button" onClick={this.handleClick}>
             <img
               className="menu-toggle__item menu-toggle__item--close"
               src="/static/icons/hamburger.svg"
@@ -31,7 +31,7 @@ class Header extends React.Component {
             />
           </button>
         </div>
-        <nav className={`main-nav ${open ? 'main-nav--open' : ' main-nav'}`}>
+        <nav className={`main-nav ${isMenuOpen ? 'main-nav--open' : ' main-nav'}`}>
           <ul className="main-nav__nav-list">
             <li className="main-nav__item main-nav__item--active">
               Timesheets
