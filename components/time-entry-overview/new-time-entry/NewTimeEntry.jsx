@@ -1,5 +1,6 @@
 import React from 'react';
-import './new-timesheet.scss';
+
+import './new-time-entry.scss';
 
 const NewTimeEntry = () => (
   <form className="form">
@@ -13,7 +14,11 @@ const NewTimeEntry = () => (
             <div className="form__button-close" />
           </span>
         </div>
-        <select id="employer" className="form__select-list form__select-list--employer" type="select">
+        <select
+          id="employer"
+          className="form__select-list form__select-list--employer"
+          type="select"
+        >
           <option>
             Port of Rotterdam
           </option>
@@ -23,7 +28,11 @@ const NewTimeEntry = () => (
     <div className="form__list-item">
       <label id="activity" htmlFor="activity">
         ACTIVITY
-        <select id="activity" className="form__select-list form__select-list--activity" type="select">
+        <select
+          id="activity"
+          className="form__select-list form__select-list--activity"
+          type="select"
+        >
           <option>
             Design
           </option>
@@ -33,7 +42,11 @@ const NewTimeEntry = () => (
     <div className="form__list-item form__list-item--date">
       <label id="date" htmlFor="date">
         Date
-        <select id="date" className="form__select-list form__select-list--date" type="select">
+        <select
+          id="date"
+          className="form__select-list form__select-list--date"
+          type="select"
+        >
           <option>
             29-07-2018
           </option>
@@ -43,7 +56,11 @@ const NewTimeEntry = () => (
     <div className="form__list-item form__list-item--half">
       <label id="from" htmlFor="from">
         FROM
-        <select id="from" className="form__select-list form__select-list--from" type="select">
+        <select
+          id="from"
+          className="form__select-list form__select-list--from"
+          type="select"
+        >
           <option>
             09:00
           </option>
@@ -51,7 +68,11 @@ const NewTimeEntry = () => (
       </label>
       <label id="to" htmlFor="to">
         TO
-        <select id="to" className="form__select-list form__select-list--to" type="select">
+        <select
+          id="to"
+          className="form__select-list form__select-list--to"
+          type="select"
+        >
           <option>
             17:00
           </option>
