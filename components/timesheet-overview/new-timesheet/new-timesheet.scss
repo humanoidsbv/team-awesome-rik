@@ -1,0 +1,41 @@
+@import "../../../shared/styles/main";
+
+.form {
+  background-color: $timesheet-form-background-color;
+  border: solid $default-border-height $timesheet-form-border-color;
+  border-radius: $default-border-radius;
+  display: grid;
+  font-family: $font-primary;
+  font-size: $font-size-form;
+  margin-left: $timesheet-mobile-item-margin-horizontal;
+  margin-top: $timesheet-mobile-item-margin-top;
+  min-height: $timesheet-form-height;
+  width: $timesheet-mobile-item-width;
+
+
+  &__select-list {
+    border: solid 1px $timesheet-form-select-border-color;
+    font-size: $font-size-primary;
+    height: $timesheet-mobile-item-height;
+    margin-bottom: $timesheet-form-select-margin-bottom;
+    margin-left: $timesheet-mobile-item-margin-horizontal;
+    margin-right: $timesheet-mobile-item-margin-horizontal;
+    margin-top: $timesheet-form-select-margin-top;
+    width: $timesheet-form-select-width;
+  }
+
+  & .half-width &__select-list {
+    width: 40%;
+  }
+
+
+  &__button-add {
+    background-color: $timesheet-form-button-color;
+    color: $color-letter-on-primary;
+    height: $timesheet-mobile-item-height;
+    margin-left: $timesheet-mobile-item-margin-horizontal;
+    margin-right: $timesheet-mobile-item-margin-horizontal;
+    margin-top: $timesheet-form-select-margin-top;
+    width: $timesheet-form-select-width;
+  }
+}

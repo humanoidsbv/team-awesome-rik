@@ -1,0 +1,16 @@
+@import "../../../../shared/styles/main";
+
+.timesheet {
+  align-items: center;
+  border: solid $default-border-height $timesheet-form-border-color;
+  border-left: $timesheet-sheet-border-left-color solid 4px;
+  border-radius: $default-border-radius;
+  display: flex;
+  flex-direction: row;
+  font-size: $font-size-secondary;
+  height: $timesheet-mobile-height;
+  justify-content: space-around;
+  margin-left: $timesheet-mobile-item-margin-horizontal;
+  width: $timesheet-mobile-item-width;
+
+}

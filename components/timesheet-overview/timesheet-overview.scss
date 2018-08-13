@@ -1,0 +1,23 @@
+@import "../../shared/styles/main";
+
+.timesheet-button {
+  background-image: linear-gradient(to bottom, $timesheet-button-color-primary, $timesheet-button-color-secondary 98%);
+  border: solid $default-border-height $timesheet-button-color-border;
+  border-radius: $default-border-radius;
+  color: $color-letter-on-primary;
+  font-family: $font-primary;
+  font-size: $default-font-size-scalable--mobile;
+  font-weight: $font-weight-bold;
+  height: $timesheet-mobile-item-height;
+  margin-bottom: $timesheet-button-margin-bottom;
+  margin-left: $timesheet-mobile-item-margin-horizontal;
+  margin-top: $timesheet-mobile-item-margin-top;
+  width: $timesheet-mobile-item-width;
+
+  &__plus {
+    color: $timesheet-button-plus-color;
+    height: $timesheet-button-plus-size;
+    margin-right: $timesheet-button-plus-right;
+    width: $timesheet-button-plus-size;
+  }
+}
