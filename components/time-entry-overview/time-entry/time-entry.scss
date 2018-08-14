@@ -1,0 +1,22 @@
+@import "../../../shared/styles/main";
+
+.time-entry {
+  align-items: center;
+  border: solid $default-border-height $timesheet-form-border-color;
+  border-left: $timesheet-sheet-border-left-color solid 4px;
+  border-radius: $default-border-radius;
+  display: flex;
+  flex-direction: row;
+  font-size: $font-size-secondary;
+  height: $timesheet-mobile-height;
+  justify-content: space-around;
+  margin-left: $timesheet-mobile-item-margin-horizontal;
+  margin-top: $timesheet-mobile-margin-top;
+  width: $timesheet-mobile-item-width;
+
+  @include tablet {
+    height: $timesheet-desktop-height;
+    margin-top: $timesheet-desktop-margin-top;
+  }
+
+}
