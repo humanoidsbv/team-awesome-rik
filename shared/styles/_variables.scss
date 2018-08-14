@@ -23,6 +23,7 @@ $color-tertriary: #9c92a4;
 $color-letter-on-primary: #fff;
 $color-highlight: #1166a5;
 
+
 $color-accent: #0092ff;
 
 $color-error: #f60000;
@@ -33,6 +34,11 @@ $color-monochrome-6: #e4e7ee;
 $color-monochrome-3: #7a838e;
 $color-monochrome-4: #87858a;
 $color-monochrome-5: #36333c;
+$color-monochrome-6: #4f88ef;
+$color-monochrome-7: #e6eaee;
+$color-monochrome-8: #f5f8fa;
+$color-monochrome-9: #68768c;
+$color-monochrome-10: #354052;
 
 $color-accent-alt-1: #f70;
 $color-accent-alt-2: #70c017;
@@ -154,35 +160,12 @@ $profile-picture-size: 32px;
 $timesheet-mobile-item-width: 91.466vw;
 $timesheet-mobile-item-margin-horizontal: 4.266vw;
 $timesheet-mobile-item-margin-top: 6.4vw;
-$timesheet-mobile-item-height: 9.6vw;
 $timesheet-button-margin-bottom: 8.533vw;
 $timesheet-button-plus-size: 2.666vw;
 $timesheet-button-plus-right: 4vw;
 $timesheet-button-plus-color: #b0edb8;
 
-/* timesheet*/
-$timesheet-sheet-border-left-color: #4f88ef;
-$timesheet-mobile-height: 21.866vw;
-$timesheet-mobile-margin-top: 16px;
-$timesheet-desktop-height: 82px;
-$timesheet-desktop-margin-top: 25px;
 
 /* new-timesheet */
-$timesheet-form-height: 112.533vw;
-$timesheet-form-height-desktop: 94px;
-$timesheet-form-background-color: #f5f8fa;
-$timesheet-form-border-color: #e6eaee;
-$timesheet-form-font-color: #68768c;
-$timesheet-form-select-width: 82.933vw;
-$timesheet-form-select-width-desktop-primary: 245px;
 $timesheet-form-select-border-color: #ced0da;
 $timesheet-form-select-background-primary: #f2f4f7;
-$timesheet-form-select-margin-top: 12px;
-$timesheet-form-select-height-desktop: 36px;
-$timesheet-form-item-margin-top: 16px;
-
-$timesheet-form-padding-left: 0;
-$timesheet-form-padding-right: 60px;
-$timesheet-button-add-margin-top: 42px;
-$timesheet-button-close-size: 7.1px;
-$timesheet-button-close-color: #354052;

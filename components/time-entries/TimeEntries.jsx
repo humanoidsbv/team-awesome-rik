@@ -7,14 +7,11 @@ import './time-entries.scss';
 
 const TimeEntries = () => (
   mockTimeEntry.map((currentEntry, index, arr) => (
-    (index > 0 && currentEntry.date === arr[index - 1].date)
-      ? (<TimeEntry {... currentEntry} />)
-      : (
-        <React.Fragment>
-          {currentEntry.date}
-          <TimeEntry {... currentEntry} />
-        </React.Fragment>)))
-
+    <React.Fragment>
+      {(!index || currentEntry.date !== arr[index - 1].date) && currentEntry.date}
+      <TimeEntry {... currentEntry} />
+    </React.Fragment>
+  ))
 );
 
 export default TimeEntries;

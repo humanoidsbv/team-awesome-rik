@@ -1,23 +1,24 @@
 @import "../../shared/styles/main";
 
 .form {
-  background-color: $timesheet-form-background-color;
-  border: solid $default-border-height $timesheet-form-border-color;
+  background-color: $color-monochrome-8;
+  border: solid $default-border-height $color-monochrome-7;
   border-radius: $default-border-radius;
-  color: $timesheet-form-font-color;
+  color: $color-monochrome-9;
   display: flex;
   flex-direction: column;
   font-family: $font-primary;
   font-size: $font-size-primary;
-  height: $timesheet-form-height;
-  margin-left: $timesheet-mobile-item-margin-horizontal;
+  height: 422px;
+  margin-left: 16px;
+  margin-right: 16px;
   margin-top: $timesheet-mobile-item-margin-top;
-  width: $timesheet-mobile-item-width;
+  width: 343px;
 
   @include tablet {
     align-items: center;
     flex-direction: row;
-    height: $timesheet-form-height-desktop;
+    height: 94px;
     justify-content: space-between;
     margin-bottom: 33px;
   }
@@ -30,11 +31,11 @@
 
   &__button-close {
     -webkit-mask: url("/static/icons/close.svg") no-repeat center;
-    -webkit-mask-size: $timesheet-button-close-size $timesheet-button-close-size;
-    background-color: $timesheet-button-close-color;
-    height: $timesheet-button-close-size;
+    -webkit-mask-size: 7px 7px;
+    background-color: $color-monochrome-10;
+    height: 7px;
     mask: url("/static/icons/close.svg") no-repeat center;
-    width: $timesheet-button-close-size;
+    width: 7px;
 
     @include tablet {
       display: none;
@@ -43,12 +44,12 @@
 
   &__list-item {
     font-size: $font-size-primary;
-    margin-left: $timesheet-mobile-item-margin-horizontal;
-    margin-right: $timesheet-mobile-item-margin-horizontal;
-    margin-top: $timesheet-form-item-margin-top;
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-top: 16px;
 
     @include tablet {
-      flex-basis: $timesheet-form-select-width-desktop-primary;
+      flex-basis: 245px;
       margin-bottom: 20px;
       margin-left: 0;
       margin-right: 13px;
@@ -70,14 +71,9 @@
     & select {
       border: solid $default-border-height $timesheet-form-select-border-color;
       font-size: $font-size-primary;
-      height: $timesheet-mobile-item-height;
-      margin-top: $timesheet-form-select-margin-top;
+      height: 36px;
+      margin-top: 12px;
       width: 100%;
-
-      @include tablet {
-        height: $timesheet-form-select-height-desktop;
-        width: 100%;
-      }
     }
 
     &--half {
@@ -90,8 +86,8 @@
       }
 
       select {
-        padding-left: $timesheet-form-padding-left;
-        padding-right: $timesheet-form-padding-right;
+        padding-left: 0;
+        padding-right: 60px;
 
         @include tablet {
           padding-left: 0;
@@ -107,14 +103,14 @@
     border-radius: $default-border-radius;
     color: $color-letter-on-primary;
     font-size: $font-size-primary;
-    height: $timesheet-mobile-item-height;
-    margin-left: $timesheet-mobile-item-margin-horizontal;
-    margin-right: $timesheet-mobile-item-margin-horizontal;
-    margin-top: $timesheet-button-add-margin-top;
-    width: $timesheet-form-select-width;
+    height: 36px;
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-top: 42px;
+    width: 311px;
 
     @include tablet {
-      height: $timesheet-form-select-height-desktop;
+      height: 36px;
       margin-bottom: 20px;
       margin-left: 213px;
       width: 90px;

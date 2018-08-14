@@ -8,11 +8,11 @@
   font-family: $font-primary;
   font-size: $default-font-size-scalable--mobile;
   font-weight: $font-weight-bold;
-  height: $timesheet-mobile-item-height;
+  height: 36px;
   margin-bottom: $timesheet-button-margin-bottom;
-  margin-left: $timesheet-mobile-item-margin-horizontal;
+  margin-left: 16px;
   margin-top: $timesheet-mobile-item-margin-top;
-  width: $timesheet-mobile-item-width;
+  width: 343px;
 
   &__plus {
     color: $timesheet-button-plus-color;
