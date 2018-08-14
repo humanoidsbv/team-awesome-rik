@@ -1,7 +1,7 @@
 import React from 'react';
 
-import TimeEntryForm from './time-entry-form/TimeEntryForm';
-import TimeEntries from './time-entries/TimeEntries';
+import TimeEntryForm from '../time-entry-form/TimeEntryForm';
+import TimeEntries from '../time-entries/TimeEntries';
 import './time-entry-overview.scss';
 
 class TimeEntryOverview extends React.Component {
