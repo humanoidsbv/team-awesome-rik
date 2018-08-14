@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './new-time-entry.scss';
+import './time-entry-form.scss';
 
 const NewTimeEntry = () => (
   <form className="form">
@@ -16,7 +16,7 @@ const NewTimeEntry = () => (
         </div>
         <select
           id="employer"
-          className="form__select-list form__select-list--employer"
+          className="form__select-list"
           type="select"
         >
           <option>
@@ -30,7 +30,7 @@ const NewTimeEntry = () => (
         ACTIVITY
         <select
           id="activity"
-          className="form__select-list form__select-list--activity"
+          className="form__select-list"
           type="select"
         >
           <option>
@@ -58,7 +58,7 @@ const NewTimeEntry = () => (
         FROM
         <select
           id="from"
-          className="form__select-list form__select-list--from"
+          className="form__select-list"
           type="select"
         >
           <option>
@@ -70,7 +70,7 @@ const NewTimeEntry = () => (
         TO
         <select
           id="to"
-          className="form__select-list form__select-list--to"
+          className="form__select-list"
           type="select"
         >
           <option>

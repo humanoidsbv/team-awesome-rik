@@ -1,23 +1,24 @@
 import React from 'react';
 
-import NewTimeEntry from './new-time-entry/NewTimeEntry';
+import TimeEntryForm from './time-entry-form/TimeEntryForm';
 import TimeEntries from './time-entries/TimeEntries';
 import './time-entry-overview.scss';
 
 class TimeEntryOverview extends React.Component {
-  state = { openNewTimeEntry: false };
+  state = { isTimeEntryFormOpen: false };
 
   handleClick = () => {
-    const { openNewTimeEntry } = this.state;
-    this.setState(() => ({ openNewTimeEntry: !openNewTimeEntry }));
+    this.setState(({ isTimeEntryFormOpen }) => ({ isTimeEntryFormOpen: !isTimeEntryFormOpen }));
   };
 
   render() {
-    const { openNewTimeEntry } = this.state;
+    const { isTimeEntryFormOpen } = this.state;
     return (
-      <div>
+      <React.Fragment>
         <button
-          className={`time-entry-button ${openNewTimeEntry ? 'time-entry-button--open' : 'time-entry-button--close'}`}
+          className={`time-entry-button
+                     ${isTimeEntryFormOpen ? 'time-entry-button--open' : 'time-entry-button--close'}`
+                    }
           type="button"
           onClick={this.handleClick}
         >
@@ -28,9 +29,9 @@ class TimeEntryOverview extends React.Component {
           />
           New time entry
         </button>
-        <NewTimeEntry />
+        <TimeEntryForm />
         <TimeEntries />
-      </div>
+      </React.Fragment>
     );
   }
 }

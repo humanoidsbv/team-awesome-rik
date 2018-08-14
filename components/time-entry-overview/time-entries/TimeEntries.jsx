@@ -6,14 +6,27 @@ import './time-entries.scss';
 
 
 const TimeEntries = () => {
-  const timeentries = mockTimeEntry.map(({
-    employer, from, to, id
-  }) => (
-    <TimeEntry employer={employer} from={from} to={to} key={id} />
-  ));
+  const timeEntries = mockTimeEntry.map((currentEntry, index, arr) => {
+    if (index === 0) {
+      return (
+        <React.Fragment>
+          {currentEntry.date}
+          <TimeEntry {... currentEntry} />
+        </React.Fragment>
+      );
+    }
+    if (currentEntry.date === arr[index - 1].date) {
+      return (<TimeEntry {... currentEntry} />);
+    }
+    return (
+      <React.Fragment>
+        {currentEntry.date}
+        <TimeEntry {... currentEntry} />
+      </React.Fragment>);
+  });
 
   return (
-    timeentries
+    timeEntries
   );
 };
 
