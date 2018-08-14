@@ -1,11 +1,12 @@
 {
   "name": "team-awesome-rik",
   "version": "1.0.0",
-  "description": "",
+  "description": "Team Awesome repository for Rik",
   "main": "index.js",
   "scripts": {
-    "dev": "next",
     "build": "next build",
+    "dev": "next",
+    "lint": "eslint --ext js,jsx .",
     "start": "next start"
   },
   "repository": {
@@ -17,22 +18,22 @@
   "bugs": {
     "url": "https://github.com/humanoidsbv/team-awesome-rik/issues"
   },
-  "homepage": "https://github.com/humanoidsbv/team-awesome-rik#readme",
+  "homepage": "https://team-awesome-rik.now.sh",
   "dependencies": {
+    "@zeit/next-sass": "^0.2.0",
+    "babel-eslint": "^8.2.6",
     "next": "^6.1.1",
+    "node-sass": "^4.9.2",
     "prop-types": "^15.6.2",
     "react": "^16.4.2",
     "react-dom": "^16.4.2"
   },
   "devDependencies": {
-    "@zeit/next-sass": "^0.2.0",
-    "babel-eslint": "^8.2.6",
     "eslint": "^5.3.0",
     "eslint-config-airbnb": "^17.0.0",
     "eslint-plugin-babel": "^5.1.0",
     "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
-    "eslint-plugin-react": "^7.10.0",
-    "node-sass": "^4.9.2"
+    "eslint-plugin-react": "^7.10.0"
   }
 }

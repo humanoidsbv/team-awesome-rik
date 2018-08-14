@@ -1,0 +1,7 @@
+{
+  "alias": "team-awesome-rik",
+  "env": {
+    "NODE_ENV": "production"
+  },
+  "name": "team-awesome-rik"
+}
