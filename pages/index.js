@@ -1,10 +1,10 @@
 import React from 'react';
 import Header from '../components/header/Header';
-import TimeSheetOverview from '../components/timesheet-overview/TimeSheetOverview';
+import TimeEntryOverview from '../components/time-entry-overview/TimeEntryOverview';
 
 export default () => (
   <div>
     <Header />
-    <TimeSheetOverview />
+    <TimeEntryOverview />
   </div>
 );
