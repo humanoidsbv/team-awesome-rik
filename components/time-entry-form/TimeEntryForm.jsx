@@ -8,7 +8,7 @@ convertColonToDot = time => time.replace(':', '.')
 convertDateToISO = ({ date }) => {
   const dateSplitted = date.split('-');
   return new Date(
-    `${dateSplitted[2]}-${dateSplitted[1]}-${dateSplitted[0]}`
+    `${dateSplitted[2]}-${dateSplitted[1]}-${dateSplitted[0]} `
   ).toISOString();
 }
 
