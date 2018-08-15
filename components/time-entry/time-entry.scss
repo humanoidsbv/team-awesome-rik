@@ -1,0 +1,19 @@
+@import "../../shared/styles/main";
+
+.time-entry {
+  align-items: center;
+  border: solid $default-border-height $color-monochrome-7;
+  border-left: $color-monochrome-6 solid 4px;
+  border-radius: $default-border-radius;
+  display: flex;
+  flex-direction: row;
+  font-size: $font-size-secondary;
+  height: 82px;
+  justify-content: space-around;
+  margin-left: 16px;
+  width: 343px;
+
+  @include tablet {
+    width: 1173px;
+  }
+}

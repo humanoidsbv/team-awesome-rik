@@ -2,22 +2,21 @@
 
 .header {
   background-color: $color-primary;
-  height: $header-mobile-height;
+  height: 50px;
 
   @include tablet {
     display: flex;
-    height: $header-height;
-    min-height: $header-min-height;
+    height: 70px;
     }
   }
 
 .menu-toggle {
   float: right;
-  height: $header-mobile-button-height;
-  margin-right: $header-toggle-margin-right;
-  margin-top: $header-toggle-margin-top;
+  height: 20px;
+  margin-right: 16px;
+  margin-top: 4px;
   padding-left: 0;
-  width: $header-mobile-button-width;
+  width: 20px;
 
   &__item {
     &--open {

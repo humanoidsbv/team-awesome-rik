@@ -1,0 +1,121 @@
+@import "../../shared/styles/main";
+
+.form {
+  background-color: $color-monochrome-8;
+  border: solid $default-border-height $color-monochrome-7;
+  border-radius: $default-border-radius;
+  color: $color-monochrome-9;
+  display: flex;
+  flex-direction: column;
+  font-family: $font-primary;
+  font-size: $font-size-primary;
+  height: 422px;
+  margin-left: 16px;
+  margin-right: 16px;
+  margin-top: 24px;
+  width: 343px;
+
+  @include tablet {
+    align-items: center;
+    flex-direction: row;
+    height: 94px;
+    justify-content: space-between;
+    margin-bottom: 33px;
+    width: 1170px;
+  }
+
+  & .first-row {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__button-close {
+    -webkit-mask: url("/static/icons/close.svg") no-repeat center;
+    -webkit-mask-size: 7px 7px;
+    background-color: $color-monochrome-10;
+    height: 7px;
+    mask: url("/static/icons/close.svg") no-repeat center;
+    width: 7px;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__list-item {
+    font-size: $font-size-primary;
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-top: 16px;
+
+    @include tablet {
+      flex-basis: 245px;
+      margin-bottom: 20px;
+      margin-left: 0;
+      margin-right: 13px;
+    }
+
+    &--date {
+      @include tablet {
+        flex-basis: 130px;
+      }
+    }
+
+    &--first {
+
+      @include tablet {
+        margin-left: 31px;
+      }
+    }
+
+    & select {
+      border: solid $default-border-height $color-monochrome-15;
+      font-size: $font-size-primary;
+      height: 36px;
+      margin-top: 12px;
+      width: 100%;
+    }
+
+    &--half {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      @include tablet {
+        flex-basis: 141px;
+      }
+
+      select {
+        padding-left: 0;
+        padding-right: 60px;
+
+        @include tablet {
+          padding-left: 0;
+          padding-right: 0;
+
+        }
+      }
+    }
+  }
+
+  &__button-add {
+    background-color: $timesheet-form-button-color;
+    border-radius: $default-border-radius;
+    color: $color-letter-on-primary;
+    font-size: $font-size-primary;
+    height: 36px;
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-top: 42px;
+    width: 311px;
+
+    @include tablet {
+      height: 36px;
+      margin-bottom: 20px;
+      margin-left: 213px;
+      width: 90px;
+    }
+
+  }
+}
