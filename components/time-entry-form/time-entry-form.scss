@@ -12,7 +12,7 @@
   height: 422px;
   margin-left: 16px;
   margin-right: 16px;
-  margin-top: $timesheet-mobile-item-margin-top;
+  margin-top: 24px;
   width: 343px;
 
   @include tablet {
@@ -21,6 +21,7 @@
     height: 94px;
     justify-content: space-between;
     margin-bottom: 33px;
+    width: 1170px;
   }
 
   & .first-row {
@@ -69,7 +70,7 @@
     }
 
     & select {
-      border: solid $default-border-height $timesheet-form-select-border-color;
+      border: solid $default-border-height $color-monochrome-15;
       font-size: $font-size-primary;
       height: 36px;
       margin-top: 12px;

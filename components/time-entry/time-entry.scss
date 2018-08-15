@@ -12,4 +12,8 @@
   justify-content: space-around;
   margin-left: 16px;
   width: 343px;
+
+  @include tablet {
+    width: 1173px;
+  }
 }
