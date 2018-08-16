@@ -5,11 +5,7 @@ import './time-entry-form.scss';
 
 
 class TimeEntryForm extends React.Component {
-  static propTypes = {
-    onNewTimeEntry: PropTypes.func.isRequired
-  };
-
-  state = {
+  static defaultState = {
     employer: 'Port of Rotterdam',
     activity: 'Design',
     date: '2018-07-30',
@@ -17,28 +13,43 @@ class TimeEntryForm extends React.Component {
     to: '17:30'
   };
 
+  static propTypes = {
+    onNewTimeEntry: PropTypes.func.isRequired
+  };
+
+  state = { ...TimeEntryForm.defaultState };
+
   convertDotToColon = (time) => time.replace('.', ':')
 
-  reformatDateToYMD = (date) => {
-    const dateSplitted = date.split('-');
-    return `${dateSplitted[2]}-${dateSplitted[1]}-${dateSplitted[0]} `;
+  convertDateTimeToISO = (stateCopy) => {
+    const { date, from, to } = stateCopy;
+    const tempDate = this.reformatDateToYMD(date);
+    const tempFrom = this.createTimeStamp(tempDate, this.convertDotToColon(from));
+    const tempTo = this.createTimeStamp(tempDate, this.convertDotToColon(to));
+    return {
+      ...stateCopy,
+      date: tempDate,
+      from: tempFrom,
+      to: tempTo
+    };
   }
 
   createTimeStamp = (date, time) => new Date(`${date} ${time}`).toISOString();
 
   handleChange = ({ target }) => {
-    const { date } = this.state;
-    const dateValue = target.id === 'date' && this.reformatDateToYMD(target.value);
-    const timeValue = (target.id === 'from' || target.id === 'to')
-      && this.createTimeStamp(date, this.convertDotToColon(target.value));
-    const value = dateValue || timeValue || target.value;
-
-    this.setState((prevState) => ({ ...prevState, [target.id]: value }));
+    this.setState((prevState) => ({ ...prevState, [target.id]: target.value }));
   }
 
   handleSubmit = () => {
+    const stateCopy = { ...this.state };
     const { onNewTimeEntry } = this.props;
-    onNewTimeEntry(this.state);
+    onNewTimeEntry(this.convertDateTimeToISO(stateCopy));
+    this.setState({ ...TimeEntryForm.defaultState });
+  }
+
+  reformatDateToYMD = (date) => {
+    const dateSplitted = date.split('-');
+    return `${dateSplitted[2]}-${dateSplitted[1]}-${dateSplitted[0]} `;
   }
 
   render() {
@@ -95,6 +106,7 @@ class TimeEntryForm extends React.Component {
               className="form__select-list form__select-list--date"
               type="select"
               onChange={(event) => this.handleChange(event)}
+              value={this.state.date}
             />
           </label>
         </div>
@@ -106,6 +118,7 @@ class TimeEntryForm extends React.Component {
               className="form__select-list"
               type="select"
               onChange={(event) => this.handleChange(event)}
+              value={this.state.from}
             />
           </label>
           <label id="to" htmlFor="to">
@@ -115,6 +128,7 @@ class TimeEntryForm extends React.Component {
               className="form__select-list"
               type="select"
               onChange={(event) => this.handleChange(event)}
+              value={this.state.to}
             />
           </label>
         </div>

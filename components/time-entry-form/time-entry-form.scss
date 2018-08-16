@@ -77,6 +77,14 @@
       width: 100%;
     }
 
+    & input {
+      border: solid $default-border-height $color-monochrome-15;
+      font-size: $font-size-primary;
+      height: 36px;
+      margin-top: 12px;
+      width: 100%;
+    }
+
     &--half {
       display: flex;
       flex-direction: row;

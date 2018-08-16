@@ -16,6 +16,7 @@
                 "every": [ "nesting", "id" ]
             },
             "allowChildren": false
-        }]
+        }],
+    "react/destructuring-assignment": "off"
   }
 }
