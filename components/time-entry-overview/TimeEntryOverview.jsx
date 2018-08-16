@@ -8,7 +8,6 @@ import './time-entry-overview.scss';
 class TimeEntryOverview extends React.Component {
   state = { isTimeEntryFormOpen: false, timeEntries: mockTimeEntries };
 
-
   onNewTimeEntry = (newEntry) => {
     this.setState(({ timeEntries }) => ({ timeEntries: [newEntry, ...timeEntries] }));
   };
