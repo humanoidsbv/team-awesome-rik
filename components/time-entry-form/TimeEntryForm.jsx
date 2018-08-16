@@ -9,7 +9,13 @@ class TimeEntryForm extends React.Component {
     onNewTimeEntry: PropTypes.func.isRequired
   };
 
-  state = {};
+  state = {
+    employer: 'Port of Rotterdam',
+    activity: 'Design',
+    date: '30-07-2018',
+    from: '08:30',
+    to: '17:30'
+  };
 
   convertColonToDot = time => time.replace(':', '.')
 
