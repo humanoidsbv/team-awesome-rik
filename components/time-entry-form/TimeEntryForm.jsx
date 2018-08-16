@@ -12,22 +12,28 @@ class TimeEntryForm extends React.Component {
   state = {
     employer: 'Port of Rotterdam',
     activity: 'Design',
-    date: '30-07-2018',
+    date: '2018-07-30',
     from: '08:30',
     to: '17:30'
   };
 
-  convertColonToDot = time => time.replace(':', '.')
+  convertDotToColon = time => time.replace('.', ':')
 
-  convertDateToISO = ({ date }) => {
+  reformatDateToYMD = (date) => {
     const dateSplitted = date.split('-');
-    return new Date(
-      `${dateSplitted[2]}-${dateSplitted[1]}-${dateSplitted[0]} `
-    ).toISOString();
+    return `${dateSplitted[2]}-${dateSplitted[1]}-${dateSplitted[0]} `;
   }
 
+  createTimeStamp = (date, time) => new Date(`${date} ${time}`).toISOString();
+
   handleChange = ({ target }) => {
-    this.setState(prevState => ({ ...prevState, [target.id]: target.value }));
+    const { date } = this.state;
+    const dateValue = target.id === 'date' && this.reformatDateToYMD(target.value);
+    const timeValue = (target.id === 'from' || target.id === 'to')
+      && this.createTimeStamp(date, this.convertDotToColon(target.value));
+    const value = dateValue || timeValue || target.value;
+
+    this.setState(prevState => ({ ...prevState, [target.id]: value }));
   }
 
   handleSubmit = () => {
@@ -84,53 +90,32 @@ class TimeEntryForm extends React.Component {
         <div className="form__list-item form__list-item--date">
           <label id="date" htmlFor="date">
             Date
-            <select
+            <input
               id="date"
               className="form__select-list form__select-list--date"
               type="select"
               onChange={event => this.handleChange(event)}
-            >
-              <option>
-                29-07-2018
-              </option>
-              <option>
-                30-07-2018
-              </option>
-            </select>
+            />
           </label>
         </div>
         <div className="form__list-item form__list-item--half">
           <label id="from" htmlFor="from">
             FROM
-            <select
+            <input
               id="from"
               className="form__select-list"
               type="select"
               onChange={event => this.handleChange(event)}
-            >
-              <option>
-                09:00
-              </option>
-              <option>
-                08:00
-              </option>
-            </select>
+            />
           </label>
           <label id="to" htmlFor="to">
             TO
-            <select
+            <input
               id="to"
               className="form__select-list"
               type="select"
               onChange={event => this.handleChange(event)}
-            >
-              <option>
-                17:00
-              </option>
-              <option>
-                18:00
-              </option>
-            </select>
+            />
           </label>
         </div>
         <button
