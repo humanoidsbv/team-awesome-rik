@@ -17,7 +17,7 @@ class TimeEntryForm extends React.Component {
     to: '17:30'
   };
 
-  convertDotToColon = time => time.replace('.', ':')
+  convertDotToColon = (time) => time.replace('.', ':')
 
   reformatDateToYMD = (date) => {
     const dateSplitted = date.split('-');
@@ -33,7 +33,7 @@ class TimeEntryForm extends React.Component {
       && this.createTimeStamp(date, this.convertDotToColon(target.value));
     const value = dateValue || timeValue || target.value;
 
-    this.setState(prevState => ({ ...prevState, [target.id]: value }));
+    this.setState((prevState) => ({ ...prevState, [target.id]: value }));
   }
 
   handleSubmit = () => {
@@ -58,7 +58,7 @@ class TimeEntryForm extends React.Component {
               id="employer"
               className="form__select-list"
               type="select"
-              onChange={event => this.handleChange(event)}
+              onChange={(event) => this.handleChange(event)}
             >
               <option>
                 Port of Rotterdam
@@ -76,7 +76,7 @@ class TimeEntryForm extends React.Component {
               id="activity"
               className="form__select-list"
               type="select"
-              onChange={event => this.handleChange(event)}
+              onChange={(event) => this.handleChange(event)}
             >
               <option>
                 Design
@@ -94,7 +94,7 @@ class TimeEntryForm extends React.Component {
               id="date"
               className="form__select-list form__select-list--date"
               type="select"
-              onChange={event => this.handleChange(event)}
+              onChange={(event) => this.handleChange(event)}
             />
           </label>
         </div>
@@ -105,7 +105,7 @@ class TimeEntryForm extends React.Component {
               id="from"
               className="form__select-list"
               type="select"
-              onChange={event => this.handleChange(event)}
+              onChange={(event) => this.handleChange(event)}
             />
           </label>
           <label id="to" htmlFor="to">
@@ -114,7 +114,7 @@ class TimeEntryForm extends React.Component {
               id="to"
               className="form__select-list"
               type="select"
-              onChange={event => this.handleChange(event)}
+              onChange={(event) => this.handleChange(event)}
             />
           </label>
         </div>
