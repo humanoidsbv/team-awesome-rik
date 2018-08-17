@@ -12,10 +12,6 @@ class TimeEntryOverview extends React.Component {
     this.setState(({ timeEntries }) => ({ timeEntries: [newEntry, ...timeEntries] }));
   };
 
-  changeFormVisibility = () => {
-    this.setState(({ isTimeEntryFormOpen }) => ({ isTimeEntryFormOpen: !isTimeEntryFormOpen }));
-  };
-
   render() {
     const { timeEntries } = this.state;
 
