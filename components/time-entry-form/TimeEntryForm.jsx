@@ -8,13 +8,13 @@ class TimeEntryForm extends React.Component {
   static defaultState = {
     employer: 'Port of Rotterdam',
     activity: 'Design',
-    date: '2018-07-30',
-    from: '08:30',
-    to: '17:30'
+    date: '',
+    from: '',
+    to: ''
   };
 
   static propTypes = {
-    onNewTimeEntry: PropTypes.func.isRequired
+    addTimeEntry: PropTypes.func.isRequired
   };
 
   state = { ...TimeEntryForm.defaultState };
@@ -42,8 +42,8 @@ class TimeEntryForm extends React.Component {
 
   handleSubmit = () => {
     const stateCopy = { ...this.state };
-    const { onNewTimeEntry } = this.props;
-    onNewTimeEntry(this.convertDateTimeToISO(stateCopy));
+    const { addTimeEntry } = this.props;
+    addTimeEntry(this.convertDateTimeToISO(stateCopy));
     this.setState({ ...TimeEntryForm.defaultState });
   }
 
@@ -67,8 +67,7 @@ class TimeEntryForm extends React.Component {
             </div>
             <select
               id="employer"
-              className="form__select-list"
-              type="select"
+              className="form__select"
               onChange={(event) => this.handleChange(event)}
             >
               <option>
@@ -85,8 +84,7 @@ class TimeEntryForm extends React.Component {
             ACTIVITY
             <select
               id="activity"
-              className="form__select-list"
-              type="select"
+              className="form__select"
               onChange={(event) => this.handleChange(event)}
             >
               <option>
@@ -103,8 +101,7 @@ class TimeEntryForm extends React.Component {
             Date
             <input
               id="date"
-              className="form__select-list form__select-list--date"
-              type="select"
+              className="form__select form__select--date"
               onChange={(event) => this.handleChange(event)}
               value={this.state.date}
             />
@@ -115,8 +112,7 @@ class TimeEntryForm extends React.Component {
             FROM
             <input
               id="from"
-              className="form__select-list"
-              type="select"
+              className="form__select"
               onChange={(event) => this.handleChange(event)}
               value={this.state.from}
             />
@@ -125,8 +121,7 @@ class TimeEntryForm extends React.Component {
             TO
             <input
               id="to"
-              className="form__select-list"
-              type="select"
+              className="form__select"
               onChange={(event) => this.handleChange(event)}
               value={this.state.to}
             />

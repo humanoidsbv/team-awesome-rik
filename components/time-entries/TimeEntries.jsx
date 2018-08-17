@@ -6,18 +6,18 @@ import './time-entries.scss';
 
 const TimeEntries = ({ timeEntries }) => {
   const convertTimeStampToDate = (isoTimeStamp) => (
-    `${new Date(isoTimeStamp).toLocaleDateString('nl-NL')}`
+    new Date(isoTimeStamp).toLocaleDateString('nl-NL')
   );
 
   return (
-    timeEntries.map((currentEntry, index, mockEntries) => (
-      <React.Fragment key={currentEntry.id}>
+    timeEntries.map((timeEntry, index) => (
+      <React.Fragment key={timeEntry.id}>
         {(!index
-          || convertTimeStampToDate(currentEntry.from)
-          !== convertTimeStampToDate(mockEntries[index - 1].from)
+          || convertTimeStampToDate(timeEntry.from)
+          !== convertTimeStampToDate(timeEntries[index - 1].from)
         )
-          && convertTimeStampToDate(currentEntry.from)}
-        <TimeEntry {...currentEntry} />
+          && convertTimeStampToDate(timeEntry.from)}
+        <TimeEntry {...timeEntry} />
       </React.Fragment>
     ))
   );

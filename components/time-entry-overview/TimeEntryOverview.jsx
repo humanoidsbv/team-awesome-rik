@@ -8,7 +8,7 @@ import './time-entry-overview.scss';
 class TimeEntryOverview extends React.Component {
   state = { isTimeEntryFormOpen: false, timeEntries: mockTimeEntries };
 
-  onNewTimeEntry = (newEntry) => {
+  addTimeEntry = (newEntry) => {
     this.setState(({ timeEntries }) => ({ timeEntries: [newEntry, ...timeEntries] }));
   };
 
@@ -35,7 +35,7 @@ class TimeEntryOverview extends React.Component {
           />
           New time entry
         </button>
-        <TimeEntryForm onNewTimeEntry={this.onNewTimeEntry} />
+        <TimeEntryForm addTimeEntry={this.addTimeEntry} />
         <TimeEntries timeEntries={timeEntries} />
       </React.Fragment>
     );
