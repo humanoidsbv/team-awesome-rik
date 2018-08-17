@@ -6,11 +6,14 @@ import './time-entry-form.scss';
 
 class TimeEntryForm extends React.Component {
   static defaultState = {
-    employer: 'Port of Rotterdam',
-    activity: 'Design',
-    date: '',
-    from: '',
-    to: ''
+    formData: {
+      employer: 'Port of Rotterdam',
+      activity: 'Design',
+      date: '',
+      from: '',
+      to: ''
+    },
+    isFormVisible: false
   };
 
   static propTypes = {
@@ -37,11 +40,23 @@ class TimeEntryForm extends React.Component {
   createTimeStamp = (date, time) => new Date(`${date} ${time}`).toISOString();
 
   handleChange = ({ target }) => {
-    this.setState((prevState) => ({ ...prevState, [target.id]: target.value }));
+    this.setState((prevState) => ({
+      formData: {
+        ...prevState.formData,
+        [target.id]: target.value
+      }
+    }));
+  }
+
+  handleClick = () => {
+    this.setState((prevState) => ({
+      ...prevState,
+      isFormVisible: !prevState.isFormVisible
+    }));
   }
 
   handleSubmit = () => {
-    const stateCopy = { ...this.state };
+    const stateCopy = { ...this.state.formData };
     const { addTimeEntry } = this.props;
     addTimeEntry(this.convertDateTimeToISO(stateCopy));
     this.setState({ ...TimeEntryForm.defaultState });
@@ -53,91 +68,110 @@ class TimeEntryForm extends React.Component {
   }
 
   render() {
+    const { isFormVisible } = this.state;
     return (
-      <form className="form">
-        <div className="form__list-item form__list-item--first">
-          <label id="employer" htmlFor="employer">
-            <div className="first-row">
-              <span>
-                EMPLOYER
-              </span>
-              <span>
-                <div className="form__button-close" />
-              </span>
-            </div>
-            <select
-              id="employer"
-              className="form__select"
-              onChange={(event) => this.handleChange(event)}
-            >
-              <option>
-                Port of Rotterdam
-              </option>
-              <option>
-                Hike One
-              </option>
-            </select>
-          </label>
-        </div>
-        <div className="form__list-item">
-          <label id="activity" htmlFor="activity">
-            ACTIVITY
-            <select
-              id="activity"
-              className="form__select"
-              onChange={(event) => this.handleChange(event)}
-            >
-              <option>
-                Design
-              </option>
-              <option>
-                Development
-              </option>
-            </select>
-          </label>
-        </div>
-        <div className="form__list-item form__list-item--date">
-          <label id="date" htmlFor="date">
-            Date
-            <input
-              id="date"
-              className="form__select form__select--date"
-              onChange={(event) => this.handleChange(event)}
-              value={this.state.date}
-            />
-          </label>
-        </div>
-        <div className="form__list-item form__list-item--half">
-          <label id="from" htmlFor="from">
-            FROM
-            <input
-              id="from"
-              className="form__select"
-              onChange={(event) => this.handleChange(event)}
-              value={this.state.from}
-            />
-          </label>
-          <label id="to" htmlFor="to">
-            TO
-            <input
-              id="to"
-              className="form__select"
-              onChange={(event) => this.handleChange(event)}
-              value={this.state.to}
-            />
-          </label>
-        </div>
+      <React.Fragment>
         <button
-          className="form__button-add"
-          type="submit"
-          onClick={(event) => {
-            event.preventDefault();
-            this.handleSubmit();
-          }}
+          className={`time-entry-button
+                     ${isFormVisible ? 'time-entry-button--hidden' : 'time-entry-button--visible'}`
+                     }
+          type="button"
+          onClick={this.handleClick}
         >
-          Add
+          <img
+            className="time-entry-button__plus"
+            src="/static/icons/plus.svg"
+            alt="plus"
+          />
+          New time entry
         </button>
-      </form>
+        <form className={`form ${isFormVisible ? 'form--open' : 'form--close'}`}>
+          <div className="form__list-item form__list-item--first">
+            <label id="employer" htmlFor="employer">
+              <div className="first-row">
+                <span>
+                  EMPLOYER
+                </span>
+                <button
+                  className="form__button-close"
+                  onClick={this.handleClick}
+                  type="button"
+                />
+              </div>
+              <select
+                id="employer"
+                className="form__select"
+                onChange={(event) => this.handleChange(event)}
+              >
+                <option>
+                  Port of Rotterdam
+                </option>
+                <option>
+                  Hike One
+                </option>
+              </select>
+            </label>
+          </div>
+          <div className="form__list-item">
+            <label id="activity" htmlFor="activity">
+              ACTIVITY
+              <select
+                id="activity"
+                className="form__select"
+                onChange={(event) => this.handleChange(event)}
+              >
+                <option>
+                  Design
+                </option>
+                <option>
+                  Development
+                </option>
+              </select>
+            </label>
+          </div>
+          <div className="form__list-item form__list-item--date">
+            <label id="date" htmlFor="date">
+              Date
+              <input
+                id="date"
+                className="form__select form__select--date"
+                onChange={(event) => this.handleChange(event)}
+                value={this.state.date}
+              />
+            </label>
+          </div>
+          <div className="form__list-item form__list-item--half">
+            <label id="from" htmlFor="from">
+              FROM
+              <input
+                id="from"
+                className="form__select"
+                onChange={(event) => this.handleChange(event)}
+                value={this.state.from}
+              />
+            </label>
+            <label id="to" htmlFor="to">
+              TO
+              <input
+                id="to"
+                className="form__select"
+                onChange={(event) => this.handleChange(event)}
+                value={this.state.to}
+              />
+            </label>
+          </div>
+          <button
+            className="form__button-add"
+            type="submit"
+            onClick={(event) => {
+              event.preventDefault();
+              this.handleSubmit();
+            }}
+          >
+            Add
+          </button>
+        </form>
+      </React.Fragment>
     );
   }
 }
