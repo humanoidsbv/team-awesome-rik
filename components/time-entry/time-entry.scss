@@ -2,6 +2,7 @@
 
 .time-entry {
   align-items: center;
+  background-color: $color-monochrome-1;
   border: solid $default-border-height $color-monochrome-7;
   border-left: $color-monochrome-6 solid 4px;
   border-radius: $default-border-radius;
@@ -9,11 +10,20 @@
   flex-direction: row;
   font-size: $font-size-secondary;
   height: 82px;
-  justify-content: space-around;
-  margin-left: 16px;
-  width: 343px;
+  justify-content: space-between;
+  width: 100%;
 
-  @include tablet {
-    width: 1173px;
+  & .employer {
+    margin-left: $default-margin;
+    @include tablet {
+      margin-left: 30px;
+    }
+  }
+
+  & .time {
+    margin-right: $default-margin;
+    @include tablet {
+      margin-right: 30px;
+    }
   }
 }

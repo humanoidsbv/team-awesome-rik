@@ -11,6 +11,8 @@
   }
 
 .menu-toggle {
+  background-color: $color-primary;
+  border: none;
   float: right;
   height: 20px;
   margin-right: 16px;
@@ -42,6 +44,7 @@
 }
 
 .title-bar {
+  -webkit-font-smoothing: antialiased;
   background: $color-primary;
   padding-bottom: 12px;
   padding-top: 12px;

@@ -1,1 +1,11 @@
 @import "../../shared/styles/main";
+
+.container {
+  margin-left: $default-margin;
+  margin-right: $default-margin;
+
+  @include tablet {
+    margin-left: $default-margin-desktop;
+    margin-right: $default-margin-desktop;
+  }
+}

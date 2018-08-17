@@ -14,10 +14,10 @@ const TimeEntry = ({ employer, from, to }) => {
 
   return (
     <div className="time-entry">
-      <span>
+      <span className="employer">
         {employer}
       </span>
-      <span>
+      <span className="time">
         {`${convertTimeStampToTime(from)}-${convertTimeStampToTime(to)}`}
       </span>
     </div>

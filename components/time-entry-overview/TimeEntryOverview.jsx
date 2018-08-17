@@ -16,13 +16,13 @@ class TimeEntryOverview extends React.Component {
     const { timeEntries } = this.state;
 
     return (
-      <React.Fragment>
+      <div className="container">
         <TimeEntryForm
           addTimeEntry={this.addTimeEntry}
           changeFormVisibility={this.changeFormVisibility}
         />
         <TimeEntries timeEntries={timeEntries} />
-      </React.Fragment>
+      </div>
     );
   }
 }

@@ -9,9 +9,8 @@
   font-size: $font-size-primary;
   height: 36px;
   margin-bottom: 32px;
-  margin-left: 16px;
   margin-top: 24px;
-  width: 343px;
+  width: 100%;
 
   &--hidden {
     display: none;
@@ -33,21 +32,28 @@
   }
 }
 
+.form-container {
+  margin-left: $default-margin;
+  margin-right: $default-margin;
+  width: 100%;
+  @include tablet {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+
+  }
+}
 
 .form {
   background-color: $color-monochrome-8;
   border: solid $default-border-height $color-monochrome-7;
   border-radius: $default-border-radius;
   color: $color-monochrome-9;
-  display: flex;
-  flex-direction: column;
   font-family: $font-primary;
   font-size: $font-size-primary;
   height: 422px;
-  margin-left: 16px;
-  margin-right: 16px;
   margin-top: 24px;
-  width: 343px;
+  width: 100%;
 
   &--open {
     display: flex;
@@ -64,7 +70,6 @@
     height: 94px;
     justify-content: space-between;
     margin-bottom: 33px;
-    width: 1170px;
   }
 
   & .first-row {
@@ -88,8 +93,6 @@
 
   &__list-item {
     font-size: $font-size-primary;
-    margin-left: 16px;
-    margin-right: 16px;
     margin-top: 16px;
 
     @include tablet {
@@ -105,14 +108,8 @@
       }
     }
 
-    &--first {
-
-      @include tablet {
-        margin-left: 31px;
-      }
-    }
-
     & select {
+      background-image: linear-gradient(to top, $color-monochrome-16, $color-monochrome-1);
       border: solid $default-border-height $color-monochrome-15;
       font-size: $font-size-primary;
       height: 36px;
@@ -121,7 +118,9 @@
     }
 
     & input {
+      background-image: linear-gradient(to top, $color-monochrome-16, $color-monochrome-1);
       border: solid $default-border-height $color-monochrome-15;
+      border-radius: $default-border-radius;
       font-size: $font-size-primary;
       height: 36px;
       margin-top: 12px;
@@ -150,21 +149,30 @@
     }
   }
 
+  .form-inputs {
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+      align-items: center;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 75%;
+    }
+  }
+
   &__button-add {
     background-color: $timesheet-form-button-color;
     border-radius: $default-border-radius;
     color: $color-letter-on-primary;
     font-size: $font-size-primary;
     height: 36px;
-    margin-left: 16px;
-    margin-right: 16px;
     margin-top: 42px;
-    width: 311px;
+    width: 100%;
 
     @include tablet {
       height: 36px;
       margin-bottom: 20px;
-      margin-left: 213px;
       width: 90px;
     }
 
