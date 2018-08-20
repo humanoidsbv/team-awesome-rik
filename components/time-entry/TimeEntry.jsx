@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import calculateTimeStampDiff from '../../services/calculate-timestamp-diff/calculate-timestamp-diff';
 
 import './time-entry.scss';
 
@@ -11,13 +12,6 @@ const TimeEntry = ({ employer, from, to }) => {
       { hour: 'numeric', minute: 'numeric' }
     )
   );
-
-  const calculateTimeStampDiff = (fromTime, toTime) => {
-    const oneHour = 1000 * 60 * 60;
-    return new Date(Date.parse(toTime) - Date.parse(fromTime) - oneHour)
-      .toLocaleTimeString({ hc: 'h24' },
-        { hour: 'numeric', minute: 'numeric' });
-  };
 
   return (
     <div className="time-entry">
