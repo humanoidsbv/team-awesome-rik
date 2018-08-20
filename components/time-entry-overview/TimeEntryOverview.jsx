@@ -1,43 +1,28 @@
 import React from 'react';
-import mockTimeEntry from './mockTimeEntry.json';
+
+import mockTimeEntries from './mockTimeEntry.json';
 import TimeEntryForm from '../time-entry-form/TimeEntryForm';
 import TimeEntries from '../time-entries/TimeEntries';
 import './time-entry-overview.scss';
 
 class TimeEntryOverview extends React.Component {
-  state = { isTimeEntryFormOpen: false, mockTimeEntry };
+  state = { timeEntries: mockTimeEntries };
 
-  handleClick = () => {
-    this.setState(({ isTimeEntryFormOpen }) => ({ isTimeEntryFormOpen: !isTimeEntryFormOpen }));
+  addTimeEntry = (newEntry) => {
+    this.setState(({ timeEntries }) => ({ timeEntries: [newEntry, ...timeEntries] }));
   };
 
-  // handleSubmit = (newEntry) => {
-  //   let updatedTimeEntry = []
-  //   this.setState(state => ({...state, mockTimeEntry: () }));
-  // };
-
-
   render() {
-    const { isTimeEntryFormOpen } = this.state;
+    const { timeEntries } = this.state;
+
     return (
-      <React.Fragment>
-        <button
-          className={`time-entry-button
-                     ${isTimeEntryFormOpen ? 'time-entry-button--open' : 'time-entry-button--close'}`
-                    }
-          type="button"
-          onClick={this.handleClick}
-        >
-          <img
-            className="time-entry-button__plus"
-            src="/static/icons/plus.svg"
-            alt="plus"
-          />
-          New time entry
-        </button>
-        <TimeEntryForm handleSubmit={this.handleSubmit} />
-        <TimeEntries {...this.state} />
-      </React.Fragment>
+      <div className="container">
+        <TimeEntryForm
+          addTimeEntry={this.addTimeEntry}
+          changeFormVisibility={this.changeFormVisibility}
+        />
+        <TimeEntries timeEntries={timeEntries} />
+      </div>
     );
   }
 }
