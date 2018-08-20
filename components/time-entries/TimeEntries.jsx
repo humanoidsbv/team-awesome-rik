@@ -23,7 +23,7 @@ const TimeEntries = ({ timeEntries }) => {
             {convertTimeStampToDate(timeEntry.from)}
           </div>
           )}
-        <TimeEntry {...timeEntry} />
+        <TimeEntry {...timeEntry || 'loading...'} />
       </React.Fragment>
     ))
   );
