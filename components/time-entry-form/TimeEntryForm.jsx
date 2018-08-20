@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import convertDateTimeToISO from '../../services/convert-date-time-to-iso/convert-date-time-to-iso';
 import './time-entry-form.scss';
 
 
@@ -22,23 +23,6 @@ class TimeEntryForm extends React.Component {
 
   state = { ...TimeEntryForm.defaultState };
 
-  convertDotToColon = (time) => time.replace('.', ':')
-
-  convertDateTimeToISO = (stateCopy) => {
-    const { date, from, to } = stateCopy;
-    const tempDate = this.reformatDateToYMD(date);
-    const tempFrom = this.createTimeStamp(tempDate, this.convertDotToColon(from));
-    const tempTo = this.createTimeStamp(tempDate, this.convertDotToColon(to));
-    return {
-      ...stateCopy,
-      date: tempDate,
-      from: tempFrom,
-      to: tempTo
-    };
-  }
-
-  createTimeStamp = (date, time) => new Date(`${date} ${time}`).toISOString();
-
   handleChange = ({ target }) => {
     this.setState((prevState) => ({
       formData: {
@@ -58,13 +42,8 @@ class TimeEntryForm extends React.Component {
   handleSubmit = () => {
     const stateCopy = { ...this.state.formData };
     const { addTimeEntry } = this.props;
-    addTimeEntry(this.convertDateTimeToISO(stateCopy));
+    addTimeEntry(convertDateTimeToISO(stateCopy));
     this.setState({ ...TimeEntryForm.defaultState });
-  }
-
-  reformatDateToYMD = (date) => {
-    const dateSplitted = date.split('-');
-    return `${dateSplitted[2]}-${dateSplitted[1]}-${dateSplitted[0]} `;
   }
 
   render() {
