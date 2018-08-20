@@ -5,10 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "next build",
-    "dev": "next",
+    "dev": "next | json-server --watch db.json",
     "lint": "eslint --ext js,jsx .",
-    "start": "next start",
-    "server": "json-server --watch db.json"
+    "start": "next start"
   },
   "repository": {
     "type": "git",
