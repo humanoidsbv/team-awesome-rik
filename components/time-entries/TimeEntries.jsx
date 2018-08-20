@@ -6,7 +6,9 @@ import './time-entries.scss';
 
 const TimeEntries = ({ timeEntries }) => {
   const convertTimeStampToDate = (isoTimeStamp) => (
-    new Date(isoTimeStamp).toLocaleDateString('nl-NL')
+    new Date(isoTimeStamp)
+      .toLocaleDateString('en-NL', { weekday: 'long', day: 'numeric', month: 'numeric' })
+      .replace('/', '-').replace(',', ' ')
   );
 
   return (
