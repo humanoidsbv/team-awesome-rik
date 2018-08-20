@@ -12,12 +12,12 @@ const TimeEntry = ({ employer, from, to }) => {
     )
   );
 
-  const calculateTimeStampDiff = (fromTime, toTime) => (
-    new Date((toTime - fromTime)).toLocaleTimeString(
-      { hc: 'h24' },
-      { hour: 'numberic', minute: 'numeric' }
-    )
-  );
+  const calculateTimeStampDiff = (fromTime, toTime) => {
+    const oneHour = 1000 * 60 * 60;
+    return new Date(Date.parse(toTime) - Date.parse(fromTime) - oneHour)
+      .toLocaleTimeString({ hc: 'h24' },
+        { hour: 'numeric', minute: 'numeric' });
+  };
 
   return (
     <div className="time-entry">
@@ -25,8 +25,12 @@ const TimeEntry = ({ employer, from, to }) => {
         {employer}
       </span>
       <span className="time">
-        {`${convertTimeStampToTime(from)}-${convertTimeStampToTime(to)}`}
-        {calculateTimeStampDiff(from, to)}
+        <div>
+          {`${convertTimeStampToTime(from)}-${convertTimeStampToTime(to)}`}
+        </div>
+        <div>
+          {calculateTimeStampDiff(from, to)}
+        </div>
       </span>
     </div>
   );
