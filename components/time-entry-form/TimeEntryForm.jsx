@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import convertDateTimeToISO from '../../services/convert-date-time-to-iso/convert-date-time-to-iso';
+import convertTimeToISO from '../../services/convert-time-to-iso/convert-time-to-iso';
 import './time-entry-form.scss';
 
 
@@ -23,6 +23,8 @@ class TimeEntryForm extends React.Component {
 
   state = { ...TimeEntryForm.defaultState };
 
+  convertDotToColon = (time) => time.replace('.', ':')
+
   handleChange = ({ target }) => {
     this.setState((prevState) => ({
       formData: {
@@ -40,10 +42,14 @@ class TimeEntryForm extends React.Component {
   }
 
   handleSubmit = () => {
-    const stateCopy = { ...this.state.formData };
     const { addTimeEntry } = this.props;
-    addTimeEntry(convertDateTimeToISO(stateCopy));
+    addTimeEntry(convertTimeToISO(this.state.formData));
     this.setState({ ...TimeEntryForm.defaultState });
+  }
+
+  reformatDateToYMD = (date) => {
+    const dateSplitted = date.split('-');
+    return `${dateSplitted[2]}-${dateSplitted[1]}-${dateSplitted[0]} `;
   }
 
   render() {
