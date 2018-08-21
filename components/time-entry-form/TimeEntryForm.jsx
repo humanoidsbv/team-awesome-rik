@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { convertTimeToIso } from '../../services/date-time/date-time';
 import './time-entry-form.scss';
 
 
@@ -13,7 +14,8 @@ class TimeEntryForm extends React.Component {
       from: '',
       to: ''
     },
-    isFormVisible: false
+    isFormVisible: false,
+    isFormLoading: false
   };
 
   static propTypes = {
@@ -21,23 +23,6 @@ class TimeEntryForm extends React.Component {
   };
 
   state = { ...TimeEntryForm.defaultState };
-
-  convertDotToColon = (time) => time.replace('.', ':')
-
-  convertDateTimeToISO = (stateCopy) => {
-    const { date, from, to } = stateCopy;
-    const tempDate = this.reformatDateToYMD(date);
-    const tempFrom = this.createTimeStamp(tempDate, this.convertDotToColon(from));
-    const tempTo = this.createTimeStamp(tempDate, this.convertDotToColon(to));
-    return {
-      ...stateCopy,
-      date: tempDate,
-      from: tempFrom,
-      to: tempTo
-    };
-  }
-
-  createTimeStamp = (date, time) => new Date(`${date} ${time}`).toISOString();
 
   handleChange = ({ target }) => {
     this.setState((prevState) => ({
@@ -56,19 +41,20 @@ class TimeEntryForm extends React.Component {
   }
 
   handleSubmit = () => {
-    const stateCopy = { ...this.state.formData };
     const { addTimeEntry } = this.props;
-    addTimeEntry(this.convertDateTimeToISO(stateCopy));
-    this.setState({ ...TimeEntryForm.defaultState });
-  }
+    const { formData } = this.state;
+    const { date, from, to } = formData;
 
-  reformatDateToYMD = (date) => {
-    const dateSplitted = date.split('-');
-    return `${dateSplitted[2]}-${dateSplitted[1]}-${dateSplitted[0]} `;
+    this.setState(({ isFormLoading }) => ({
+      isFormLoading: !isFormLoading
+    }));
+
+    addTimeEntry({ ...formData, ...convertTimeToIso(date, from, to) })
+      .then(this.setState({ ...TimeEntryForm.defaultState }));
   }
 
   render() {
-    const { isFormVisible, formData } = this.state;
+    const { isFormVisible, isFormLoading, formData } = this.state;
     return (
       <React.Fragment>
         <button
@@ -165,6 +151,7 @@ class TimeEntryForm extends React.Component {
             </div>
             <button
               className="form__button-add"
+              disabled={isFormLoading}
               type="submit"
               onClick={(event) => {
                 event.preventDefault();
