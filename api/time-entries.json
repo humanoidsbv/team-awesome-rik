@@ -1,12 +1,3 @@
 {
-  "time-entries": [
-    {
-      "employer": "Port of Rotterdam",
-      "activity": "Design",
-      "date": "05-08-2018",
-      "from": "2018-08-05T07:00:00.000Z",
-      "to": "2018-08-05T15:45:00.000Z",
-      "id": 2
-    }
-  ]
+  "time-entries": []
 }

@@ -9,7 +9,8 @@ const TimeEntry = ({
   id, employer, from, to, deleteCurrentEntry
 }) => {
   const handleCLick = () => {
-    deleteCurrentEntry(id);
+    const result = window.confirm('Are you sure you want to delete this item?');
+    if (result) deleteCurrentEntry(id);
   };
 
   return (

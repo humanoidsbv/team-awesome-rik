@@ -1,5 +1,31 @@
 @import "../../shared/styles/main";
 
+.delete-entry {
+  -moz-transition: opacity .2s ease-in-out;
+  -webkit-transition: opacity .2s ease-in-out;
+  display: flex;
+  opacity: 0;
+  transition: opacity .2s ease-in-out;
+
+
+  @include tablet {
+    align-items: center;
+    background-color: $color-monochrome-17;
+    border-radius: $default-border-radius;
+    color: $color-letter-on-primary;
+    height: 30px;
+    justify-content: space-around;
+    margin-left: 33px;
+    width: 79px;
+  }
+
+  & .stop-sign {
+    background: url("/static/icons/forbid.svg") no-repeat center;
+    height: 16px;
+    width: 16px;
+  }
+}
+
 .time-entry {
   align-items: center;
   background-color: $color-monochrome-1;
@@ -26,32 +52,19 @@
       margin-right: 30px;
     }
   }
+
+  &:hover {
+    .delete-entry {
+      @include tablet {
+        opacity: 1;
+      }
+    }
+  }
 }
+
 
 .employer {
   align-items: center;
   display: flex;
   justify-content: space-between;
-}
-
-.delete-entry {
-  display: none;
-
-  @include tablet {
-    align-items: center;
-    background-color: $color-monochrome-17;
-    border-radius: $default-border-radius;
-    color: $color-letter-on-primary;
-    display: flex;
-    height: 30px;
-    justify-content: space-around;
-    margin-left: 33px;
-    width: 79px;
-  }
-
-  & .stop-sign {
-    background: url("/static/icons/forbid.svg") no-repeat center;
-    height: 16px;
-    width: 16px;
-  }
 }
