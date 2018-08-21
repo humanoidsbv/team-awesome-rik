@@ -15,7 +15,7 @@ class TimeEntryForm extends React.Component {
       to: ''
     },
     isFormVisible: false,
-    isFormLoading: false
+    isFormLoading: true
   };
 
   static propTypes = {
@@ -54,7 +54,7 @@ class TimeEntryForm extends React.Component {
   }
 
   render() {
-    const { isFormVisible, formData } = this.state;
+    const { isFormVisible, isFormLoading, formData } = this.state;
     return (
       <React.Fragment>
         <button
@@ -151,6 +151,7 @@ class TimeEntryForm extends React.Component {
             </div>
             <button
               className="form__button-add"
+              disabled={isFormLoading}
               type="submit"
               onClick={(event) => {
                 event.preventDefault();
