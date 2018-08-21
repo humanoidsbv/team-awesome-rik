@@ -11,17 +11,9 @@ const TimeEntries = ({ timeEntries }) => {
       .replace('/', '-').replace(',', ' ')
   );
 
-  /*
-  const addedTimes
-  datum !== vorige datum:
-    for over RESTERENDE DEEL(let i = index) oorspronkelijke map
-      is datum !== vorige datum:  addedTimes = timeStampDiff[huidigeDatum]
-      is datum === vorige datum:  addedTimes += timeStampDiff[huidigeDatum];
-    <div date>{addedTimes}</div>
-  */
   return (
     timeEntries.map((timeEntry, index) => (
-      <React.Fragment key={timeEntry.from}>
+      <React.Fragment key={timeEntry.id}>
         {(
           !index
           || convertTimeStampToDate(timeEntry.from)

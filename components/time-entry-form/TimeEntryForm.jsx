@@ -14,7 +14,8 @@ class TimeEntryForm extends React.Component {
       from: '',
       to: ''
     },
-    isFormVisible: false
+    isFormVisible: false,
+    isFormLoading: false
   };
 
   static propTypes = {
@@ -41,8 +42,15 @@ class TimeEntryForm extends React.Component {
 
   handleSubmit = () => {
     const { addTimeEntry } = this.props;
-    addTimeEntry(convertTimeToIso(this.state.formData));
-    this.setState({ ...TimeEntryForm.defaultState });
+    const { formData } = this.state;
+    const { date, from, to } = formData;
+
+    this.setState(({ isFormLoading }) => ({
+      isFormLoading: !isFormLoading
+    }));
+
+    addTimeEntry({ ...formData, ...convertTimeToIso(date, from, to) })
+      .then(this.setState({ ...TimeEntryForm.defaultState }));
   }
 
   render() {
