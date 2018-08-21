@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import calculateTimeStampDiff from '../../services/calculate-timestamp-diff/calculate-timestamp-diff';
+import { calculateTimeStampDiff } from '../../services/date-time/date-time';
 
 import './time-entry.scss';
 
