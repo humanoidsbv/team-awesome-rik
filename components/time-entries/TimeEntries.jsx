@@ -22,15 +22,16 @@ const TimeEntries = ({ timeEntries }) => {
   return (
     timeEntries.map((timeEntry, index) => (
       <React.Fragment key={timeEntry.from}>
-        {(!index
+        {(
+          !index
           || convertTimeStampToDate(timeEntry.from)
           !== convertTimeStampToDate(timeEntries[index - 1].from)
         )
-          && (
+        && (
           <div className="date">
             {convertTimeStampToDate(timeEntry.from)}
           </div>
-          )}
+        )}
         <TimeEntry {...timeEntry} />
       </React.Fragment>
     ))

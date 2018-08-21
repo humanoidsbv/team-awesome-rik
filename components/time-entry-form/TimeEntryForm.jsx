@@ -23,8 +23,6 @@ class TimeEntryForm extends React.Component {
 
   state = { ...TimeEntryForm.defaultState };
 
-  convertDotToColon = (time) => time.replace('.', ':')
-
   handleChange = ({ target }) => {
     this.setState((prevState) => ({
       formData: {
