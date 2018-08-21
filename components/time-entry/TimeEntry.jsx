@@ -1,22 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { calculateTimestampDiff } from '../../services/date-time/date-time';
+import { calculateTimestampDiff, convertTimeStampToTime } from '../../services/date-time/date-time';
 
 import './time-entry.scss';
 
 
-const TimeEntry = ({ employer, from, to }) => {
-  const convertTimeStampToTime = (isoTimeStamp) => (
-    new Date(isoTimeStamp).toLocaleTimeString(
-      { hc: 'h24' },
-      { hour: 'numeric', minute: 'numeric' }
-    )
-  );
+const TimeEntry = ({
+  id, employer, from, to, deleteCurrentEntry
+}) => {
+  const handleCLick = () => {
+    deleteCurrentEntry(id);
+  };
 
   return (
     <div className="time-entry">
       <span className="employer">
-        {employer}
+        <span>
+          {employer}
+        </span>
+        <button
+          className="delete-entry"
+          onClick={handleCLick}
+          type="button"
+        >
+          <span className="stop-sign" />
+          <span>
+            Delete
+          </span>
+        </button>
       </span>
       <span className="time">
         <div>
@@ -31,8 +42,10 @@ const TimeEntry = ({ employer, from, to }) => {
 };
 
 TimeEntry.propTypes = {
+  deleteCurrentEntry: PropTypes.func.isRequired,
   employer: PropTypes.string.isRequired,
   from: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
   to: PropTypes.string.isRequired
 };
 

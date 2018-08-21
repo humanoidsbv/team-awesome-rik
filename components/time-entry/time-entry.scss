@@ -27,3 +27,31 @@
     }
   }
 }
+
+.employer {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.delete-entry {
+  display: none;
+
+  @include tablet {
+    align-items: center;
+    background-color: $color-monochrome-17;
+    border-radius: $default-border-radius;
+    color: $color-letter-on-primary;
+    display: flex;
+    height: 30px;
+    justify-content: space-around;
+    margin-left: 33px;
+    width: 79px;
+  }
+
+  & .stop-sign {
+    background: url("/static/icons/forbid.svg") no-repeat center;
+    height: 16px;
+    width: 16px;
+  }
+}

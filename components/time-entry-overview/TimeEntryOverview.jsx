@@ -2,7 +2,7 @@ import React from 'react';
 
 import TimeEntryForm from '../time-entry-form/TimeEntryForm';
 import TimeEntries from '../time-entries/TimeEntries';
-import { getTimeEntries, postTimeEntry } from '../../services/time-entries-api/time-entries-api';
+import { deleteTimeEntry, getTimeEntries, postTimeEntry } from '../../services/time-entries-api/time-entries-api';
 import './time-entry-overview.scss';
 
 class TimeEntryOverview extends React.Component {
@@ -14,10 +14,17 @@ class TimeEntryOverview extends React.Component {
     });
   }
 
+  deleteCurrentEntry = (id) => {
+    const timeEntries = this.state.timeEntries.filter((entry) => entry.id !== id);
+    deleteTimeEntry(id).then(() => {
+      this.setState({ timeEntries });
+    });
+  }
+
   addTimeEntry = (newEntry) => (
-    postTimeEntry(newEntry).then(() => {
+    postTimeEntry(newEntry).then((responseToEntry) => {
       this.setState(({ timeEntries }) => ({
-        timeEntries: [...timeEntries, newEntry]
+        timeEntries: [...timeEntries, responseToEntry]
       }));
     })
   )
@@ -31,7 +38,10 @@ class TimeEntryOverview extends React.Component {
           addTimeEntry={this.addTimeEntry}
           changeFormVisibility={this.changeFormVisibility}
         />
-        <TimeEntries timeEntries={timeEntries} />
+        <TimeEntries
+          timeEntries={timeEntries}
+          deleteCurrentEntry={this.deleteCurrentEntry}
+        />
       </div>
     );
   }

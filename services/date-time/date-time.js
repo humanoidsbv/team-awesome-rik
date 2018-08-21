@@ -11,6 +11,13 @@ export const reformatDateToYmd = (date) => {
   return `${dateSplitted[2]}-${dateSplitted[1]}-${dateSplitted[0]} `;
 };
 
+export const convertTimeStampToTime = (isoTimeStamp) => (
+  new Date(isoTimeStamp).toLocaleTimeString(
+    { hc: 'h24' },
+    { hour: 'numeric', minute: 'numeric' }
+  )
+);
+
 
 export const convertTimeToIso = (date, from, to) => {
   const tempDate = reformatDateToYmd(date);

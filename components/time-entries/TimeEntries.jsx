@@ -4,7 +4,7 @@ import TimeEntry from '../time-entry/TimeEntry';
 import './time-entries.scss';
 
 
-const TimeEntries = ({ timeEntries }) => {
+const TimeEntries = ({ timeEntries, deleteCurrentEntry }) => {
   const convertTimeStampToDate = (isoTimeStamp) => (
     new Date(isoTimeStamp)
       .toLocaleDateString('en-NL', { weekday: 'long', day: 'numeric', month: 'numeric' })
@@ -24,7 +24,10 @@ const TimeEntries = ({ timeEntries }) => {
             {convertTimeStampToDate(timeEntry.from)}
           </div>
         )}
-        <TimeEntry {...timeEntry} />
+        <TimeEntry
+          {...timeEntry}
+          deleteCurrentEntry={deleteCurrentEntry}
+        />
       </React.Fragment>
     ))
   );
