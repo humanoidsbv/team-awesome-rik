@@ -15,7 +15,7 @@ class TimeEntryForm extends React.Component {
       to: ''
     },
     isFormVisible: false,
-    isFormLoading: true
+    isFormLoading: false
   };
 
   static propTypes = {
