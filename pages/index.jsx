@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../components/header/Header';
-import TimeEntryOverview from '../components/time-entry-overview/TimeEntryOverview';
+import TimeEntryOverview from '../components/time-entry-overview';
 
 export default () => (
   <React.Fragment>
