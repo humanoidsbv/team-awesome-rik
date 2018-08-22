@@ -36,7 +36,7 @@ class TimeEntryOverview extends React.Component {
       this.props.deleteTimeEntrySuccess(id);
     });
   }
-
+  
   addTimeEntry = (newEntry) => {
     this.props.addTimeEntry();
     return (
