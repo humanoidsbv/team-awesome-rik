@@ -2,27 +2,19 @@
   "time-entries": [
     {
       "employer": "Port of Rotterdam",
-      "activity": "Design",
-      "date": "06-08-2018",
-      "from": "2018-08-06T07:00:00.000Z",
-      "to": "2018-08-06T07:21:00.000Z",
-      "id": 4
-    },
-    {
-      "employer": "Hike One",
-      "activity": "Design",
-      "date": "06-08-2018",
-      "from": "2018-08-06T07:00:00.000Z",
-      "to": "2018-08-06T09:00:00.000Z",
-      "id": 6
-    },
-    {
-      "employer": "Port of Rotterdam",
       "activity": "Development",
       "date": "06-08-2018",
       "from": "2018-08-06T07:00:00.000Z",
       "to": "2018-08-06T15:45:00.000Z",
       "id": 7
+    },
+    {
+      "employer": "Port of Rotterdam",
+      "activity": "Design",
+      "date": "06-08-2018",
+      "from": "2018-08-06T07:00:00.000Z",
+      "to": "2018-08-06T07:21:00.000Z",
+      "id": 8
     }
   ]
 }
