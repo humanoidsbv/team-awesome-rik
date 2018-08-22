@@ -5,45 +5,49 @@ import { calculateTimestampDiff, convertTimeStampToTime } from '../../services/d
 import './time-entry.scss';
 
 
-const TimeEntry = ({
-  id, employer, from, to, deleteCurrentEntry
-}) => {
-  const handleCLick = () => {
+class TimeEntry extends React.Component {
+  handleClick = () => {
+    const { id, onDelete } = this.props;
     const result = window.confirm('Are you sure you want to delete this item?');
-    if (result) deleteCurrentEntry(id);
+    if (result) {
+      onDelete(id);
+    }
   };
 
-  return (
-    <div className="time-entry">
-      <span className="employer">
-        <span>
-          {employer}
-        </span>
-        <button
-          className="delete-entry"
-          onClick={handleCLick}
-          type="button"
-        >
-          <span className="stop-sign" />
+  render() {
+    const { employer, from, to } = this.props;
+    return (
+      <div className="time-entry">
+        <span className="employer">
           <span>
-            Delete
+            {employer}
           </span>
-        </button>
-      </span>
-      <span className="time">
-        <div>
-          {`${convertTimeStampToTime(from)}-${convertTimeStampToTime(to)}`}
-        </div>
-        <div>
-          {calculateTimestampDiff(from, to)}
-        </div>
-      </span>
-    </div>
-  );
-};
+          <button
+            className="delete-entry"
+            onClick={this.handleClick}
+            type="button"
+          >
+            <span className="stop-sign" />
+            <span>
+              Delete
+            </span>
+          </button>
+        </span>
+        <span className="time">
+          <div>
+            {`${convertTimeStampToTime(from)}-${convertTimeStampToTime(to)}`}
+          </div>
+          <div>
+            {calculateTimestampDiff(from, to)}
+          </div>
+        </span>
+      </div>
+    );
+  }
+}
 
 TimeEntry.propTypes = {
-  deleteCurrentEntry: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
   employer: PropTypes.string.isRequired,
   from: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
