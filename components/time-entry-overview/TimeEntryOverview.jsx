@@ -36,11 +36,14 @@ class TimeEntryOverview extends React.Component {
     });
   }
 
-  addTimeEntry = (newEntry) => (
-    postTimeEntry(newEntry).then((response) => {
-      this.props.addTimeEntrySuccess(response);
-    })
-  )
+  addTimeEntry = (newEntry) => {
+    this.props.addTimeEntry();
+    return (
+      postTimeEntry(newEntry).then((response) => {
+        this.props.addTimeEntrySuccess(response);
+      })
+    );
+  }
 
   render() {
     const { timeEntries } = this.props;

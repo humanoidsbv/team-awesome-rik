@@ -16,7 +16,7 @@ class TeamAwesome extends App {
           <Component />
         </Provider>
       </Container>
-    )
+    );
   }
 }
 
