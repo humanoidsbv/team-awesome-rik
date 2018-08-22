@@ -29,13 +29,14 @@ class TimeEntryOverview extends React.Component {
     });
   }
 
+
   deleteCurrentEntry = (id) => {
     this.props.deleteTimeEntry();
     deleteTimeEntry(id).then(() => {
       this.props.deleteTimeEntrySuccess(id);
     });
   }
-
+  
   addTimeEntry = (newEntry) => {
     this.props.addTimeEntry();
     return (
@@ -56,7 +57,7 @@ class TimeEntryOverview extends React.Component {
         />
         <TimeEntries
           timeEntries={timeEntries}
-          deleteCurrentEntry={this.deleteCurrentEntry}
+          onDelete={this.onDelete}
         />
       </div>
     );
