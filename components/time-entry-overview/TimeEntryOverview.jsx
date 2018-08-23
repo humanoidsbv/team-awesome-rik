@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import TimeEntryForm from '../time-entry-form/TimeEntryForm';
 import TimeEntries from '../time-entries/TimeEntries';
@@ -6,31 +7,47 @@ import { deleteTimeEntry, getTimeEntries, postTimeEntry } from '../../services/t
 import './time-entry-overview.scss';
 
 class TimeEntryOverview extends React.Component {
-  state = { timeEntries: [] };
+  static propTypes = {
+    addTimeEntry: PropTypes.func.isRequired,
+    addTimeEntrySuccess: PropTypes.func.isRequired,
+    deleteTimeEntry: PropTypes.func.isRequired,
+    deleteTimeEntrySuccess: PropTypes.func.isRequired,
+    requestTimeEntries: PropTypes.func.isRequired,
+    requestTimeEntriesSucces: PropTypes.func.isRequired,
+    timeEntries: PropTypes.arrayOf(PropTypes.shape({
+      employer: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
+      from: PropTypes.string.isRequired,
+      to: PropTypes.string.isRequired
+    })).isRequired
+  }
 
   componentDidMount() {
+    this.props.requestTimeEntries();
     getTimeEntries().then((timeEntries) => {
-      this.setState({ timeEntries });
+      this.props.requestTimeEntriesSucces(timeEntries);
     });
   }
+
 
   onDelete = (id) => {
-    const timeEntries = this.state.timeEntries.filter((entry) => entry.id !== id);
+    this.props.deleteTimeEntry();
     deleteTimeEntry(id).then(() => {
-      this.setState({ timeEntries });
+      this.props.deleteTimeEntrySuccess(id);
     });
   }
 
-  addTimeEntry = (newEntry) => (
-    postTimeEntry(newEntry).then((responseToEntry) => {
-      this.setState(({ timeEntries }) => ({
-        timeEntries: [...timeEntries, responseToEntry]
-      }));
-    })
-  )
+  addTimeEntry = (newEntry) => {
+    this.props.addTimeEntry();
+    return (
+      postTimeEntry(newEntry).then((response) => {
+        this.props.addTimeEntrySuccess(response);
+      })
+    );
+  }
 
   render() {
-    const { timeEntries } = this.state;
+    const { timeEntries } = this.props;
 
     return (
       <div className="container">
