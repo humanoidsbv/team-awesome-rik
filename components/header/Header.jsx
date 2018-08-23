@@ -1,17 +1,21 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import './header.scss';
 
 
 class Header extends React.Component {
-  state = { isMenuOpen: false };
+  static propTypes = {
+    toggleMenuOpen: PropTypes.func.isRequired,
+    isMenuOpen: PropTypes.bool.isRequired
+  }
 
   handleClick = () => {
-    const { isMenuOpen } = this.state;
-    this.setState({ isMenuOpen: !isMenuOpen });
+    this.props.toggleMenuOpen();
   };
 
   render() {
-    const { isMenuOpen } = this.state;
+    const { isMenuOpen } = this.props;
     return (
       <header className="header">
         <div className="title-bar">

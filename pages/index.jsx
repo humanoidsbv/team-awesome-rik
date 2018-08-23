@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../components/header/Header';
+import Header from '../components/header';
 import TimeEntryOverview from '../components/time-entry-overview';
 
 export default () => (
