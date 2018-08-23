@@ -20,7 +20,8 @@ export const convertTimeStampToTime = (isoTimeStamp) => (
 export const convertTimeStampToDate = (isoTimeStamp) => (
   new Date(isoTimeStamp)
     .toLocaleDateString('en-NL', { weekday: 'long', day: 'numeric', month: 'numeric' })
-    .replace('/', '-').replace(',', ' ')
+    .replace('/', '-')
+    .replace(',', ' ')
 );
 
 

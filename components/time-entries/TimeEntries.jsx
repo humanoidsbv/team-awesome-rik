@@ -8,13 +8,11 @@ import './time-entries.scss';
 const TimeEntries = ({ timeEntries, onDelete }) => (
   timeEntries.map((timeEntry, index) => {
     const date = convertTimeStampToDate(timeEntry.from);
+    const previousDate = index && convertTimeStampToDate(timeEntries[index - 1].from);
+
     return (
       <React.Fragment key={timeEntry.id}>
-        {(
-          !index
-          || date
-          !== convertTimeStampToDate(timeEntries[index - 1].from)
-        )
+        {(!index || date !== previousDate)
         && (
           <div className="date">
             {date}

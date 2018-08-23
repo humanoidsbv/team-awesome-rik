@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 import './header.scss';
 
-
 class Header extends React.Component {
   static propTypes = {
     toggleMenuOpen: PropTypes.func.isRequired,
