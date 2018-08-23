@@ -1,27 +1,23 @@
 import React from 'react';
 
 import TimeEntry from '../time-entry/TimeEntry';
+import { convertTimeStampToDate } from '../../services/date-time/date-time';
 import './time-entries.scss';
 
 
-const TimeEntries = ({ timeEntries, onDelete }) => {
-  const convertTimeStampToDate = (isoTimeStamp) => (
-    new Date(isoTimeStamp)
-      .toLocaleDateString('en-NL', { weekday: 'long', day: 'numeric', month: 'numeric' })
-      .replace('/', '-').replace(',', ' ')
-  );
-
-  return (
-    timeEntries.map((timeEntry, index) => (
+const TimeEntries = ({ timeEntries, onDelete }) => (
+  timeEntries.map((timeEntry, index) => {
+    const date = convertTimeStampToDate(timeEntry.from);
+    return (
       <React.Fragment key={timeEntry.id}>
         {(
           !index
-          || convertTimeStampToDate(timeEntry.from)
+          || date
           !== convertTimeStampToDate(timeEntries[index - 1].from)
         )
         && (
           <div className="date">
-            {convertTimeStampToDate(timeEntry.from)}
+            {date}
           </div>
         )}
         <TimeEntry
@@ -29,8 +25,8 @@ const TimeEntries = ({ timeEntries, onDelete }) => {
           onDelete={onDelete}
         />
       </React.Fragment>
-    ))
-  );
-};
+    );
+  })
+);
 
 export default TimeEntries;

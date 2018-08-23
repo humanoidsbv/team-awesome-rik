@@ -17,6 +17,11 @@ export const convertTimeStampToTime = (isoTimeStamp) => (
     { hour: 'numeric', minute: 'numeric' }
   )
 );
+export const convertTimeStampToDate = (isoTimeStamp) => (
+  new Date(isoTimeStamp)
+    .toLocaleDateString('en-NL', { weekday: 'long', day: 'numeric', month: 'numeric' })
+    .replace('/', '-').replace(',', ' ')
+);
 
 
 export const convertTimeToIso = (date, from, to) => {
