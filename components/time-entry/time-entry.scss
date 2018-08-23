@@ -48,9 +48,15 @@
 
   & .time {
     margin-right: $default-margin;
+    text-align: right;
     @include tablet {
       margin-right: 30px;
     }
+  }
+
+  & .time-calculated {
+    color: $color-monochrome-18;
+    text-align: right;
   }
 
   &:hover {

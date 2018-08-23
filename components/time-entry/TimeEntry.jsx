@@ -37,7 +37,7 @@ class TimeEntry extends React.Component {
           <div>
             {`${convertTimeStampToTime(from)}-${convertTimeStampToTime(to)}`}
           </div>
-          <div>
+          <div className="time-calculated">
             {calculateTimestampDiff(from, to)}
           </div>
         </span>

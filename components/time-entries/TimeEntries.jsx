@@ -1,7 +1,7 @@
 import React from 'react';
 
 import TimeEntry from '../time-entry/TimeEntry';
-import { convertTimeStampToDate } from '../../services/date-time/date-time';
+import { calculateTotalTimePerDay, convertTimeStampToDate } from '../../services/date-time/date-time';
 import './time-entries.scss';
 
 
@@ -14,8 +14,13 @@ const TimeEntries = ({ timeEntries, onDelete }) => (
       <React.Fragment key={timeEntry.id}>
         {(!index || date !== previousDate)
         && (
-          <div className="date">
-            {date}
+          <div className="date-row">
+            <span>
+              {date}
+            </span>
+            <span className="time">
+              {calculateTotalTimePerDay(timeEntries, date)}
+            </span>
           </div>
         )}
         <TimeEntry
