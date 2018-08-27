@@ -1,25 +1,25 @@
-import { put, takeEvery } from 'redux-saga/effects';
+import { call, put, takeEvery } from 'redux-saga/effects';
 import { deleteTimeEntry, postTimeEntry, getTimeEntries } from '../services/time-entries-api/time-entries-api';
 
 import {
-  ADD_TIME_ENTRY, ADD_TIME_ENTRY_SUCCESS,
-  DELETE_TIME_ENTRY, DELETE_TIME_ENTRY_SUCCESS,
-  REQUEST_TIME_ENTRIES, REQUEST_TIME_ENTRIES_SUCCESS
+  ADD_TIME_ENTRY, addTimeEntrySuccess,
+  DELETE_TIME_ENTRY, deleteTimeEntrySuccess,
+  REQUEST_TIME_ENTRIES, requestTimeEntriesSucces
 } from '../ducks/time-entries';
 
 function* onGetTimeEntries() {
-  const response = yield getTimeEntries();
-  yield put({ type: REQUEST_TIME_ENTRIES_SUCCESS, timeEntries: response });
+  const response = yield call(getTimeEntries);
+  yield put(requestTimeEntriesSucces(response));
 }
 
 function* onDeleteTimeEntry({ id }) {
-  yield deleteTimeEntry(id);
-  yield put({ type: DELETE_TIME_ENTRY_SUCCESS, id });
+  yield call(deleteTimeEntry, id);
+  yield put(deleteTimeEntrySuccess(id));
 }
 
 function* onAddTimeEntry(action) {
-  const timeEntry = yield postTimeEntry(action.timeEntry);
-  yield put({ type: ADD_TIME_ENTRY_SUCCESS, timeEntry });
+  const timeEntry = yield call(postTimeEntry, action.timeEntry);
+  yield put(addTimeEntrySuccess(timeEntry));
 }
 
 export default function* watchTimeEntries() {

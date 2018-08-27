@@ -36,5 +36,15 @@ export const timeEntriesReducer = (state = initialState, action) => {
 };
 
 export const addTimeEntry = (timeEntry) => ({ type: ADD_TIME_ENTRY, timeEntry });
+export const addTimeEntrySuccess = (timeEntry) => (
+  { type: ADD_TIME_ENTRY_SUCCESS, timeEntry }
+);
 export const deleteTimeEntry = (id) => ({ type: DELETE_TIME_ENTRY, id });
+export const deleteTimeEntrySuccess = (id) => (
+  { type: DELETE_TIME_ENTRY_SUCCESS, id }
+);
+
 export const requestTimeEntries = () => ({ type: REQUEST_TIME_ENTRIES });
+export const requestTimeEntriesSucces = (timeEntries) => (
+  { type: REQUEST_TIME_ENTRIES_SUCCESS, timeEntries }
+);
