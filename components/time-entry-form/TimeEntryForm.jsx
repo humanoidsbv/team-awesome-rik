@@ -49,8 +49,8 @@ class TimeEntryForm extends React.Component {
       isFormLoading: !isFormLoading
     }));
 
-    addTimeEntry({ ...formData, ...convertTimeToIso(date, from, to) })
-      .then(this.setState({ ...TimeEntryForm.defaultState }));
+    addTimeEntry({ ...formData, ...convertTimeToIso(date, from, to) });
+    this.setState({ ...TimeEntryForm.defaultState });
   }
 
   render() {
