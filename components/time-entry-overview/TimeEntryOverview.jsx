@@ -3,17 +3,13 @@ import PropTypes from 'prop-types';
 
 import TimeEntryForm from '../time-entry-form/TimeEntryForm';
 import TimeEntries from '../time-entries/TimeEntries';
-import { deleteTimeEntry, getTimeEntries, postTimeEntry } from '../../services/time-entries-api/time-entries-api';
 import './time-entry-overview.scss';
 
 class TimeEntryOverview extends React.Component {
   static propTypes = {
     addTimeEntry: PropTypes.func.isRequired,
-    addTimeEntrySuccess: PropTypes.func.isRequired,
     deleteTimeEntry: PropTypes.func.isRequired,
-    deleteTimeEntrySuccess: PropTypes.func.isRequired,
     requestTimeEntries: PropTypes.func.isRequired,
-    requestTimeEntriesSucces: PropTypes.func.isRequired,
     timeEntries: PropTypes.arrayOf(PropTypes.shape({
       employer: PropTypes.string.isRequired,
       id: PropTypes.number.isRequired,
@@ -24,27 +20,15 @@ class TimeEntryOverview extends React.Component {
 
   componentDidMount() {
     this.props.requestTimeEntries();
-    getTimeEntries().then((timeEntries) => {
-      this.props.requestTimeEntriesSucces(timeEntries);
-    });
   }
-
 
   onDelete = (id) => {
-    this.props.deleteTimeEntry();
-    deleteTimeEntry(id).then(() => {
-      this.props.deleteTimeEntrySuccess(id);
-    });
+    this.props.deleteTimeEntry(id);
   }
 
-  addTimeEntry = (newEntry) => {
-    this.props.addTimeEntry();
-    return (
-      postTimeEntry(newEntry).then((response) => {
-        this.props.addTimeEntrySuccess(response);
-      })
-    );
-  }
+  addTimeEntry = (newEntry) => (
+    this.props.addTimeEntry(newEntry)
+  )
 
   render() {
     const { timeEntries } = this.props;

@@ -1,9 +1,9 @@
-const ADD_TIME_ENTRY = 'ADD_TIME_ENTRY';
-const ADD_TIME_ENTRY_SUCCESS = 'ADD_TIME_ENTRY_SUCCESS';
-const DELETE_TIME_ENTRY = 'DELETE_TIME_ENTRY';
-const DELETE_TIME_ENTRY_SUCCESS = 'DELETE_TIME_ENTRY_SUCCESS';
-const REQUEST_TIME_ENTRIES = 'REQUEST_TIME_ENTRIES';
-const REQUEST_TIME_ENTRIES_SUCCESS = 'REQUEST_TIME_ENTRIES_SUCCESS';
+export const ADD_TIME_ENTRY = 'ADD_TIME_ENTRY';
+export const ADD_TIME_ENTRY_SUCCESS = 'ADD_TIME_ENTRY_SUCCESS';
+export const DELETE_TIME_ENTRY = 'DELETE_TIME_ENTRY';
+export const DELETE_TIME_ENTRY_SUCCESS = 'DELETE_TIME_ENTRY_SUCCESS';
+export const REQUEST_TIME_ENTRIES = 'REQUEST_TIME_ENTRIES';
+export const REQUEST_TIME_ENTRIES_SUCCESS = 'REQUEST_TIME_ENTRIES_SUCCESS';
 
 export const timeEntriesSelector = (state) => state.timeEntries.items;
 
@@ -35,16 +35,6 @@ export const timeEntriesReducer = (state = initialState, action) => {
   }
 };
 
-export const addTimeEntry = () => ({ type: ADD_TIME_ENTRY });
-export const addTimeEntrySuccess = (timeEntry) => (
-  { type: ADD_TIME_ENTRY_SUCCESS, timeEntry }
-);
-export const deleteTimeEntry = () => ({ type: DELETE_TIME_ENTRY });
-export const deleteTimeEntrySuccess = (id) => (
-  { type: DELETE_TIME_ENTRY_SUCCESS, id }
-);
-
+export const addTimeEntry = (timeEntry) => ({ type: ADD_TIME_ENTRY, timeEntry });
+export const deleteTimeEntry = (id) => ({ type: DELETE_TIME_ENTRY, id });
 export const requestTimeEntries = () => ({ type: REQUEST_TIME_ENTRIES });
-export const requestTimeEntriesSucces = (timeEntries) => (
-  { type: REQUEST_TIME_ENTRIES_SUCCESS, timeEntries }
-);
