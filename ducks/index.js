@@ -3,7 +3,9 @@ import { timeEntriesReducer } from './time-entries';
 import { headerReducer } from './header';
 
 
-export const rootReducer = combineReducers({
+const rootReducer = combineReducers({
   timeEntries: timeEntriesReducer,
   header: headerReducer
 });
+
+export default rootReducer;
