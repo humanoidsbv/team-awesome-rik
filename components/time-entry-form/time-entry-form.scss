@@ -118,7 +118,8 @@
       margin-top: 12px;
       width: 100%;
 
-      &:invalid {
+      &:invalid,
+      &--invalid {
         border: solid $default-border-height $color-monochrome-17;
       }
     }
@@ -132,7 +133,8 @@
       margin-top: 12px;
       width: 100%;
 
-      &:invalid {
+      &:invalid,
+      &--invalid {
         border: solid $default-border-height $color-monochrome-17;
       }
     }
@@ -195,5 +197,5 @@
 }
 
 .invalid-input {
-  border-color: $color-monochrome-7;
+  border-color: red !important;
 }
