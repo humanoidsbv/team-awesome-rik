@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "employeeNumber": "HUM_007",
+    "currentEmployer": "Humanoids",
+    "profession": "Developer",
+    "startDate": "2018-08-06T07:00:00.000Z",
+    "firstName": "Rik",
+    "lastName": "Frieling",
+    "email": "rikfrieling@gmail.com",
+    "bio:": "Houdt van lange strandwandelingen en leuke dingen doen met vrienden",
+    "adress": "Hamburgerstraat 14bis",
+    "zipCode": "3512 NR",
+    "city": "Utrecht",
+    "socialProfiles": "links",
+    "picture": "/static/rik.jpg"
+  },
+  {
+    "id": 2,
+    "employeeNumber": "HUM_007",
+    "currentEmployer": "Humanoids",
+    "profession": "Developer",
+    "startDate": "2018-08-06T07:00:00.000Z",
+    "firstName": "Rik",
+    "lastName": "Frieling",
+    "email": "rikfrieling@gmail.com",
+    "bio:": "Houdt van lange strandwandelingen en leuke dingen doen met vrienden",
+    "adress": "Hamburgerstraat 14bis",
+    "zipCode": "3512 NR",
+    "city": "Utrecht",
+    "socialProfiles": "links",
+    "picture": "/static/rik.jpg"
+  },
+  {
+    "id": 3,
+    "employeeNumber": "HUM_007",
+    "currentEmployer": "Humanoids",
+    "profession": "Developer",
+    "startDate": "2018-08-06T07:00:00.000Z",
+    "firstName": "Rik",
+    "lastName": "Frieling",
+    "email": "rikfrieling@gmail.com",
+    "bio:": "Houdt van lange strandwandelingen en leuke dingen doen met vrienden",
+    "adress": "Hamburgerstraat 14bis",
+    "zipCode": "3512 NR",
+    "city": "Utrecht",
+    "socialProfiles": "links",
+    "picture": "/static/rik.jpg"
+  },
+  {
+    "id": 4,
+    "employeeNumber": "HUM_007",
+    "currentEmployer": "Humanoids",
+    "profession": "Developer",
+    "startDate": "2018-08-06T07:00:00.000Z",
+    "firstName": "Rik",
+    "lastName": "Frieling",
+    "email": "rikfrieling@gmail.com",
+    "bio:": "Houdt van lange strandwandelingen en leuke dingen doen met vrienden",
+    "adress": "Hamburgerstraat 14bis",
+    "zipCode": "3512 NR",
+    "city": "Utrecht",
+    "socialProfiles": "links",
+    "picture": "/static/rik.jpg"
+  }
+
+]

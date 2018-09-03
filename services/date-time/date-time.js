@@ -11,6 +11,11 @@ export const convertTimeStampToDate = (isoTimeStamp) => (
     .replace(',', ' ')
 );
 
+export const convertTStoDateWrittenMonth = (isoTimeStamp) => (
+  new Date(isoTimeStamp)
+    .toLocaleDateString('en-NL', { month: 'long', year: 'numeric' })
+);
+
 export const calculateTotalTimePerDay = (timeEntries, date) => (
   new Date(timeEntries.filter((entry) => convertTimeStampToDate(entry.from) === date)
     .reduce((accumulator, entry) => accumulator
