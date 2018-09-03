@@ -29,7 +29,6 @@ class TimeEntryForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = { ...TimeEntryForm.defaultState };
-    this.dateInput = React.createRef();
     this.fromInput = React.createRef();
     this.toInput = React.createRef();
     this.inputForm = React.createRef();
@@ -38,8 +37,8 @@ class TimeEntryForm extends React.Component {
   getFormValidity = () => {
     const { inputs } = this.state;
     return (this.inputForm.current
-    && Array.from(this.inputForm.current.elements).every((element) => element.validity.valid))
-    && (inputs.fromIsValid && inputs.toIsValid);
+      && Array.from(this.inputForm.current.elements).every((element) => element.validity.valid))
+      && (inputs.fromIsValid && inputs.toIsValid);
   }
 
   setElementValidity = (name, isValid) => {
@@ -113,7 +112,11 @@ class TimeEntryForm extends React.Component {
           />
           New time entry
         </button>
-        <form onSubmit={this.handleSubmit} className={`form ${isFormVisible ? 'form--open' : 'form--close'}`} ref={this.inputForm}>
+        <form
+          onSubmit={this.handleSubmit}
+          className={`form ${isFormVisible ? 'form--open' : 'form--close'}`}
+          ref={this.inputForm}
+        >
           <div className="form-container">
             <div className="form-inputs">
               <div className="form__list-item form__list-item--first">
@@ -129,6 +132,7 @@ class TimeEntryForm extends React.Component {
                     />
                   </div>
                   <select
+                    id="employer"
                     name="employer"
                     className="form__select"
                     onChange={(event) => this.handleChange(event)}
@@ -147,6 +151,7 @@ class TimeEntryForm extends React.Component {
                 <label id="activity" htmlFor="activity">
                   ACTIVITY
                   <select
+                    id="activity"
                     name="activity"
                     className="form__select"
                     onChange={(event) => this.handleChange(event)}
@@ -165,6 +170,7 @@ class TimeEntryForm extends React.Component {
                 <label id="date" htmlFor="date">
                   Date
                   <input
+                    id="date"
                     name="date"
                     className="form__select form__select--date"
                     onChange={(event) => this.handleChange(event)}
@@ -179,6 +185,7 @@ class TimeEntryForm extends React.Component {
                 <label id="from" htmlFor="from">
                   FROM
                   <input
+                    id="from"
                     name="from"
                     className={`form__select ${fromIsValid ? '' : 'invalid-input'}`}
                     onChange={(event) => this.handleChange(event)}
@@ -191,6 +198,7 @@ class TimeEntryForm extends React.Component {
                 <label id="to" htmlFor="to">
                   TO
                   <input
+                    id="to"
                     name="to"
                     className={`form__select ${toIsValid ? '' : 'form__select--invalid'}`}
                     onChange={(event) => this.handleChange(event)}
