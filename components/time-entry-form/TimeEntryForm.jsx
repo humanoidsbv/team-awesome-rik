@@ -14,6 +14,10 @@ class TimeEntryForm extends React.Component {
       from: '',
       to: ''
     },
+    inputs: {
+      fromIsValid: false,
+      toIsValid: false
+    },
     isFormVisible: false,
     isFormLoading: false
   };
@@ -22,15 +26,51 @@ class TimeEntryForm extends React.Component {
     addTimeEntry: PropTypes.func.isRequired
   };
 
-  state = { ...TimeEntryForm.defaultState };
+  constructor(props) {
+    super(props);
+    this.state = { ...TimeEntryForm.defaultState };
+    this.fromInput = React.createRef();
+    this.toInput = React.createRef();
+    this.inputForm = React.createRef();
+  }
+
+  getFormValidity = () => {
+    const { inputs } = this.state;
+    return (this.inputForm.current
+      && Array.from(this.inputForm.current.elements).every((element) => element.validity.valid))
+      && (inputs.fromIsValid && inputs.toIsValid);
+  }
+
+  setElementValidity = (name, isValid) => {
+    this.setState(
+      (prevState) => ({
+        ...prevState,
+        inputs: {
+          ...prevState.inputs,
+          [`${name}IsValid`]: isValid
+        }
+      })
+    );
+  }
+
+  checkValidity = ({ name }) => {
+    if (name === 'from' || name === 'to') {
+      this.setElementValidity('from',
+        Date.parse(`11/20/1988 ${this.fromInput.current.value.replace('.', ':')}`)
+        < Date.parse(`11/20/1988 ${this.toInput.current.value.replace('.', ':')}`));
+      this.setElementValidity('to',
+        Date.parse(`11/20/1988 ${this.toInput.current.value.replace('.', ':')}`)
+        > Date.parse(`11/20/1988 ${this.fromInput.current.value.replace('.', ':')}`));
+    }
+  }
 
   handleChange = ({ target }) => {
     this.setState((prevState) => ({
       formData: {
         ...prevState.formData,
-        [target.id]: target.value
+        [target.name]: target.value
       }
-    }));
+    }), () => this.checkValidity(target));
   }
 
   handleClick = () => {
@@ -55,6 +95,7 @@ class TimeEntryForm extends React.Component {
 
   render() {
     const { isFormVisible, isFormLoading, formData } = this.state;
+    const { fromIsValid, toIsValid } = this.state.inputs;
     return (
       <React.Fragment>
         <button
@@ -71,7 +112,11 @@ class TimeEntryForm extends React.Component {
           />
           New time entry
         </button>
-        <form className={`form ${isFormVisible ? 'form--open' : 'form--close'}`}>
+        <form
+          onSubmit={this.handleSubmit}
+          className={`form ${isFormVisible ? 'form--open' : 'form--close'}`}
+          ref={this.inputForm}
+        >
           <div className="form-container">
             <div className="form-inputs">
               <div className="form__list-item form__list-item--first">
@@ -88,8 +133,10 @@ class TimeEntryForm extends React.Component {
                   </div>
                   <select
                     id="employer"
+                    name="employer"
                     className="form__select"
                     onChange={(event) => this.handleChange(event)}
+                    required
                   >
                     <option>
                       Port of Rotterdam
@@ -105,8 +152,10 @@ class TimeEntryForm extends React.Component {
                   ACTIVITY
                   <select
                     id="activity"
+                    name="activity"
                     className="form__select"
                     onChange={(event) => this.handleChange(event)}
+                    required
                   >
                     <option>
                       Design
@@ -122,9 +171,13 @@ class TimeEntryForm extends React.Component {
                   Date
                   <input
                     id="date"
+                    name="date"
                     className="form__select form__select--date"
                     onChange={(event) => this.handleChange(event)}
                     value={formData.date}
+                    required
+                    pattern="(0[1-9]|[12][0-9]|3[01])[-](0[1-9]|1[0-2])[-]([0-9]{4})"
+                    ref={this.dateInput}
                   />
                 </label>
               </div>
@@ -133,25 +186,33 @@ class TimeEntryForm extends React.Component {
                   FROM
                   <input
                     id="from"
-                    className="form__select"
+                    name="from"
+                    className={`form__select ${fromIsValid ? '' : 'invalid-input'}`}
                     onChange={(event) => this.handleChange(event)}
                     value={formData.from}
+                    required
+                    pattern="([0-9]{2})[:\s.]([0-9]{2})"
+                    ref={this.fromInput}
                   />
                 </label>
                 <label id="to" htmlFor="to">
                   TO
                   <input
                     id="to"
-                    className="form__select"
+                    name="to"
+                    className={`form__select ${toIsValid ? '' : 'form__select--invalid'}`}
                     onChange={(event) => this.handleChange(event)}
                     value={formData.to}
+                    required
+                    pattern="([0-9]{2})[:\s.]([0-9]{2})"
+                    ref={this.toInput}
                   />
                 </label>
               </div>
             </div>
             <button
-              className="form__button-add"
-              disabled={isFormLoading}
+              className={`form__button-add ${!this.getFormValidity() && 'invalid-form'}`}
+              disabled={!this.getFormValidity() || isFormLoading}
               type="submit"
               onClick={(event) => {
                 event.preventDefault();

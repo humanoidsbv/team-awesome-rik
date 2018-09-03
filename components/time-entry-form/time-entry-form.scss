@@ -117,6 +117,11 @@
       height: 36px;
       margin-top: 12px;
       width: 100%;
+
+      &:invalid,
+      &--invalid {
+        border: solid $default-border-height $color-monochrome-17;
+      }
     }
 
     & input {
@@ -127,6 +132,11 @@
       height: 36px;
       margin-top: 12px;
       width: 100%;
+
+      &:invalid,
+      &--invalid {
+        border: solid $default-border-height $color-monochrome-17;
+      }
     }
 
     &--half {
@@ -179,4 +189,13 @@
     }
 
   }
+}
+
+.invalid-form {
+  background-color: $color-monochrome-7;
+  border: none;
+}
+
+.invalid-input {
+  border-color: $color-monochrome-7;
 }

@@ -7,7 +7,7 @@ export const deleteTimeEntry = (id) => (
 );
 
 export const getTimeEntries = () => (
-  fetch(apiUrl)
+  fetch(`${apiUrl}?_sort=from&_order=asc`)
     .then((response) => response.json())
 );
 
