@@ -1,0 +1,86 @@
+@import "../../shared/styles/main";
+
+.team-member {
+  align-items: center;
+  background-color: $color-monochrome-1;
+  border: solid $default-border-height $color-monochrome-7;
+  border-left: $color-monochrome-6 solid 4px;
+  border-radius: $default-border-radius;
+  display: flex;
+  flex-direction: row;
+  font-size: $font-size-secondary;
+  height: 82px;
+  justify-content: space-between;
+  margin-top: 20px;
+  width: 100%;
+
+  &--expanded {
+    border-bottom: none;
+    border-radius: $default-border-radius $default-border-radius 0 0;
+  }
+}
+
+.employee-summary {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 20px;
+
+  .employee-picture {
+    border-radius: 30px;
+    height: 50px;
+    width: 50px;
+  }
+
+  .name-profession {
+    display: flex;
+    flex-direction: column;
+    margin-left: 25px;
+    text-align: left;
+
+    .profession {
+      color: $color-monochrome-18;
+      font-size: $font-size-primary;
+    }
+  }
+}
+
+.employee-details {
+  display: none;
+}
+
+.employee__button-expand {
+  background: url("/static/icons/arrow-down-2.svg") no-repeat center;
+  border: none;
+  height: 20px;
+  margin-right: 22px;
+  width: 20px;
+}
+
+.employee-details-mobile--collapsed {
+  visibility: hidden;
+}
+
+.employee-details-mobile--expanded {
+  border: solid $default-border-height $color-monochrome-7;
+  border-left: $color-monochrome-6 solid 4px;
+  border-radius: 0 0  $default-border-radius $default-border-radius;
+  border-top: none;
+  display: flex;
+  flex-direction: column;
+  height: 168px;
+
+  .detail-header {
+    align-items: center;
+    background-color: $color-monochrome-8;
+
+    color: $color-monochrome-18;
+    display: flex;
+    font-size: $font-size-primary;
+    height: 36px;
+
+    &__text {
+      margin-left: 30px;
+    }
+  }
+}
