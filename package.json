@@ -23,6 +23,7 @@
   },
   "homepage": "https://team-awesome-rik.now.sh",
   "dependencies": {
+    "@babel/core": "^7.0.0",
     "@zeit/next-sass": "^0.2.0",
     "babel-eslint": "^8.2.6",
     "next": "^6.1.1",
