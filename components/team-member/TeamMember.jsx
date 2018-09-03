@@ -7,16 +7,15 @@ import { convertTStoDateWrittenMonth } from '../../services/date-time/date-time'
 class TeamMember extends React.Component {
   state = { showDetails: false }
 
-  handleClick = () => {
-    this.setState((prevState) => ({
-      ...prevState,
-      showDetails: !prevState.showDetails
-    }));
-  }
-
-  startDate = () => {
+  getStartDate = () => {
     const { startDate } = this.props;
     return convertTStoDateWrittenMonth(startDate);
+  }
+
+  handleClick = () => {
+    this.setState(({ showDetails }) => ({
+      showDetails: !showDetails
+    }));
   }
 
   render() {
@@ -27,7 +26,7 @@ class TeamMember extends React.Component {
     const { showDetails } = this.state;
     return (
       <div className="team-member">
-        <div className="top-row">
+        <div className="team-member__top-row">
           <div className="employee-summary">
             <img
               className="employee-picture"
@@ -58,21 +57,22 @@ class TeamMember extends React.Component {
                 </div>
               </div>
               <div className="start-date-desktop">
-                {this.startDate()}
+                {this.getStartDate()}
                 <div className="start-date-desktop__text">
                   Starting date
                 </div>
               </div>
             </div>
             <button
-              className={showDetails ? ' employee__button-expand employee__button-expand--clicked'
-                : 'employee__button-expand'}
+              className={`employee__button-expand
+                employee__button-expand${showDetails ? '--opened' : '--closed'}
+              `}
               onClick={this.handleClick}
               type="button"
             />
           </div>
         </div>
-        <div className={showDetails ? 'employee-details-mobile--expanded' : 'employee-details-mobile--collapsed'}>
+        <div className={`team-member__employee-details-mobile${showDetails ? '--expanded' : '--collapsed'}`}>
           <div className="detail-header">
             <div className="detail-header__text">
               Detailed information about
@@ -89,7 +89,7 @@ class TeamMember extends React.Component {
             </div>
           </div>
           <div className="start-date">
-            {this.startDate()}
+            {this.getStartDate()}
             <div className="start-date__text">
               Starting date
             </div>
