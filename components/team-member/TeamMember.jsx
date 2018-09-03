@@ -26,8 +26,8 @@ class TeamMember extends React.Component {
     } = this.props;
     const { showDetails } = this.state;
     return (
-      <React.Fragment>
-        <div className={showDetails ? 'team-member team-member--expanded' : 'team-member'}>
+      <div className="team-member">
+        <div className="top-row">
           <div className="employee-summary">
             <img
               className="employee-picture"
@@ -95,7 +95,7 @@ class TeamMember extends React.Component {
             </div>
           </div>
         </div>
-      </React.Fragment>
+      </div>
     );
   }
 }

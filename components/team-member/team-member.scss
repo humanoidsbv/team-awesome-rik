@@ -1,23 +1,24 @@
 @import "../../shared/styles/main";
 
 .team-member {
-  align-items: center;
   background-color: $color-monochrome-1;
   border: solid $default-border-height $color-monochrome-7;
   border-left: $color-monochrome-6 solid 4px;
   border-radius: $default-border-radius;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   font-size: $font-size-secondary;
-  height: 82px;
-  justify-content: space-between;
   margin-top: 20px;
+  min-height: 82px;
   width: 100%;
+}
 
-  &--expanded {
-    border-bottom: none;
-    border-radius: $default-border-radius $default-border-radius 0 0;
-  }
+.top-row {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 16px;
 }
 
 .employee-summary {
@@ -105,10 +106,6 @@
 }
 
 .employee-details-mobile--expanded {
-  border: solid $default-border-height $color-monochrome-7;
-  border-left: $color-monochrome-6 solid 4px;
-  border-radius: 0 0  $default-border-radius $default-border-radius;
-  border-top: none;
   display: flex;
   flex-direction: column;
   height: 168px;
@@ -120,6 +117,7 @@
     display: flex;
     font-size: $font-size-primary;
     height: 36px;
+    margin-top: 15px;
 
     &__text {
       margin-left: 30px;
