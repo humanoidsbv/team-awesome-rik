@@ -5,9 +5,12 @@
   "main": "index.js",
   "scripts": {
     "build": "next build",
-    "dev": "next & json-server --watch api/time-entries.json",
+    "dev": "next & json-server --watch api/time-entries.json & npm run test-watch",
     "lint": "eslint --ext js,jsx .",
-    "start": "next start"
+    "start": "next start",
+    "test": "jest",
+    "test-watch": "jest --watch"
+
   },
   "repository": {
     "type": "git",
@@ -20,6 +23,7 @@
   },
   "homepage": "https://team-awesome-rik.now.sh",
   "dependencies": {
+    "@babel/core": "^7.0.0",
     "@zeit/next-sass": "^0.2.0",
     "babel-eslint": "^8.2.6",
     "next": "^6.1.1",
@@ -36,12 +40,18 @@
     "reselect": "^3.0.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "babel-jest": "^23.4.2",
+    "enzyme": "^3.5.0",
+    "enzyme-adapter-react-16": "^1.3.0",
     "eslint": "^5.3.0",
     "eslint-config-airbnb": "^17.0.0",
     "eslint-plugin-babel": "^5.1.0",
     "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.10.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^23.5.0",
     "json-server": "^0.14.0"
   }
 }
