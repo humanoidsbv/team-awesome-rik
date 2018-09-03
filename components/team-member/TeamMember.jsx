@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import './team-member.scss';
-
+import { convertTStoDateWrittenMonth } from '../../services/date-time/date-time';
 
 class TeamMember extends React.Component {
   state = { showDetails: false }
@@ -14,16 +14,20 @@ class TeamMember extends React.Component {
     }));
   }
 
+  startDate = () => {
+    const { startDate } = this.props;
+    return convertTStoDateWrittenMonth(startDate);
+  }
+
   render() {
     const {
       firstName, lastName, employeeNumber,
-      currentEmployer, startDate, profession,
-      picture
+      currentEmployer, profession, picture
     } = this.props;
     const { showDetails } = this.state;
     return (
-      <div>
-        <div className={showDetails ? 'team-member--expanded' : 'team-member'}>
+      <React.Fragment>
+        <div className={showDetails ? 'team-member team-member--expanded' : 'team-member'}>
           <div className="employee-summary">
             <img
               className="employee-picture"
@@ -39,17 +43,34 @@ class TeamMember extends React.Component {
               </div>
             </div>
           </div>
-          <div className="employee-details">
-            {employeeNumber}
-            {currentEmployer}
-            {startDate}
-            { profession}
+          <div className="employee-container">
+            <div className="employee-details-desktop">
+              <div className="employee-number">
+                {employeeNumber}
+                <div className="employee-number__text">
+                  Employee number
+                </div>
+              </div>
+              <div className="current-employer-desktop">
+                {currentEmployer}
+                <div className="current-employer-desktop__text">
+                  Current employer
+                </div>
+              </div>
+              <div className="start-date-desktop">
+                {this.startDate()}
+                <div className="start-date-desktop__text">
+                  Starting date
+                </div>
+              </div>
+            </div>
+            <button
+              className={showDetails ? ' employee__button-expand employee__button-expand--clicked'
+                : 'employee__button-expand'}
+              onClick={this.handleClick}
+              type="button"
+            />
           </div>
-          <button
-            className="employee__button-expand"
-            onClick={this.handleClick}
-            type="button"
-          />
         </div>
         <div className={showDetails ? 'employee-details-mobile--expanded' : 'employee-details-mobile--collapsed'}>
           <div className="detail-header">
@@ -60,13 +81,21 @@ class TeamMember extends React.Component {
             </div>
           </div>
           <div className="current-employer">
-            {currentEmployer}
+            <div>
+              {currentEmployer}
+            </div>
+            <div className="current-employer__text">
+              Current employer
+            </div>
           </div>
           <div className="start-date">
-            {startDate}
+            {this.startDate()}
+            <div className="start-date__text">
+              Starting date
+            </div>
           </div>
         </div>
-      </div>
+      </React.Fragment>
     );
   }
 }
