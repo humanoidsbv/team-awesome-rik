@@ -100,7 +100,7 @@ class TimeEntryForm extends React.Component {
       <React.Fragment>
         <button
           className={`time-entry-button
-                     ${isFormVisible ? 'time-entry-button--hidden' : 'time-entry-button--visible'}`
+                     time-entry-button${isFormVisible ? '--hidden' : '--visible'}`
                      }
           type="button"
           onClick={this.handleClick}
