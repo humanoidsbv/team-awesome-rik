@@ -4,11 +4,13 @@
   "description": "Team Awesome repository for Rik",
   "main": "index.js",
   "scripts": {
-    "build": "next build && npm test",
-    "dev": "next & json-server --watch api/time-entries.json & npm run test",
+    "build": "next build",
+    "dev": "next & json-server --watch api/time-entries.json & npm run test-watch",
     "lint": "eslint --ext js,jsx .",
     "start": "next start",
-    "test": "jest --watch"
+    "test": "jest",
+    "test-watch": "jest --watch"
+
   },
   "repository": {
     "type": "git",
