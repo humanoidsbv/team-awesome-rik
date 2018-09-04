@@ -1,5 +1,25 @@
 @import "../../shared/styles/main";
 
+.team-member-button {
+  background-image: linear-gradient(to bottom, $color-monochrome-13, $color-monochrome-14 98%);
+  border: solid $default-border-height $color-monochrome-12;
+  border-radius: $default-border-radius;
+  color: $color-letter-on-primary;
+  font-family: $font-primary;
+  font-size: $font-size-primary;
+  height: 36px;
+  margin-bottom: 32px;
+  margin-top: 24px;
+  width: 100%;
+
+  &--hidden {
+    display: none;
+  }
+
+  &--visible {
+    display: block;
+  }
+}
 
 
 .team-member-form {
@@ -7,6 +27,14 @@
   border-radius: $default-border-radius;
   font-family: $font-primary;
   width: 100%;
+
+  &--hidden {
+    display: none;
+  }
+
+  &--visible {
+    display: block;
+  }
 
   &__label {
     color: $color-monochrome-18;
@@ -41,22 +69,21 @@
 }
 
 .team-member-form__header {
-  border-bottom: solid $default-border-height $color-monochrome-7;
+  display: flex;
   height: 52px;
   margin-top: 22px;
 
   &__item {
+    align-items: center;
     background-color: $color-monochrome-1;
-    border-bottom: none;
+    border-bottom: solid $default-border-height $color-monochrome-1;
     border-right: solid $default-border-height $color-monochrome-7;
     border-top: solid $default-border-height $color-monochrome-7;
     border-top-right-radius: 6px;
-    height: 52px;
-    width: 194px;
-
-    &__text {
-      margin: 15px 33px;
-    }
+    display: flex;
+    font-size: 18px;
+    justify-content: center;
+    padding: 0 15px;
   }
 }
 
@@ -64,8 +91,10 @@
   border-bottom: solid $default-border-height $color-monochrome-7;
   border-radius: $default-border-radius;
   border-right: solid $default-border-height $color-monochrome-7;
+  border-top: solid $default-border-height $color-monochrome-7;
   display: flex;
   flex-direction: row;
+  margin-top: -1px;
 }
 
 .team-member-form__personal__first-column {

@@ -22,6 +22,12 @@ class TeamMemberForm extends React.Component {
 
   state={ ...this.defaultState };
 
+  handleClick = () => {
+    this.setState(({ isFormVisible }) => ({
+      isFormVisible: !isFormVisible
+    }));
+  }
+
   render() {
     const { isFormVisible } = this.state;
     return (
@@ -40,12 +46,13 @@ class TeamMemberForm extends React.Component {
           />
           New Humanoid
         </button>
-        <div className="team-member-form">
+        <div className={`
+          team-member-form
+          team-member-form${isFormVisible ? '--visible' : '--hidden'}`}
+        >
           <div className="team-member-form__header">
             <div className="team-member-form__header__item">
-              <div className="team-member-form__header__item__text">
                 Personal Details
-              </div>
             </div>
           </div>
           <form
