@@ -1,0 +1,150 @@
+@import "../../shared/styles/main";
+
+
+
+.team-member-form {
+  border-left: $color-monochrome-6 solid 4px;
+  border-radius: $default-border-radius;
+  font-family: $font-primary;
+  width: 100%;
+
+  &__label {
+    color: $color-monochrome-18;
+    display: block;
+
+    &-half {
+      flex-basis: 49%;
+    }
+  }
+
+  &__input {
+    border: solid $default-border-height $color-monochrome-7;
+    border-radius: $default-border-radius;
+    height: 36px;
+    margin-bottom: 19px;
+    width: 100%;
+
+    &-social {
+      border-bottom-left-radius: 0;
+      border-left: none;
+      border-top-left-radius: 0;
+    }
+
+  }
+
+  &__text-field {
+    border: solid $default-border-height $color-monochrome-7;
+    border-radius: $default-border-radius;
+    min-height: 84px;
+    width: 100%;
+  }
+}
+
+.team-member-form__header {
+  border-bottom: solid $default-border-height $color-monochrome-7;
+  height: 52px;
+  margin-top: 22px;
+
+  &__item {
+    background-color: $color-monochrome-1;
+    border-bottom: none;
+    border-right: solid $default-border-height $color-monochrome-7;
+    border-top: solid $default-border-height $color-monochrome-7;
+    border-top-right-radius: 6px;
+    height: 52px;
+    width: 194px;
+
+    &__text {
+      margin: 15px 33px;
+    }
+  }
+}
+
+.team-member-form__personal {
+  border-bottom: solid $default-border-height $color-monochrome-7;
+  border-radius: $default-border-radius;
+  border-right: solid $default-border-height $color-monochrome-7;
+  display: flex;
+  flex-direction: row;
+}
+
+.team-member-form__personal__first-column {
+  margin-left: 30px;
+  margin-top: 33px;
+
+  &__picture {
+    border-radius: 50px;
+    height: 100px;
+    width: 100px;
+  }
+
+  &__text {
+    margin-top: 10px;
+    text-align: center;
+  }
+}
+
+.team-member-form__personal__middle-column {
+  border-right: solid $default-border-height $color-monochrome-19;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 43px;
+  margin-left: 38px;
+  margin-top: 33px;
+  padding-right: 30px;
+  width: 50%;
+
+  &__row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.team-member-form__personal__last-column {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+  margin-top: 33px;
+  padding-left: 30px;
+  padding-right: 30px;
+  width: 50%;
+
+  &__row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__twitter-logo {
+    background-image: linear-gradient(to bottom, $color-monochrome-20, $color-monochrome-21);
+    border-bottom-left-radius: 4px;
+    border-right: none;
+    border-top-left-radius: 4px;
+    height: 36px;
+    width: 36px;
+
+    &__svg {
+      height: 13px;
+      margin: 12px 10px;
+      width: 16px;
+    }
+  }
+
+  &__facebook-logo {
+    background-image: linear-gradient(to top, $color-monochrome-22, $color-monochrome-23);
+    border-bottom-left-radius: 4px;
+    border-right: none;
+    border-top-left-radius: 4px;
+    height: 36px;
+    width: 36px;
+
+    &__svg {
+      height: 13px;
+      margin: 12px 10px;
+      width: 16px;
+    }
+
+  }
+
+}
