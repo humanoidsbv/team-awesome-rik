@@ -40,10 +40,10 @@
     color: $color-monochrome-18;
     display: block;
     width: 100%;
+  }
 
-    &-half {
-      margin-right: 10px;
-    }
+  &__label-half {
+    margin-right: 10px;
   }
 
   &__input {
@@ -52,13 +52,12 @@
     height: 36px;
     margin-bottom: 19px;
     width: 100%;
+  }
 
-    &-social {
-      border-bottom-left-radius: 0;
-      border-left: none;
-      border-top-left-radius: 0;
-    }
-
+  &__input-social {
+    border-bottom-left-radius: 0;
+    border-left: none;
+    border-top-left-radius: 0;
   }
 
   &__text-field {
@@ -134,53 +133,55 @@
   display: flex;
   flex-direction: row;
   margin-top: -1px;
-
-  &-row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  &-twitter-logo {
-    background-image: linear-gradient(to bottom, $color-monochrome-20, $color-monochrome-21);
-    border-bottom-left-radius: 4px;
-    border-right: none;
-    border-top-left-radius: 4px;
-    height: 36px;
-    width: 36px;
-  }
-
-  &-facebook-logo {
-    background-image: linear-gradient(to top, $color-monochrome-22, $color-monochrome-23);
-    border-bottom-left-radius: 4px;
-    border-right: none;
-    border-top-left-radius: 4px;
-    height: 36px;
-    width: 36px;
-  }
-
-  &-svg {
-    height: 13px;
-    margin: 12px 10px;
-    width: 16px;
-  }
 }
+
+.team-member-form__personal-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.team-member-form__personal-twitter-logo {
+  background-image: linear-gradient(to bottom, $color-monochrome-20, $color-monochrome-21);
+  border-bottom-left-radius: 4px;
+  border-right: none;
+  border-top-left-radius: 4px;
+  height: 36px;
+  width: 36px;
+}
+
+.team-member-form__personal-facebook-logo {
+  background-image: linear-gradient(to top, $color-monochrome-22, $color-monochrome-23);
+  border-bottom-left-radius: 4px;
+  border-right: none;
+  border-top-left-radius: 4px;
+  height: 36px;
+  width: 36px;
+}
+
+.team-member-form__personal-svg {
+  height: 13px;
+  margin: 12px 10px;
+  width: 16px;
+}
+
 
 .team-member-form__personal-left-column {
   margin-left: 30px;
   margin-top: 33px;
-
-  &-picture {
-    border-radius: 50px;
-    height: 100px;
-    width: 100px;
-  }
-
-  &-text {
-    margin-top: 10px;
-    text-align: center;
-  }
 }
+
+.team-member-form__personal-left-column-picture {
+  border-radius: 50px;
+  height: 100px;
+  width: 100px;
+}
+
+.team-member-form__personal-left-column-text {
+  margin-top: 10px;
+  text-align: center;
+}
+
 
 .team-member-form__personal-middle-column {
   border-right: solid $default-border-height $color-monochrome-19;
