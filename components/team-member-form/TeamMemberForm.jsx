@@ -46,6 +46,28 @@ class TeamMemberForm extends React.Component {
           />
           New Humanoid
         </button>
+        <div className={`team-member-form__title-bar
+                   team-member-form__title-bar${isFormVisible ? '--visible' : '--hidden'}`
+                   }
+        >
+          <span>
+            Add a new team member
+          </span>
+          <div className="team-member-form__title-bar-buttons">
+            <button
+              className="team-member-form__cancel-button"
+              type="button"
+            >
+              Cancel
+            </button>
+            <button
+              className="team-member-form__submit-button"
+              type="button"
+            >
+              Save
+            </button>
+          </div>
+        </div>
         <div className={`
           team-member-form
           team-member-form${isFormVisible ? '--visible' : '--hidden'}`}
