@@ -56,6 +56,7 @@ class TeamMemberForm extends React.Component {
           <div className="team-member-form__title-bar-buttons">
             <button
               className="team-member-form__cancel-button"
+              onClick={this.handleClick}
               type="button"
             >
               Cancel
