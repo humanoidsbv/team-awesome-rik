@@ -174,33 +174,38 @@ class TeamMemberForm extends React.Component {
                   />
                 </label>
               </div>
-              <div className="team-member-form__personal-row">
-                <span className="team-member-form__personal-twitter-logo">
-                  <img
-                    className="team-member-form__personal-svg"
-                    src="/static/icons/twitter-logo.svg"
-                    alt="plus"
+              <div className="team-member-form__personal-socials">
+                <label className="team-member-form__label">
+                  Social Profiles
+                </label>
+                <div className="team-member-form__personal-row">
+                  <span className="team-member-form__personal-twitter-logo">
+                    <img
+                      className="team-member-form__personal-svg"
+                      src="/static/icons/twitter-logo.svg"
+                      alt="plus"
+                    />
+                  </span>
+                  <input
+                    className="team-member-form__input team-member-form__input-social"
+                    name="twitter"
+                    id="twitter"
                   />
-                </span>
-                <input
-                  className="team-member-form__input team-member-form__input-social"
-                  name="twitter"
-                  id="twitter"
-                />
-              </div>
-              <div className="team-member-form__personal-row">
-                <span className="team-member-form__personal-facebook-logo">
-                  <img
-                    className="team-member-form__personal-svg"
-                    src="/static/icons/facebook-logo.svg"
-                    alt="plus"
+                </div>
+                <div className="team-member-form__personal-row">
+                  <span className="team-member-form__personal-facebook-logo">
+                    <img
+                      className="team-member-form__personal-svg"
+                      src="/static/icons/facebook-logo.svg"
+                      alt="plus"
+                    />
+                  </span>
+                  <input
+                    className="team-member-form__input team-member-form__input-social "
+                    name="facebook"
+                    id="facebook"
                   />
-                </span>
-                <input
-                  className="team-member-form__input team-member-form__input-social "
-                  name="facebook"
-                  id="facebook"
-                />
+                </div>
               </div>
             </div>
           </form>
