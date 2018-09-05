@@ -1,27 +1,58 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Link from 'next/link';
 
-import mockTeamMembers from './mockTeamMembers.json';
 import TeamMembers from '../team-members/TeamMembers';
 import './team-members-overview.scss';
 
-const TeamMembersOverview = () => (
-  <div className="container">
-    <Link href="add-team-member">
-      <button
-        className="team-member-button"
-        type="button"
-      >
-        <img
-          className="team-member-button__plus"
-          src="/static/icons/plus.svg"
-          alt="plus"
-        />
-        New Humanoid
-      </button>
-    </Link>
-    <TeamMembers teamMembers={mockTeamMembers} />
-  </div>
-);
+class TeamMembersOverview extends React.Component {
+  static propTypes = {
+    requestTeamMembers: PropTypes.func.isRequired,
+    teamMembers: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      employeeNumber: PropTypes.string.isRequired,
+      currentEmployer: PropTypes.string.isRequired,
+      profession: PropTypes.string.isRequired,
+      startDate: PropTypes.string.isRequired,
+      firstName: PropTypes.string.isRequired,
+      lastName: PropTypes.string.isRequired,
+      email: PropTypes.string.isRequired,
+      bio: PropTypes.string.isRequired,
+      address: PropTypes.string.isRequired,
+      zipCode: PropTypes.string.isRequired,
+      city: PropTypes.string.isRequired,
+      socialProfiles: PropTypes.shape({
+        twitter: PropTypes.string.isRequired,
+        facebook: PropTypes.string.isRequired
+      }),
+      picture: PropTypes.string.isRequired
+    })).isRequired
+  }
 
+  componentDidMount() {
+    this.props.requestTeamMembers();
+  }
+
+  render() {
+    const { teamMembers } = this.props;
+    return (
+      <div className="container">
+        <Link href="add-team-member">
+          <button
+            className="team-member-button"
+            type="button"
+          >
+            <img
+              className="team-member-button__plus"
+              src="/static/icons/plus.svg"
+              alt="plus"
+            />
+            New Humanoid
+          </button>
+        </Link>
+        <TeamMembers teamMembers={teamMembers} />
+      </div>
+    );
+  }
+}
 export default TeamMembersOverview;
