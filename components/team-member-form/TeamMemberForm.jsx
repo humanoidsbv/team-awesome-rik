@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 import './team-member-form.scss';
 
@@ -16,72 +17,42 @@ class TeamMemberForm extends React.Component {
       city: 'Utrecht',
       socialProfiles: 'links',
       picture: '/static/rik.jpg'
-    },
-    isFormVisible: false
+    }
   }
 
   state={ ...this.defaultState };
 
-  handleClick = () => {
-    this.setState(({ isFormVisible }) => ({
-      isFormVisible: !isFormVisible
-    }));
-  }
-
   render() {
-    const { isFormVisible } = this.state;
     return (
-      <React.Fragment>
-        <button
-          className={`team-member-button
-                     team-member-button${isFormVisible ? '--hidden' : '--visible'}`
-                     }
-          type="button"
-          onClick={this.handleClick}
-        >
-          <img
-            className="team-member-button__plus"
-            src="/static/icons/plus.svg"
-            alt="plus"
-          />
-          New Humanoid
-        </button>
-        <div className={`team-member-form__title-bar
-                   team-member-form__title-bar${isFormVisible ? '--visible' : '--hidden'}`
-                   }
-        >
+      <div className="container">
+        <div className="team-member-form__title-bar">
           <span>
             Add a new team member
           </span>
-          <div className="team-member-form__title-bar-buttons">
-            <button
-              className="team-member-form__cancel-button"
-              onClick={this.handleClick}
-              type="button"
-            >
-              Cancel
-            </button>
+          <span className="team-member-form__title-bar-buttons">
+            <Link href="/team-members">
+              <button
+                className="team-member-form__cancel-button"
+                type="button"
+              >
+                Cancel
+              </button>
+            </Link>
             <button
               className="team-member-form__submit-button"
               type="button"
             >
               Save
             </button>
-          </div>
+          </span>
         </div>
-        <div className={`
-          team-member-form
-          team-member-form${isFormVisible ? '--visible' : '--hidden'}`}
-        >
+        <div className="team-member-form">
           <div className="team-member-form__header">
             <div className="team-member-form__header__item">
                 Personal Details
             </div>
           </div>
-          <form
-            className={`team-member-form__personal
-                      team-member-form__personal${isFormVisible ? '--visible' : '--hidden'}`}
-          >
+          <form className="team-member-form__personal">
             <div className="team-member-form__personal-left-column">
               <img
                 className="team-member-form__personal-left-column-picture"
@@ -232,7 +203,7 @@ class TeamMemberForm extends React.Component {
             </div>
           </form>
         </div>
-      </React.Fragment>
+      </div>
     );
   }
 }

@@ -1,13 +1,25 @@
 import React from 'react';
-import mockTeamMembers from './mockTeamMembers.json';
+import Link from 'next/link';
 
+import mockTeamMembers from './mockTeamMembers.json';
 import TeamMembers from '../team-members/TeamMembers';
-import TeamMemberForm from '../team-member-form/TeamMemberForm';
 import './team-members-overview.scss';
 
 const TeamMembersOverview = () => (
   <div className="container">
-    <TeamMemberForm />
+    <Link href="add-team-member">
+      <button
+        className="team-member-button"
+        type="button"
+      >
+        <img
+          className="team-member-button__plus"
+          src="/static/icons/plus.svg"
+          alt="plus"
+        />
+        New Humanoid
+      </button>
+    </Link>
     <TeamMembers teamMembers={mockTeamMembers} />
   </div>
 );
