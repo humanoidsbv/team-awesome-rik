@@ -11,7 +11,7 @@ class TeamMemberForm extends React.Component {
       lastName: 'Frieling',
       email: 'rikfrieling@gmail.com',
       bio: 'Houdt van lange strandwandelingen en leuke dingen doen met vrienden',
-      adress: 'Hamburgerstraat 14bis',
+      address: 'Hamburgerstraat 14bis',
       zipCode: '3512 NR',
       city: 'Utrecht',
       socialProfiles: 'links',
@@ -59,18 +59,18 @@ class TeamMemberForm extends React.Component {
             className={`team-member-form__personal
                       team-member-form__personal${isFormVisible ? '--visible' : '--hidden'}`}
           >
-            <div className="team-member-form__personal__first-column">
+            <div className="team-member-form__personal-left-column">
               <img
-                className="team-member-form__personal__first-column__picture"
+                className="team-member-form__personal-left-column-picture"
                 src="static/rik.jpg"
                 alt="profile"
               />
-              <div className="team-member-form__personal__first-column__text">
+              <div className="team-member-form__personal-left-column-text">
                 Edit Avatar
               </div>
             </div>
-            <div className="team-member-form__personal__middle-column">
-              <div className="team-member-form__personal__middle-column__row">
+            <div className="team-member-form__personal-middle-column">
+              <div className="team-member-form__personal-row">
                 <label
                   className="team-member-form__label team-member-form__label-half"
                   id="first-name"
@@ -91,7 +91,6 @@ class TeamMemberForm extends React.Component {
                   htmlFor="last-name"
                 >
                   Last Name
-
                   <input
                     className="team-member-form__input"
                     name="lastName"
@@ -129,22 +128,22 @@ class TeamMemberForm extends React.Component {
                 />
               </label>
             </div>
-            <div className="team-member-form__personal__last-column">
+            <div className="team-member-form__personal-right-column">
               <label
                 className="team-member-form__label"
-                id="adress"
-                htmlFor="adress"
+                id="address"
+                htmlFor="address"
               >
                 Adress
                 <input
                   className="team-member-form__input"
-                  name="adress"
-                  id="adress"
+                  name="address"
+                  id="address"
                   required
                   pattern="([1-9][e][\s])*([a-zA-Z]+(([\.][\s])|([\s]))?)+[1-9][0-9]*(([-][1-9][0-9]*)|([\s]?[a-zA-Z]+))"
                 />
               </label>
-              <div className="team-member-form__personal__last-column__row">
+              <div className="team-member-form__personal-row">
                 <label
                   className="team-member-form__label team-member-form__label-half"
                   id="zip-code"
@@ -175,10 +174,10 @@ class TeamMemberForm extends React.Component {
                   />
                 </label>
               </div>
-              <div className="team-member-form__personal__last-column__row">
-                <span className="team-member-form__personal__last-column__twitter-logo">
+              <div className="team-member-form__personal-row">
+                <span className="team-member-form__personal-twitter-logo">
                   <img
-                    className="team-member-form__personal__last-column__twitter-logo__svg"
+                    className="team-member-form__personal-svg"
                     src="/static/icons/twitter-logo.svg"
                     alt="plus"
                   />
@@ -189,10 +188,10 @@ class TeamMemberForm extends React.Component {
                   id="twitter"
                 />
               </div>
-              <div className="team-member-form__personal__last-column__row">
-                <span className="team-member-form__personal__last-column__facebook-logo">
+              <div className="team-member-form__personal-row">
+                <span className="team-member-form__personal-facebook-logo">
                   <img
-                    className="team-member-form__personal__last-column__facebook-logo__svg"
+                    className="team-member-form__personal-svg"
                     src="/static/icons/facebook-logo.svg"
                     alt="plus"
                   />
