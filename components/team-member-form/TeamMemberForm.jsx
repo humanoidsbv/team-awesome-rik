@@ -86,7 +86,7 @@ class TeamMemberForm extends React.Component {
                   />
                 </label>
                 <label
-                  className="team-member-form__label team-member-form__label-half"
+                  className="team-member-form__label"
                   id="last-name"
                   htmlFor="last-name"
                 >
@@ -150,7 +150,6 @@ class TeamMemberForm extends React.Component {
                   htmlFor="zip-code"
                 >
                     ZIP code
-
                   <input
                     className="team-member-form__input"
                     name="zipCode"
@@ -160,7 +159,7 @@ class TeamMemberForm extends React.Component {
                   />
                 </label>
                 <label
-                  className="team-member-form__label team-member-form__label-half"
+                  className="team-member-form__label"
                   id="city"
                   htmlFor="city"
                 >
