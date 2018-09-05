@@ -21,10 +21,8 @@ class TeamMembersOverview extends React.Component {
       address: PropTypes.string.isRequired,
       zipCode: PropTypes.string.isRequired,
       city: PropTypes.string.isRequired,
-      socialProfiles: PropTypes.shape({
-        twitter: PropTypes.string.isRequired,
-        facebook: PropTypes.string.isRequired
-      }),
+      twitter: PropTypes.string.isRequired,
+      facebook: PropTypes.string.isRequired,
       picture: PropTypes.string.isRequired
     })).isRequired
   }

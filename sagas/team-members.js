@@ -18,8 +18,8 @@ function* onDeleteTeamMember({ id }) {
 }
 
 function* onAddTeamMember(action) {
-  const timeEntry = yield call(postTeamMember, action.timeEntry);
-  yield put(addTeamMemberSuccess(timeEntry));
+  const teamMember = yield call(postTeamMember, action.teamMember);
+  yield put(addTeamMemberSuccess(teamMember));
 }
 
 export default function* watchTeamMembers() {
