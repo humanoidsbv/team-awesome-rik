@@ -1,0 +1,39 @@
+{
+  "time-entries": [
+    {
+      "employer": "Port of Rotterdam",
+      "activity": "Design",
+      "date": "06-08-2018",
+      "from": "2018-08-06T07:00:00.000Z",
+      "to": "2018-08-06T15:45:00.000Z",
+      "id": 1
+    },
+    {
+      "employer": "Port of Rotterdam",
+      "activity": "Design",
+      "date": "05-09-2018",
+      "from": "2018-09-05T07:00:00.000Z",
+      "to": "2018-09-05T08:00:00.000Z",
+      "id": 2
+    }
+  ],
+  "team-members": [
+    {
+      "id": 1,
+      "employeeNumber": "HUM_007",
+      "currentEmployer": "Humanoids",
+      "profession": "Developer",
+      "startDate": "2018-08-06T07:00:00.000Z",
+      "firstName": "Rik",
+      "lastName": "Frieling",
+      "email": "rikfrieling@gmail.com",
+      "bio": "Houdt van lange strandwandelingen en leuke dingen doen met vrienden",
+      "address": "Hamburgerstraat 14bis",
+      "zipCode": "3512 NR",
+      "city": "Utrecht",
+      "twitter": "/rikker",
+      "facebook": "/rikBook",
+      "picture": "/static/rik.jpg"
+    }
+  ]
+}
