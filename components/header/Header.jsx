@@ -40,7 +40,7 @@ class Header extends React.Component {
             <li className="main-nav__item main-nav__item--active">
               <Link href="/time-entries">
                 <a>
-                Timesheets
+                  Timesheets
                 </a>
               </Link>
             </li>
