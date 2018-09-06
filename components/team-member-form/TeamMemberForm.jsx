@@ -45,9 +45,10 @@ class TeamMemberForm extends React.Component {
     }));
   }
 
-  handleSubmit = () => {
+  handleSubmit = (event) => {
     const { addTeamMember } = this.props;
     const { formData } = this.state;
+    event.preventDefault();
 
     if (this.inputForm.current
         && Array.from(this.inputForm.current.elements)
@@ -58,6 +59,7 @@ class TeamMemberForm extends React.Component {
   }
 
   render() {
+    const { formData } = this.state;
     return (
       <div className="container">
         <div className="team-member-form__title-bar">
@@ -116,7 +118,8 @@ class TeamMemberForm extends React.Component {
                     name="firstName"
                     id="first-name"
                     required
-                    onChange={(event) => this.handleChange(event)}
+                    onChange={this.handleChange}
+                    value={formData.firstName}
                   />
                 </label>
                 <label
@@ -130,7 +133,8 @@ class TeamMemberForm extends React.Component {
                     name="lastName"
                     id="last-name"
                     required
-                    onChange={(event) => this.handleChange(event)}
+                    onChange={this.handleChange}
+                    value={formData.lastName}
                   />
                 </label>
               </div>
@@ -145,7 +149,8 @@ class TeamMemberForm extends React.Component {
                   name="email"
                   id="email"
                   required
-                  onChange={(event) => this.handleChange(event)}
+                  onChange={this.handleChange}
+                  value={formData.email}
                 />
               </label>
               <label
@@ -159,7 +164,8 @@ class TeamMemberForm extends React.Component {
                   name="bio"
                   id="bio"
                   required
-                  onChange={(event) => this.handleChange(event)}
+                  onChange={this.handleChange}
+                  value={formData.bio}
                 />
               </label>
             </div>
@@ -175,7 +181,8 @@ class TeamMemberForm extends React.Component {
                   name="address"
                   id="address"
                   required
-                  onChange={(event) => this.handleChange(event)}
+                  onChange={this.handleChange}
+                  value={formData.address}
                 />
               </label>
               <div className="team-member-form__personal-row">
@@ -190,7 +197,8 @@ class TeamMemberForm extends React.Component {
                     name="zipCode"
                     id="zip-code"
                     required
-                    onChange={(event) => this.handleChange(event)}
+                    onChange={this.handleChange}
+                    value={formData.zipCode}
                   />
                 </label>
                 <label
@@ -204,7 +212,8 @@ class TeamMemberForm extends React.Component {
                     name="city"
                     id="city"
                     required
-                    onChange={(event) => this.handleChange(event)}
+                    onChange={this.handleChange}
+                    value={formData.city}
                   />
                 </label>
               </div>
@@ -224,7 +233,8 @@ class TeamMemberForm extends React.Component {
                     className="team-member-form__input team-member-form__input-social"
                     name="twitter"
                     id="twitter"
-                    onChange={(event) => this.handleChange(event)}
+                    onChange={this.handleChange}
+                    value={formData.twitter}
                   />
                 </div>
                 <div className="team-member-form__personal-row">
@@ -239,7 +249,8 @@ class TeamMemberForm extends React.Component {
                     className="team-member-form__input team-member-form__input-social "
                     name="facebook"
                     id="facebook"
-                    onChange={(event) => this.handleChange(event)}
+                    onChange={this.handleChange}
+                    value={formData.facebook}
                   />
                 </div>
               </div>

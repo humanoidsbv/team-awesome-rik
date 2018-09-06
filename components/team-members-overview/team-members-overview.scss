@@ -1,18 +1,89 @@
 @import "../../shared/styles/main";
 
-.team-member-button {
-  background-image: linear-gradient(to bottom, $color-monochrome-13, $color-monochrome-14 98%);
-  border: solid $default-border-height $color-monochrome-12;
-  border-radius: $default-border-radius;
-  color: $color-letter-on-primary;
-  font-family: $font-primary;
-  font-size: $font-size-primary;
-  height: 36px;
-  margin-bottom: 32px;
-  margin-top: 24px;
-  width: 100%;
+.team-member-overview {
 
-  &__plus {
-    margin-right: 15px;
+  &__header {
+    display: flex;
+
+    @include tablet {
+      align-items: baseline;
+      justify-content: space-between;
+      margin-top: 29px;
+    }
+
+    &-buttons {
+      width: 100%;
+
+      @include tablet {
+        align-items: center;
+        display: flex;
+        justify-content: flex-end;
+        width: auto;
+      }
+    }
+  }
+
+  &__text {
+    display: none;
+    font-size: 24px;
+
+    @include tablet {
+      display: flex;
+    }
+  }
+
+  &__button-sort {
+    display: none;
+
+    @include tablet {
+      align-items: center;
+      background-color: inherit;
+      border: solid $default-border-height $color-monochrome-15;
+      border-radius: $default-border-radius;
+      color: $color-monochrome-18;
+      display: flex;
+      font-size: $font-size-primary;
+      height: 36px;
+      justify-content: center;
+    }
+
+    &::after {
+      background: no-repeat url("/static/icons/arrow-down.svg");
+      content: "";
+      height: 5px;
+      margin-left: 36px;
+      width: 11px;
+    }
+  }
+
+  &__button-new {
+    align-items: baseline;
+    background-image: linear-gradient(to bottom, $color-monochrome-13, $color-monochrome-14 98%);
+    border: solid $default-border-height $color-monochrome-12;
+    border-radius: $default-border-radius;
+    color: $color-letter-on-primary;
+    display: flex;
+    font-family: $font-primary;
+    font-size: $font-size-primary;
+    height: 36px;
+    justify-content: center;
+    margin-bottom: 32px;
+    margin-top: 24px;
+    width: 100%;
+
+    @include tablet {
+      margin-bottom: 0;
+      margin-right: 12px;
+      margin-top: 0;
+      width: auto;
+    }
+
+    &::before  {
+      background-image: url("/static/icons/plus.svg");
+      content: "";
+      height: 10px;
+      margin-right: 15px;
+      width: 10px;
+    }
   }
 }

@@ -35,20 +35,30 @@ class TeamMembersOverview extends React.Component {
     const { teamMembers } = this.props;
     return (
       <div className="container">
-        <Link href="add-team-member">
-          <button
-            className="team-member-button"
-            type="button"
-          >
-            <img
-              className="team-member-button__plus"
-              src="/static/icons/plus.svg"
-              alt="plus"
-            />
-            New Humanoid
-          </button>
-        </Link>
-        <TeamMembers teamMembers={teamMembers} />
+        <div className="team-members-overview">
+          <div className="team-member-overview__header">
+            <span className="team-member-overview__text">
+              All Humanoids
+            </span>
+            <span className="team-member-overview__header-buttons">
+              <Link href="add-team-member">
+                <button
+                  className="team-member-overview__button-new"
+                  type="button"
+                >
+                    New Humanoid
+                </button>
+              </Link>
+              <button
+                className="team-member-overview__button-sort"
+                type="button"
+              >
+                  Sort by:
+              </button>
+            </span>
+          </div>
+          <TeamMembers teamMembers={teamMembers} />
+        </div>
       </div>
     );
   }

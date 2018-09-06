@@ -1,6 +1,7 @@
 @import "../../shared/styles/main";
 
 .time-entry-button {
+  align-items: baseline;
   background-image: linear-gradient(to bottom, $color-monochrome-13, $color-monochrome-14 98%);
   border: solid $default-border-height $color-monochrome-12;
   border-radius: $default-border-radius;
@@ -8,16 +9,25 @@
   font-family: $font-primary;
   font-size: $font-size-primary;
   height: 36px;
+  justify-content: center;
   margin-bottom: 32px;
   margin-top: 24px;
   width: 100%;
+
+  &::before {
+    background-image: url("/static/icons/plus.svg");
+    content: "";
+    height: 10px;
+    margin-right: 15px;
+    width: 10px;
+  }
 
   &--hidden {
     display: none;
   }
 
   &--visible {
-    display: block;
+    display: flex;
   }
 
   &__plus {

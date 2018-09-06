@@ -105,11 +105,6 @@ class TimeEntryForm extends React.Component {
           type="button"
           onClick={this.handleClick}
         >
-          <img
-            className="time-entry-button__plus"
-            src="/static/icons/plus.svg"
-            alt="plus"
-          />
           New time entry
         </button>
         <form
