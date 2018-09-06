@@ -7,7 +7,7 @@ import './team-members-overview.scss';
 
 const TeamMembersOverview = () => (
   <div className="container">
-    <Link href="add-team-member">
+    <Link href="/add-team-member">
       <button
         className="team-member-button"
         type="button"
