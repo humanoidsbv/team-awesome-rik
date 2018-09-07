@@ -1,0 +1,72 @@
+@import "../../../shared/styles/main";
+
+.main-nav {
+  background: $color-primary;
+  position: fixed;
+  visibility: hidden;
+  width: 100%;
+
+
+  @include desktop {
+    display: block;
+    height: 100%;
+    position: relative;
+    visibility: visible;
+  }
+
+  &--open {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__nav-list {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin-top: 70px;
+
+    @include desktop {
+      align-items: center;
+      flex-direction: row;
+      height: auto;
+      margin-top: 0;
+      padding-top: 16px;
+      }
+    }
+
+  &__item {
+    color: $color-letter-on-primary;
+    font-family: $font-primary;
+    font-size: $font-size-mobile;
+    font-stretch: normal;
+    font-style: normal;
+    font-weight: $font-weight-light;
+    height: $font-height-mobile;
+    margin-bottom: 43px;
+    margin-right: 14px;
+    padding: 0 18px 18px;
+
+    @include desktop {
+      font-size: $font-size-primary;
+      font-weight: $font-weight-light;
+      margin-bottom: 0;
+      padding: 8px 18px 18px;
+      }
+
+
+    &--active {
+      background: $color-highlight;
+      border-radius: $default-border-radius;
+    }
+  }
+
+  & a {
+    text-decoration: none;
+
+    &:visited {
+      color: $color-monochrome-1;
+    }
+  }
+  }
