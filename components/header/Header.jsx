@@ -30,12 +30,12 @@ class Header extends React.Component {
             onClick={this.handleClick}
           >
             <img
-              className="menu-toggle__item menu-toggle__item--close"
+              className="menu-toggle__item-hamburger"
               src="/static/icons/hamburger.svg"
               alt="burger"
             />
             <img
-              className="menu-toggle__item menu-toggle__item--open"
+              className="menu-toggle__item-cross"
               src="/static/icons/close.svg"
               alt="cross"
             />
