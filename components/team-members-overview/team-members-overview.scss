@@ -5,7 +5,7 @@
   &__header {
     display: flex;
 
-    @include tablet {
+    @include desktop {
       align-items: baseline;
       justify-content: space-between;
       margin-top: 29px;
@@ -14,7 +14,7 @@
     &-buttons {
       width: 100%;
 
-      @include tablet {
+      @include desktop {
         align-items: center;
         display: flex;
         justify-content: flex-end;
@@ -27,7 +27,7 @@
     display: none;
     font-size: 24px;
 
-    @include tablet {
+    @include desktop {
       display: flex;
     }
   }
@@ -35,7 +35,7 @@
   &__button-sort {
     display: none;
 
-    @include tablet {
+    @include desktop {
       align-items: center;
       background-color: inherit;
       border: solid $default-border-height $color-monochrome-15;
@@ -71,7 +71,7 @@
     margin-top: 24px;
     width: 100%;
 
-    @include tablet {
+    @include desktop {
       margin-bottom: 0;
       margin-right: 12px;
       margin-top: 0;

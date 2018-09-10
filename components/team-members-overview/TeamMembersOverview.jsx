@@ -49,12 +49,22 @@ class TeamMembersOverview extends React.Component {
                     New Humanoid
                 </button>
               </Link>
-              <button
-                className="team-member-overview__button-sort"
-                type="button"
-              >
-                  Sort by:
-              </button>
+              <select className="team-member-overview__button-sort">
+                <option>
+                  First Name
+                </option>
+                <option>
+                  Last Name
+                </option>
+              </select>
+              <select className="team-member-overview__button-sort">
+                <option>
+                  Ascending
+                </option>
+                <option>
+                  Descending
+                </option>
+              </select>
             </span>
           </div>
           <TeamMembers teamMembers={teamMembers} />

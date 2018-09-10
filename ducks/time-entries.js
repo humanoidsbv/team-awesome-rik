@@ -1,16 +1,47 @@
+import { createSelector } from 'reselect';
+
 export const ADD_TIME_ENTRY = 'ADD_TIME_ENTRY';
 export const ADD_TIME_ENTRY_SUCCESS = 'ADD_TIME_ENTRY_SUCCESS';
 export const DELETE_TIME_ENTRY = 'DELETE_TIME_ENTRY';
 export const DELETE_TIME_ENTRY_SUCCESS = 'DELETE_TIME_ENTRY_SUCCESS';
 export const REQUEST_TIME_ENTRIES = 'REQUEST_TIME_ENTRIES';
 export const REQUEST_TIME_ENTRIES_SUCCESS = 'REQUEST_TIME_ENTRIES_SUCCESS';
+export const FILTER_TIME_ENTRIES = 'FILTER_TIME_ENTRIES';
+export const FILTER_TIME_ENTRIES_SUCCESS = 'FILTER_TIME_ENTRIES_SUCCESS';
 
-export const timeEntriesSelector = (state) => state.timeEntries.items;
+
+const timeEntriesRoot = (state) => state.timeEntries;
+
+const timeEntriesItemsSelector = createSelector(timeEntriesRoot,
+  (timeEntries) => timeEntries.items);
+
+const timeEntryActiveFilterSelector = createSelector(timeEntriesRoot,
+  (timeEntries) => timeEntries.activeFilter);
+
+export const timeEntriesSelector = createSelector(
+  [timeEntriesItemsSelector, timeEntryActiveFilterSelector],
+  (timeEntries, activeFilter) => (
+    (!activeFilter
+      ? timeEntries
+      : timeEntries.filter((item) => item.employer === activeFilter))
+      .sort((a, b) => {
+        if (a.from > b.from) {
+          return 1;
+        }
+        if (a.from < b.from) {
+          return -1;
+        }
+        return 0;
+      })
+  )
+);
+
 
 export const initialState = {
   items: [],
   error: '',
-  isLoading: false
+  isLoading: false,
+  activeFilter: ''
 };
 
 export const timeEntriesReducer = (state = initialState, action) => {
@@ -30,6 +61,10 @@ export const timeEntriesReducer = (state = initialState, action) => {
       return { ...state, isLoading: true };
     case REQUEST_TIME_ENTRIES_SUCCESS:
       return { ...state, items: action.timeEntries, isLoading: false };
+    case FILTER_TIME_ENTRIES:
+      return { ...state, isLoading: true };
+    case FILTER_TIME_ENTRIES_SUCCESS:
+      return { ...state, activeFilter: action.filter, isLoading: false };
     default:
       return state;
   }
@@ -48,3 +83,5 @@ export const requestTimeEntries = () => ({ type: REQUEST_TIME_ENTRIES });
 export const requestTimeEntriesSucces = (timeEntries) => (
   { type: REQUEST_TIME_ENTRIES_SUCCESS, timeEntries }
 );
+export const filterTimeEntries = (filter) => ({ type: FILTER_TIME_ENTRIES, filter });
+export const filterTimeEntriesSuccess = (filter) => ({ type: FILTER_TIME_ENTRIES_SUCCESS, filter });
