@@ -113,13 +113,13 @@ class TimeEntryForm extends React.Component {
           ref={this.inputForm}
         >
           <div className="form-container">
-            <div className="form-inputs">
-              <div className="form__list-item form__list-item--first">
+            <div className="time-entry-form">
+              <div className="form__list-item">
                 <label id="employer" htmlFor="employer">
                   <div className="first-row">
-                    <span>
+                    <h2 className="form__text">
                       EMPLOYER
-                    </span>
+                    </h2>
                     <button
                       className="form__button-close"
                       onClick={this.handleClick}

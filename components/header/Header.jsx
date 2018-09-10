@@ -20,11 +20,15 @@ class Header extends React.Component {
 
     return (
       <header className="header">
-        <div className="title-bar">
+        <div className="header__title-bar">
           <a href="/">
             team awesome
           </a>
-          <button className={`menu-toggle ${isMenuOpen ? 'menu-toggle--close' : 'menu-toggle--open'}`} type="button" onClick={this.handleClick}>
+          <button
+            className={`header__menu-toggle header__menu-toggle${isMenuOpen ? '--close' : '--open'}`}
+            type="button"
+            onClick={this.handleClick}
+          >
             <img
               className="menu-toggle__item menu-toggle__item--close"
               src="/static/icons/hamburger.svg"

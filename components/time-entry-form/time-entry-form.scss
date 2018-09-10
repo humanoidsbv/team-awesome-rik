@@ -37,7 +37,7 @@
     width: 10px;
   }
 
-  @include tablet {
+  @include desktop {
     display: none;
   }
 }
@@ -45,8 +45,10 @@
 .form-container {
   margin-left: $default-margin;
   margin-right: $default-margin;
+  max-width: 1170px;
   width: 100%;
-  @include tablet {
+
+  @include desktop {
     align-items: center;
     display: flex;
     justify-content: space-between;
@@ -63,7 +65,6 @@
   color: $color-monochrome-9;
   font-family: $font-primary;
   font-size: $font-size-primary;
-  height: 422px;
   margin-top: 24px;
   width: 100%;
 
@@ -75,7 +76,7 @@
     display: none;
   }
 
-  @include tablet {
+  @include desktop {
     align-items: center;
     display: flex;
     flex-direction: row;
@@ -96,9 +97,10 @@
     background-color: $color-monochrome-10;
     height: 7px;
     mask: url("/static/icons/close.svg") no-repeat center;
+    padding: 10px;
     width: 7px;
 
-    @include tablet {
+    @include desktop {
       display: none;
     }
   }
@@ -107,7 +109,7 @@
     font-size: $font-size-primary;
     margin-top: 16px;
 
-    @include tablet {
+    @include desktop {
       flex-basis: 245px;
       margin-bottom: 20px;
       margin-left: 0;
@@ -115,7 +117,7 @@
     }
 
     &--date {
-      @include tablet {
+      @include desktop {
         flex-basis: 130px;
       }
     }
@@ -154,7 +156,7 @@
       flex-direction: row;
       justify-content: space-between;
 
-      @include tablet {
+      @include desktop {
         flex-basis: 141px;
       }
 
@@ -162,7 +164,7 @@
         padding-left: 0;
         padding-right: 60px;
 
-        @include tablet {
+        @include desktop {
           padding-left: 0;
           padding-right: 0;
 
@@ -171,11 +173,11 @@
     }
   }
 
-  .form-inputs {
+  .time-entry-form {
     display: flex;
     flex-direction: column;
 
-    @include tablet {
+    @include desktop {
       align-items: center;
       flex-direction: row;
       justify-content: space-between;
@@ -192,7 +194,7 @@
     margin-top: 42px;
     width: 100%;
 
-    @include tablet {
+    @include desktop {
       height: 36px;
       margin-bottom: 20px;
       width: 90px;

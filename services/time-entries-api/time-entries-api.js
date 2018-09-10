@@ -14,7 +14,7 @@ export const getTimeEntries = () => (
 );
 
 export const postTimeEntry = (timeEntry) => (
-  fetch(apiUrl, {
+  fetch(`${rootUrl()}${apiUrl}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

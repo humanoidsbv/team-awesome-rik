@@ -14,7 +14,7 @@
     }
   }
 
-.menu-toggle {
+.header__menu-toggle {
   background-color: $color-primary;
   border: none;
   height: 20px;
@@ -47,7 +47,7 @@
   }
 }
 
-.title-bar {
+.header__title-bar {
   -webkit-font-smoothing: antialiased;
   background: $color-primary;
   padding-bottom: 12px;
