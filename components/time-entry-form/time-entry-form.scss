@@ -45,7 +45,6 @@
 .form-container {
   margin-left: $default-margin;
   margin-right: $default-margin;
-  max-width: 1170px;
   width: 100%;
 
   @include desktop {
@@ -80,15 +79,8 @@
     align-items: center;
     display: flex;
     flex-direction: row;
-    height: 94px;
     justify-content: space-between;
     margin-bottom: 33px;
-  }
-
-  & .first-row {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
   }
 
   &__button-close {
@@ -99,9 +91,25 @@
     mask: url("/static/icons/close.svg") no-repeat center;
     padding: 10px;
     width: 7px;
+    z-index: 10;
 
     @include desktop {
       display: none;
+    }
+  }
+
+  &__input {
+    background-image: linear-gradient(to top, $color-monochrome-16, $color-monochrome-1);
+    border: solid $default-border-height $color-monochrome-15;
+    border-radius: $default-border-radius;
+    font-size: $font-size-primary;
+    height: 36px;
+    margin-top: 12px;
+    width: 100%;
+
+    &:invalid,
+    &--invalid {
+      border: solid $default-border-height $color-monochrome-17;
     }
   }
 
@@ -110,78 +118,16 @@
     margin-top: 16px;
 
     @include desktop {
-      flex-basis: 245px;
       margin-bottom: 20px;
       margin-left: 0;
       margin-right: 13px;
-    }
-
-    &--date {
-      @include desktop {
-        flex-basis: 130px;
-      }
-    }
-
-    & select {
-      background-image: linear-gradient(to top, $color-monochrome-16, $color-monochrome-1);
-      border: solid $default-border-height $color-monochrome-15;
-      font-size: $font-size-primary;
-      height: 36px;
-      margin-top: 12px;
       width: 100%;
-
-      &:invalid,
-      &--invalid {
-        border: solid $default-border-height $color-monochrome-17;
-      }
-    }
-
-    & input {
-      background-image: linear-gradient(to top, $color-monochrome-16, $color-monochrome-1);
-      border: solid $default-border-height $color-monochrome-15;
-      border-radius: $default-border-radius;
-      font-size: $font-size-primary;
-      height: 36px;
-      margin-top: 12px;
-      width: 100%;
-
-      &:invalid,
-      &--invalid {
-        border: solid $default-border-height $color-monochrome-17;
-      }
     }
 
     &--half {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-
-      @include desktop {
-        flex-basis: 141px;
-      }
-
-      select {
-        padding-left: 0;
-        padding-right: 60px;
-
-        @include desktop {
-          padding-left: 0;
-          padding-right: 0;
-
-        }
-      }
-    }
-  }
-
-  .time-entry-form {
-    display: flex;
-    flex-direction: column;
-
-    @include desktop {
-      align-items: center;
-      flex-direction: row;
-      justify-content: space-between;
-      width: 75%;
     }
   }
 
@@ -201,6 +147,28 @@
     }
 
   }
+}
+
+.time-entry-form {
+  display: flex;
+  flex-direction: column;
+
+  @include desktop {
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 75%;
+  }
+}
+
+.first-row {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.form__label-from {
+  margin-right: 10px;
 }
 
 .invalid-form {
