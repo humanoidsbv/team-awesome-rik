@@ -39,16 +39,12 @@ class Header extends React.Component {
           <ul className="main-nav__nav-list">
             <li className="main-nav__item main-nav__item--active">
               <Link href="/time-entries">
-                <a>
-                  Timesheets
-                </a>
+                <a> Timesheets </a>
               </Link>
             </li>
             <li className="main-nav__item">
               <Link href="/team-members">
-                <a>
-                Team Members
-                </a>
+                <a> Team Members </a>
               </Link>
             </li>
             <li className="main-nav__item">
