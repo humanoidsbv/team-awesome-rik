@@ -58,7 +58,7 @@
 .employee-details-desktop {
   display: none;
 
-  @include tablet {
+  @include desktop {
     align-items: center;
     display: flex;
     justify-content: space-between;

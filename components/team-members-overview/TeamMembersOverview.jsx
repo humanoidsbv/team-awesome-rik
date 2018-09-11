@@ -7,7 +7,11 @@ import './team-members-overview.scss';
 
 class TeamMembersOverview extends React.Component {
   static propTypes = {
+    changeSortDirection: PropTypes.func.isRequired,
     requestTeamMembers: PropTypes.func.isRequired,
+    sortBy: PropTypes.string.isRequired,
+    sortDirection: PropTypes.string.isRequired,
+    sortTeamMembers: PropTypes.func.isRequired,
     teamMembers: PropTypes.arrayOf(PropTypes.shape({
       id: PropTypes.number.isRequired,
       employeeNumber: PropTypes.string.isRequired,
@@ -31,8 +35,16 @@ class TeamMembersOverview extends React.Component {
     this.props.requestTeamMembers();
   }
 
+  handleChangeSortBy = ({ target }) => {
+    this.props.sortTeamMembers(target.value);
+  }
+
+  handleChangeSortDirection = ({ target }) => {
+    this.props.changeSortDirection(target.value);
+  }
+
   render() {
-    const { teamMembers } = this.props;
+    const { teamMembers, sortBy, sortDirection } = this.props;
     return (
       <div className="container">
         <div className="team-members-overview">
@@ -49,12 +61,32 @@ class TeamMembersOverview extends React.Component {
                     New Humanoid
                 </button>
               </Link>
-              <button
+              <select
                 className="team-member-overview__button-sort"
-                type="button"
+                name="sortBy"
+                onChange={this.handleChangeSortBy}
+                value={sortBy}
               >
-                  Sort by:
-              </button>
+                <option value="firstName">
+                  First Name
+                </option>
+                <option value="lastName">
+                  Last Name
+                </option>
+              </select>
+              <select
+                className="team-member-overview__button-sort"
+                name="sortDirection"
+                onChange={this.handleChangeSortDirection}
+                value={sortDirection}
+              >
+                <option value="ascending">
+                  Ascending
+                </option>
+                <option value="descending">
+                  Descending
+                </option>
+              </select>
             </span>
           </div>
           <TeamMembers teamMembers={teamMembers} />

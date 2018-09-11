@@ -97,7 +97,7 @@
   flex-direction: column;
   margin-top: -1px;
 
-  @include tablet {
+  @include desktop {
     flex-direction: row;
   }
 }
