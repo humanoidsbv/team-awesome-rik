@@ -15,7 +15,7 @@ const timeEntriesRoot = (state) => state.timeEntries;
 const timeEntriesItemsSelector = createSelector(timeEntriesRoot,
   (timeEntries) => timeEntries.items);
 
-const timeEntryActiveFilterSelector = createSelector(timeEntriesRoot,
+export const timeEntryActiveFilterSelector = createSelector(timeEntriesRoot,
   (timeEntries) => timeEntries.activeFilter);
 
 export const timeEntriesSelector = createSelector(

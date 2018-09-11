@@ -7,6 +7,7 @@ import './time-entry-overview.scss';
 
 class TimeEntryOverview extends React.Component {
   static propTypes = {
+    activeFilter: PropTypes.string.isRequired,
     addTimeEntry: PropTypes.func.isRequired,
     deleteTimeEntry: PropTypes.func.isRequired,
     filterTimeEntriesSuccess: PropTypes.func.isRequired,
@@ -36,7 +37,7 @@ class TimeEntryOverview extends React.Component {
   }
 
   render() {
-    const { timeEntries } = this.props;
+    const { activeFilter, timeEntries } = this.props;
 
     return (
       <div className="time-entry-overview">
@@ -47,8 +48,10 @@ class TimeEntryOverview extends React.Component {
           </div>
           <div className="time-entry-overview__header-search-and-select">
             <select
-              type="select"
               onChange={this.handleChange}
+              type="select"
+              value={activeFilter}
+
             >
               <option value="">
                 All Employers

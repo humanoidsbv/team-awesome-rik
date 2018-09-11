@@ -4,7 +4,8 @@ import { bindActionCreators } from 'redux';
 
 import {
   addTimeEntry, deleteTimeEntry,
-  filterTimeEntriesSuccess, requestTimeEntries, timeEntriesSelector
+  filterTimeEntriesSuccess, requestTimeEntries,
+  timeEntryActiveFilterSelector, timeEntriesSelector
 } from '../../ducks/time-entries';
 import TimeEntryOverview from './TimeEntryOverview';
 
@@ -14,6 +15,7 @@ const TimeEntryOverviewContainer = (props) => (
 
 
 const mapStateToProps = (state) => ({
+  activeFilter: timeEntryActiveFilterSelector(state),
   timeEntries: timeEntriesSelector(state)
 });
 

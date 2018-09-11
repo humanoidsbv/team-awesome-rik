@@ -1,15 +1,49 @@
+import { createSelector } from 'reselect';
+
+
 export const ADD_TEAM_MEMBER = 'ADD_TEAM_MEMBER';
 export const ADD_TEAM_MEMBER_SUCCESS = 'ADD_TEAM_MEMBER_SUCCESS';
 export const DELETE_TEAM_MEMBER = 'DELETE_TEAM_MEMBER';
 export const DELETE_TEAM_MEMBER_SUCCESS = 'DELETE_TEAM_MEMBER_SUCCESS';
 export const REQUEST_TEAM_MEMBERS = 'REQUEST_TEAM_MEMBERS';
 export const REQUEST_TEAM_MEMBERS_SUCCESS = 'REQUEST_TEAM_MEMBERS_SUCCESS';
+export const SORT_TEAM_MEMBERS_SUCCESS = 'SORT_TEAM_MEMBERS_SUCCESS';
+export const CHANGE_SORT_DIRECTION_SUCCES = 'CHANGE_SORT_DIRECTION_SUCCES';
 
-export const teamMembersSelector = (state) => state.teamMembers.items;
+
+const teamMembersRoot = (state) => state.teamMembers;
+
+const teamMembersItemsSelector = createSelector(teamMembersRoot,
+  (teamMembers) => teamMembers.items);
+
+export const teamMembersSortBySelector = createSelector(teamMembersRoot,
+  (teamMembers) => teamMembers.sortBy);
+
+export const teamMembersSortDirectionSelector = createSelector(teamMembersRoot,
+  (teamMembers) => teamMembers.sortDirection);
+
+export const teamMembersSelector = createSelector(
+  [teamMembersItemsSelector, teamMembersSortBySelector, teamMembersSortDirectionSelector],
+  (teamMembers, sortBy, sortDirection) => (
+    [...teamMembers].sort((a, b) => {
+      const upperA = a[sortBy].toUpperCase();
+      const upperB = b[sortBy].toUpperCase();
+      if (upperA > upperB) {
+        return sortDirection === 'ascending' ? 1 : -1;
+      }
+      if (upperA < upperB) {
+        return sortDirection === 'ascending' ? -1 : 1;
+      }
+      return 0;
+    })
+  )
+);
 
 export const initialState = {
   items: [],
-  isLoading: false
+  isLoading: false,
+  sortBy: 'firstName',
+  sortDirection: 'ascending'
 };
 
 export const teamMembersReducer = (state = initialState, action) => {
@@ -18,6 +52,8 @@ export const teamMembersReducer = (state = initialState, action) => {
       return { ...state, isLoading: true };
     case ADD_TEAM_MEMBER_SUCCESS:
       return { ...state, items: [action.teamMember, ...state.items] };
+    case CHANGE_SORT_DIRECTION_SUCCES:
+      return { ...state, sortDirection: action.sortDirection, isLoading: false };
     case DELETE_TEAM_MEMBER:
       return { ...state, isLoading: true };
     case DELETE_TEAM_MEMBER_SUCCESS:
@@ -29,6 +65,8 @@ export const teamMembersReducer = (state = initialState, action) => {
       return { ...state, isLoading: true };
     case REQUEST_TEAM_MEMBERS_SUCCESS:
       return { ...state, items: action.teamMembers, isLoading: false };
+    case SORT_TEAM_MEMBERS_SUCCESS:
+      return { ...state, sortBy: action.sortBy, isLoading: false };
     default:
       return state;
   }
@@ -46,4 +84,9 @@ export const deleteTeamMemberSuccess = (id) => (
 export const requestTeamMembers = () => ({ type: REQUEST_TEAM_MEMBERS });
 export const requestTeamMembersSucces = (teamMembers) => (
   { type: REQUEST_TEAM_MEMBERS_SUCCESS, teamMembers }
+);
+
+export const sortTeamMembersSuccess = (sortBy) => ({ type: SORT_TEAM_MEMBERS_SUCCESS, sortBy });
+export const changeSortDirectionSuccess = (sortDirection) => (
+  { type: CHANGE_SORT_DIRECTION_SUCCES, sortDirection }
 );
