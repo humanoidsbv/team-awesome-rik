@@ -15,12 +15,11 @@
   &__header-buttons {
     width: 100%;
 
-      @include desktop {
-        align-items: center;
-        display: flex;
-        justify-content: flex-end;
-        width: auto;
-      }
+    @include desktop {
+      align-items: center;
+      display: flex;
+      justify-content: flex-end;
+      width: auto;
     }
   }
 
@@ -79,7 +78,7 @@
       width: auto;
     }
 
-    &::before  {
+    &::before {
       background-image: url("/static/icons/plus.svg");
       content: "";
       height: 10px;
