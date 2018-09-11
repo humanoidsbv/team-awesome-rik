@@ -44,26 +44,35 @@ class TimeEntryOverview extends React.Component {
         <div className="time-entry-overview__header">
           <div className="time-entry-overview__header-left-side">
             <h1 className="time-entry-overview__header-text"> Timesheets </h1>
+            <div className="time-entry-overview__header-divider" />
             <h2 className="time-entry-overview__header-summation"> 12 entries </h2>
           </div>
           <div className="time-entry-overview__header-right-side">
-            <select
-              onChange={this.handleChange}
-              type="select"
-              value={activeFilter}
+            <div className="time-entry-overview__select-box-wrapper">
+              <select
+                className="time-entry-overview__select-employer"
+                onChange={this.handleChange}
+                type="select"
+                value={activeFilter}
 
-            >
-              <option value="">
-                All Employers
-              </option>
-              <option>
-                Port of Rotterdam
-              </option>
-              <option>
-                Hike One
-              </option>
-            </select>
-            <input id="search-time-entries" name="searchTimeEntries" />
+              >
+                <option value="">
+                  All Employers
+                </option>
+                <option>
+                  Port of Rotterdam
+                </option>
+                <option>
+                  Hike One
+                </option>
+              </select>
+            </div>
+            <input
+              className="time-entry-overview__search"
+              id="search-time-entries"
+              name="searchTimeEntries"
+              value="Search"
+            />
           </div>
         </div>
         <div className="container">
