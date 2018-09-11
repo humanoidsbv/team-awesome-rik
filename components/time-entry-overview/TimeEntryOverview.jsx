@@ -42,11 +42,11 @@ class TimeEntryOverview extends React.Component {
     return (
       <div className="time-entry-overview">
         <div className="time-entry-overview__header">
-          <div className="time-entry-overview__header-title">
+          <div className="time-entry-overview__header-left-side">
             <h1 className="time-entry-overview__header-text"> Timesheets </h1>
             <h2 className="time-entry-overview__header-summation"> 12 entries </h2>
           </div>
-          <div className="time-entry-overview__header-search-and-select">
+          <div className="time-entry-overview__header-right-side">
             <select
               onChange={this.handleChange}
               type="select"

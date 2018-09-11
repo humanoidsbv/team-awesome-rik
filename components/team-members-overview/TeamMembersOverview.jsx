@@ -7,11 +7,11 @@ import './team-members-overview.scss';
 
 class TeamMembersOverview extends React.Component {
   static propTypes = {
-    changeSortDirectionSuccess: PropTypes.func.isRequired,
+    changeSortDirection: PropTypes.func.isRequired,
     requestTeamMembers: PropTypes.func.isRequired,
     sortBy: PropTypes.string.isRequired,
     sortDirection: PropTypes.string.isRequired,
-    sortTeamMembersSuccess: PropTypes.func.isRequired,
+    sortTeamMembers: PropTypes.func.isRequired,
     teamMembers: PropTypes.arrayOf(PropTypes.shape({
       id: PropTypes.number.isRequired,
       employeeNumber: PropTypes.string.isRequired,
@@ -36,11 +36,11 @@ class TeamMembersOverview extends React.Component {
   }
 
   handleChangeSortBy = ({ target }) => {
-    this.props.sortTeamMembersSuccess(target.value);
+    this.props.sortTeamMembers(target.value);
   }
 
   handleChangeSortDirection = ({ target }) => {
-    this.props.changeSortDirectionSuccess(target.value);
+    this.props.changeSortDirection(target.value);
   }
 
   render() {

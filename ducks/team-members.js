@@ -7,8 +7,8 @@ export const DELETE_TEAM_MEMBER = 'DELETE_TEAM_MEMBER';
 export const DELETE_TEAM_MEMBER_SUCCESS = 'DELETE_TEAM_MEMBER_SUCCESS';
 export const REQUEST_TEAM_MEMBERS = 'REQUEST_TEAM_MEMBERS';
 export const REQUEST_TEAM_MEMBERS_SUCCESS = 'REQUEST_TEAM_MEMBERS_SUCCESS';
-export const SORT_TEAM_MEMBERS_SUCCESS = 'SORT_TEAM_MEMBERS_SUCCESS';
-export const CHANGE_SORT_DIRECTION_SUCCES = 'CHANGE_SORT_DIRECTION_SUCCES';
+export const SORT_TEAM_MEMBERS = 'SORT_TEAM_MEMBERS';
+export const CHANGE_SORT_DIRECTION = 'CHANGE_SORT_DIRECTION';
 
 
 const teamMembersRoot = (state) => state.teamMembers;
@@ -52,8 +52,8 @@ export const teamMembersReducer = (state = initialState, action) => {
       return { ...state, isLoading: true };
     case ADD_TEAM_MEMBER_SUCCESS:
       return { ...state, items: [action.teamMember, ...state.items] };
-    case CHANGE_SORT_DIRECTION_SUCCES:
-      return { ...state, sortDirection: action.sortDirection, isLoading: false };
+    case CHANGE_SORT_DIRECTION:
+      return { ...state, sortDirection: action.sortDirection };
     case DELETE_TEAM_MEMBER:
       return { ...state, isLoading: true };
     case DELETE_TEAM_MEMBER_SUCCESS:
@@ -65,8 +65,8 @@ export const teamMembersReducer = (state = initialState, action) => {
       return { ...state, isLoading: true };
     case REQUEST_TEAM_MEMBERS_SUCCESS:
       return { ...state, items: action.teamMembers, isLoading: false };
-    case SORT_TEAM_MEMBERS_SUCCESS:
-      return { ...state, sortBy: action.sortBy, isLoading: false };
+    case SORT_TEAM_MEMBERS:
+      return { ...state, sortBy: action.sortBy };
     default:
       return state;
   }
@@ -86,7 +86,7 @@ export const requestTeamMembersSucces = (teamMembers) => (
   { type: REQUEST_TEAM_MEMBERS_SUCCESS, teamMembers }
 );
 
-export const sortTeamMembersSuccess = (sortBy) => ({ type: SORT_TEAM_MEMBERS_SUCCESS, sortBy });
-export const changeSortDirectionSuccess = (sortDirection) => (
-  { type: CHANGE_SORT_DIRECTION_SUCCES, sortDirection }
+export const sortTeamMembers = (sortBy) => ({ type: SORT_TEAM_MEMBERS, sortBy });
+export const changeSortDirection = (sortDirection) => (
+  { type: CHANGE_SORT_DIRECTION, sortDirection }
 );

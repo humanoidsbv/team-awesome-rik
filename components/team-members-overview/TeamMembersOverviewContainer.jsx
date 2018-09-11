@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import {
-  changeSortDirectionSuccess, requestTeamMembers,
+  changeSortDirection, requestTeamMembers,
   teamMembersSortBySelector, teamMembersSortDirectionSelector,
-  sortTeamMembersSuccess, teamMembersSelector
+  sortTeamMembers, teamMembersSelector
 } from '../../ducks/team-members';
 import TeamMembersOverview from './TeamMembersOverview';
 
@@ -21,9 +21,9 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
-  changeSortDirectionSuccess,
+  changeSortDirection,
   requestTeamMembers,
-  sortTeamMembersSuccess,
+  sortTeamMembers,
   teamMembersSelector
 }, dispatch);
 
