@@ -35,15 +35,13 @@
       height: auto;
       margin-top: 0;
       padding-top: 16px;
-      }
     }
+  }
 
   &__item {
     color: $color-letter-on-primary;
     font-family: $font-primary;
     font-size: $font-size-mobile;
-    font-stretch: normal;
-    font-style: normal;
     font-weight: $font-weight-light;
     height: $font-height-mobile;
     margin-bottom: 43px;
@@ -55,7 +53,7 @@
       font-weight: $font-weight-light;
       margin-bottom: 0;
       padding: 8px 18px 18px;
-      }
+    }
 
 
     &--active {
@@ -71,4 +69,4 @@
       color: $color-monochrome-1;
     }
   }
-  }
+}

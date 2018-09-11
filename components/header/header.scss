@@ -39,26 +39,22 @@
   }
 
   &--open {
-    .menu-toggle__item {
-      &-cross {
-        display: none;
-      }
+    .menu-toggle__item-cross {
+      display: none;
+    }
 
-      &-hamburger {
-        display: block;
-      }
+    .menu-toggle__item-hamburger {
+      display: block;
     }
   }
 
   &--close {
-    .menu-toggle__item {
-      &-hamburger {
-        display: none;
-      }
+    .menu-toggle__item-hamburger {
+      display: none;
+    }
 
-      &-cross {
-        display: block;
-      }
+    .menu-toggle__item-cross {
+      display: block;
     }
   }
 }
@@ -118,8 +114,6 @@
       position: absolute;
       right: 0;
       top: 10;
-
-
+    }
   }
-}
 }
