@@ -1,6 +1,7 @@
 @import "../../shared/styles/main";
 
 .time-entry-button {
+  align-items: baseline;
   background-image: linear-gradient(to bottom, $color-monochrome-13, $color-monochrome-14 98%);
   border: solid $default-border-height $color-monochrome-12;
   border-radius: $default-border-radius;
@@ -8,16 +9,25 @@
   font-family: $font-primary;
   font-size: $font-size-primary;
   height: 36px;
+  justify-content: center;
   margin-bottom: 32px;
   margin-top: 24px;
   width: 100%;
+
+  &::before {
+    background-image: url("/static/icons/plus.svg");
+    content: "";
+    height: 10px;
+    margin-right: 15px;
+    width: 10px;
+  }
 
   &--hidden {
     display: none;
   }
 
   &--visible {
-    display: block;
+    display: flex;
   }
 
   &__plus {
@@ -27,7 +37,7 @@
     width: 10px;
   }
 
-  @include tablet {
+  @include desktop {
     display: none;
   }
 }
@@ -36,7 +46,8 @@
   margin-left: $default-margin;
   margin-right: $default-margin;
   width: 100%;
-  @include tablet {
+
+  @include desktop {
     align-items: center;
     display: flex;
     justify-content: space-between;
@@ -53,7 +64,6 @@
   color: $color-monochrome-9;
   font-family: $font-primary;
   font-size: $font-size-primary;
-  height: 422px;
   margin-top: 24px;
   width: 100%;
 
@@ -65,19 +75,12 @@
     display: none;
   }
 
-  @include tablet {
+  @include desktop {
     align-items: center;
     display: flex;
     flex-direction: row;
-    height: 94px;
     justify-content: space-between;
     margin-bottom: 33px;
-  }
-
-  & .first-row {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
   }
 
   &__button-close {
@@ -86,10 +89,27 @@
     background-color: $color-monochrome-10;
     height: 7px;
     mask: url("/static/icons/close.svg") no-repeat center;
+    padding: 10px;
     width: 7px;
+    z-index: 10;
 
-    @include tablet {
+    @include desktop {
       display: none;
+    }
+  }
+
+  &__input {
+    background-image: linear-gradient(to top, $color-monochrome-16, $color-monochrome-1);
+    border: solid $default-border-height $color-monochrome-15;
+    border-radius: $default-border-radius;
+    font-size: $font-size-primary;
+    height: 36px;
+    margin-top: 12px;
+    width: 100%;
+
+    &:invalid,
+    &--invalid {
+      border: solid $default-border-height $color-monochrome-17;
     }
   }
 
@@ -97,79 +117,17 @@
     font-size: $font-size-primary;
     margin-top: 16px;
 
-    @include tablet {
-      flex-basis: 245px;
+    @include desktop {
       margin-bottom: 20px;
       margin-left: 0;
       margin-right: 13px;
-    }
-
-    &--date {
-      @include tablet {
-        flex-basis: 130px;
-      }
-    }
-
-    & select {
-      background-image: linear-gradient(to top, $color-monochrome-16, $color-monochrome-1);
-      border: solid $default-border-height $color-monochrome-15;
-      font-size: $font-size-primary;
-      height: 36px;
-      margin-top: 12px;
       width: 100%;
-
-      &:invalid,
-      &--invalid {
-        border: solid $default-border-height $color-monochrome-17;
-      }
-    }
-
-    & input {
-      background-image: linear-gradient(to top, $color-monochrome-16, $color-monochrome-1);
-      border: solid $default-border-height $color-monochrome-15;
-      border-radius: $default-border-radius;
-      font-size: $font-size-primary;
-      height: 36px;
-      margin-top: 12px;
-      width: 100%;
-
-      &:invalid,
-      &--invalid {
-        border: solid $default-border-height $color-monochrome-17;
-      }
     }
 
     &--half {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-
-      @include tablet {
-        flex-basis: 141px;
-      }
-
-      select {
-        padding-left: 0;
-        padding-right: 60px;
-
-        @include tablet {
-          padding-left: 0;
-          padding-right: 0;
-
-        }
-      }
-    }
-  }
-
-  .form-inputs {
-    display: flex;
-    flex-direction: column;
-
-    @include tablet {
-      align-items: center;
-      flex-direction: row;
-      justify-content: space-between;
-      width: 75%;
     }
   }
 
@@ -182,13 +140,35 @@
     margin-top: 42px;
     width: 100%;
 
-    @include tablet {
+    @include desktop {
       height: 36px;
       margin-bottom: 20px;
       width: 90px;
     }
 
   }
+}
+
+.time-entry-form {
+  display: flex;
+  flex-direction: column;
+
+  @include desktop {
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 75%;
+  }
+}
+
+.first-row {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.form__label-from {
+  margin-right: 10px;
 }
 
 .invalid-form {

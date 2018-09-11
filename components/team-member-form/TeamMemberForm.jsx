@@ -1,11 +1,14 @@
 import React from 'react';
 import Link from 'next/link';
+import PropTypes from 'prop-types';
 
 import './team-member-form.scss';
 
 class TeamMemberForm extends React.Component {
   static defaultState = {
     formData: {
+      employeeNumber: 'HUM_007',
+      currentEmployer: 'Humanoids',
       profession: 'Developer',
       startDate: '2018-08-06T07:00:00.000Z',
       firstName: 'Rik',
@@ -15,14 +18,48 @@ class TeamMemberForm extends React.Component {
       address: 'Hamburgerstraat 14bis',
       zipCode: '3512 NR',
       city: 'Utrecht',
-      socialProfiles: 'links',
+      twitter: '/rikker',
+      facebook: '/rikBook',
       picture: '/static/rik.jpg'
     }
   }
 
-  state={ ...this.defaultState };
+  static propTypes = {
+    addTeamMember: PropTypes.func.isRequired
+  }
+
+  constructor(props) {
+    super(props);
+
+    this.state = { ...TeamMemberForm.defaultState };
+    this.inputForm = React.createRef();
+  }
+
+
+  handleChange = ({ target }) => {
+    this.setState((prevState) => ({
+      formData: {
+        ...prevState.formData,
+        [target.name]: target.value
+      }
+    }));
+  }
+
+  handleSubmit = (event) => {
+    const { addTeamMember } = this.props;
+    const { formData } = this.state;
+    event.preventDefault();
+
+    if (this.inputForm.current
+        && Array.from(this.inputForm.current.elements)
+          .every((element) => element.validity.valid)) {
+      addTeamMember({ ...formData });
+      this.setState({ ...TeamMemberForm.defaultState });
+    }
+  }
 
   render() {
+    const { formData } = this.state;
     return (
       <div className="container">
         <div className="team-member-form__title-bar">
@@ -40,7 +77,8 @@ class TeamMemberForm extends React.Component {
             </Link>
             <button
               className="team-member-form__submit-button"
-              type="button"
+              onClick={this.handleSubmit}
+              type="submit"
             >
               Save
             </button>
@@ -52,7 +90,11 @@ class TeamMemberForm extends React.Component {
                 Personal Details
             </div>
           </div>
-          <form className="team-member-form__personal">
+          <form
+            className="team-member-form__personal"
+            onSubmit={this.handleSubmit}
+            ref={this.inputForm}
+          >
             <div className="team-member-form__personal-left-column">
               <img
                 className="team-member-form__personal-left-column-picture"
@@ -76,7 +118,8 @@ class TeamMemberForm extends React.Component {
                     name="firstName"
                     id="first-name"
                     required
-                    pattern="([A-Za-z\\s-]+)"
+                    onChange={this.handleChange}
+                    value={formData.firstName}
                   />
                 </label>
                 <label
@@ -90,7 +133,8 @@ class TeamMemberForm extends React.Component {
                     name="lastName"
                     id="last-name"
                     required
-                    pattern="([A-Za-z\\s-]+)"
+                    onChange={this.handleChange}
+                    value={formData.lastName}
                   />
                 </label>
               </div>
@@ -105,7 +149,8 @@ class TeamMemberForm extends React.Component {
                   name="email"
                   id="email"
                   required
-                  pattern="([A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,})"
+                  onChange={this.handleChange}
+                  value={formData.email}
                 />
               </label>
               <label
@@ -119,6 +164,8 @@ class TeamMemberForm extends React.Component {
                   name="bio"
                   id="bio"
                   required
+                  onChange={this.handleChange}
+                  value={formData.bio}
                 />
               </label>
             </div>
@@ -128,13 +175,14 @@ class TeamMemberForm extends React.Component {
                 id="address"
                 htmlFor="address"
               >
-                Adress
+                Address
                 <input
                   className="team-member-form__input"
                   name="address"
                   id="address"
                   required
-                  pattern="([1-9][e][\s])*([a-zA-Z]+(([\.][\s])|([\s]))?)+[1-9][0-9]*(([-][1-9][0-9]*)|([\s]?[a-zA-Z]+))"
+                  onChange={this.handleChange}
+                  value={formData.address}
                 />
               </label>
               <div className="team-member-form__personal-row">
@@ -149,7 +197,8 @@ class TeamMemberForm extends React.Component {
                     name="zipCode"
                     id="zip-code"
                     required
-                    pattern="([1-9][0-9]{3}[\s]?[A-Za-z]{2})"
+                    onChange={this.handleChange}
+                    value={formData.zipCode}
                   />
                 </label>
                 <label
@@ -163,7 +212,8 @@ class TeamMemberForm extends React.Component {
                     name="city"
                     id="city"
                     required
-                    pattern="([A-Za-z\\s-']+)"
+                    onChange={this.handleChange}
+                    value={formData.city}
                   />
                 </label>
               </div>
@@ -183,6 +233,8 @@ class TeamMemberForm extends React.Component {
                     className="team-member-form__input team-member-form__input-social"
                     name="twitter"
                     id="twitter"
+                    onChange={this.handleChange}
+                    value={formData.twitter}
                   />
                 </div>
                 <div className="team-member-form__personal-row">
@@ -197,6 +249,8 @@ class TeamMemberForm extends React.Component {
                     className="team-member-form__input team-member-form__input-social "
                     name="facebook"
                     id="facebook"
+                    onChange={this.handleChange}
+                    value={formData.facebook}
                   />
                 </div>
               </div>

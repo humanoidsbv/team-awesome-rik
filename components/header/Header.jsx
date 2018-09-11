@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Link from 'next/link';
 
+
+import NavBar from './header-nav-bar/HeaderNavBar';
 import './header.scss';
 
 class Header extends React.Component {
@@ -12,57 +13,40 @@ class Header extends React.Component {
 
   handleClick = () => {
     this.props.toggleMenuOpen();
-  };
+  }
 
   render() {
-    const { isMenuOpen } = this.props;
+    const { isMenuOpen, toggleMenuOpen } = this.props;
+
     return (
       <header className="header">
-        <div className="title-bar">
+        <div className="header__title-bar">
           <a href="/">
             team awesome
           </a>
-          <button className={`menu-toggle ${isMenuOpen ? 'menu-toggle--close' : 'menu-toggle--open'}`} type="button" onClick={this.handleClick}>
+          <button
+            className={`header__menu-toggle header__menu-toggle${isMenuOpen ? '--close' : '--open'}`}
+            type="button"
+            onClick={this.handleClick}
+          >
             <img
-              className="menu-toggle__item menu-toggle__item--close"
+              className="menu-toggle__item-hamburger"
               src="/static/icons/hamburger.svg"
               alt="burger"
             />
             <img
-              className="menu-toggle__item menu-toggle__item--open"
+              className="menu-toggle__item-cross"
               src="/static/icons/close.svg"
               alt="cross"
             />
           </button>
         </div>
-        <nav className={`main-nav ${isMenuOpen ? 'main-nav--open' : ' main-nav'}`}>
-          <ul className="main-nav__nav-list">
-            <li className="main-nav__item main-nav__item--active">
-              <Link href="/time-entries">
-                <a>Timesheets</a>
-              </Link>
-            </li>
-            <li className="main-nav__item">
-              <Link href="/team-members">
-                <a>Team Members</a>
-              </Link>
-            </li>
-            <li className="main-nav__item">
-              Projects
-            </li>
-            <li className="main-nav__item">
-              Clients
-            </li>
-            <li className="main-nav__item">
-              Documents
-            </li>
-          </ul>
-        </nav>
+        <NavBar isMenuOpen={isMenuOpen} toggleMenuOpen={toggleMenuOpen} />
         <button className="profile" type="button">
           <img className="logo" src="/static/logo.jpg" alt="logo" />
           <img className="picture" src="/static/rik.jpg" alt="pic" />
+          <img className="arrow-down" src="/static/icons/arrow-down.svg" alt="arrow" />
         </button>
-        <img className="arrow-down" src="/static/icons/arrow-down.svg" alt="arrow" />
       </header>
     );
   }

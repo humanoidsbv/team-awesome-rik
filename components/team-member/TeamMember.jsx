@@ -25,7 +25,13 @@ class TeamMember extends React.Component {
     } = this.props;
     const { showDetails } = this.state;
     return (
-      <div className="team-member">
+      <div
+        className="team-member"
+        onClick={this.handleClick}
+        onKeyDown={this.handleClick}
+        role="button"
+        tabIndex="0"
+      >
         <div className="team-member__top-row">
           <div className="employee-summary">
             <img
@@ -63,12 +69,10 @@ class TeamMember extends React.Component {
                 </div>
               </div>
             </div>
-            <button
-              className={`employee__button-expand
-                employee__button-expand${showDetails ? '--opened' : '--closed'}
+            <span
+              className={`employee__arrow-expand
+                employee__arrow-expand${showDetails ? '--opened' : '--closed'}
               `}
-              onClick={this.handleClick}
-              type="button"
             />
           </div>
         </div>

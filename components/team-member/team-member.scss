@@ -11,6 +11,10 @@
   margin-top: 20px;
   min-height: 82px;
   width: 100%;
+
+  &:focus {
+    outline: none;
+  }
 }
 
 .team-member__top-row {
@@ -89,7 +93,7 @@
   }
 }
 
-.employee__button-expand {
+.employee__arrow-expand {
   background: url("/static/icons/arrow-down-2.svg") no-repeat center;
   border: none;
   height: 20px;
