@@ -1,31 +1,5 @@
 @import "../../shared/styles/main";
 
-.delete-entry {
-  -moz-transition: opacity .2s ease-in-out;
-  -webkit-transition: opacity .2s ease-in-out;
-  display: flex;
-  opacity: 0;
-  transition: opacity .2s ease-in-out;
-
-
-  @include tablet {
-    align-items: center;
-    background-color: $color-monochrome-17;
-    border-radius: $default-border-radius;
-    color: $color-letter-on-primary;
-    height: 30px;
-    justify-content: space-around;
-    margin-left: 33px;
-    width: 79px;
-  }
-
-  & .stop-sign {
-    background: url("/static/icons/forbid.svg") no-repeat center;
-    height: 16px;
-    width: 16px;
-  }
-}
-
 .time-entry {
   align-items: center;
   background-color: $color-monochrome-1;
@@ -35,42 +9,61 @@
   display: flex;
   flex-direction: row;
   font-size: $font-size-secondary;
-  height: 82px;
   justify-content: space-between;
+  padding: 18px 30px;
   width: 100%;
 
-  & .employer {
-    margin-left: $default-margin;
-    @include tablet {
-      margin-left: 30px;
+  &__section {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+
+    &--last {
+      display: block;
     }
   }
 
-  & .time {
-    margin-right: $default-margin;
-    text-align: right;
-    @include tablet {
-      margin-right: 30px;
-    }
-  }
-
-  & .time-calculated {
+  &__time-calculated {
     color: $color-monochrome-18;
+    font-size: 14px;
     text-align: right;
   }
 
   &:hover {
-    .delete-entry {
-      @include tablet {
+    .time-entry__delete-button {
+      @include desktop {
         opacity: 1;
       }
     }
   }
 }
 
-
-.employer {
-  align-items: center;
+.time-entry__delete-button {
+  -moz-transition: opacity .2s ease-in-out;
+  -webkit-transition: opacity .2s ease-in-out;
   display: flex;
-  justify-content: space-between;
+  opacity: 0;
+  padding: 7px;
+  transition: opacity .2s ease-in-out;
+
+  @include desktop {
+    align-items: center;
+    background-color: $color-monochrome-17;
+    border-radius: $default-border-radius;
+    color: $color-letter-on-primary;
+    justify-content: space-around;
+    margin-left: 33px;
+    padding-top: 8px;
+  }
+}
+
+.time-entry__stop-sign {
+  background: url("/static/icons/forbid.svg") no-repeat center;
+  height: 16px;
+  width: 16px;
+}
+
+.time-entry__stop-text {
+  color: $color-monochrome-1;
+  padding-left: 7px;
 }

@@ -18,29 +18,29 @@ class TimeEntry extends React.Component {
     const { employer, from, to } = this.props;
     return (
       <div className="time-entry">
-        <span className="employer">
-          <span>
+        <section className="time-entry__section">
+          <h1 className="time-entry__employer">
             {employer}
-          </span>
+          </h1>
           <button
-            className="delete-entry"
+            className="time-entry__delete-button"
             onClick={this.handleClick}
             type="button"
           >
-            <span className="stop-sign" />
-            <span>
+            <div className="time-entry__stop-sign" />
+            <h2 className="time-entry__stop-text">
               Delete
-            </span>
+            </h2>
           </button>
-        </span>
-        <span className="time">
-          <div>
+        </section>
+        <section className="time-entry__section time-entry__section--last">
+          <h2 className="time-entry__time">
             {`${convertTimeStampToTime(from)}-${convertTimeStampToTime(to)}`}
-          </div>
-          <div className="time-calculated">
+          </h2>
+          <h2 className="time-entry__time-calculated">
             {calculateTimestampDiff(from, to)}
-          </div>
-        </span>
+          </h2>
+        </section>
       </div>
     );
   }
