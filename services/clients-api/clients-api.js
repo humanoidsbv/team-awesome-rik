@@ -1,19 +1,19 @@
 import rootUrl from '../../environments';
 
-const apiUrl = '/team-members/';
+const apiUrl = '/clients/';
 
-export const deleteTeamMember = (id) => (
+export const deleteClient = (id) => (
   fetch(`${rootUrl()}${apiUrl}${id}`, {
     method: 'DELETE'
   })
 );
 
-export const getTeamMembers = () => (
-  fetch(`${rootUrl()}${apiUrl}?_sort=from&_order=asc`)
+export const getClients = () => (
+  fetch(`${rootUrl()}${apiUrl}?_sort=name&_order=asc`)
     .then((response) => response.json())
 );
 
-export const postTeamMember = (timeEntry) => (
+export const postClient = (timeEntry) => (
   fetch(`${rootUrl()}${apiUrl}`, {
     method: 'POST',
     headers: {

@@ -3,18 +3,26 @@
     {
       "employer": "Port of Rotterdam",
       "activity": "Design",
-      "date": "06-08-2018",
-      "from": "2018-08-06T07:00:00.000Z",
-      "to": "2018-08-06T15:45:00.000Z",
-      "id": 1
-    },
-    {
-      "employer": "Port of Rotterdam",
-      "activity": "Design",
       "date": "05-09-2018",
       "from": "2018-09-05T07:00:00.000Z",
       "to": "2018-09-05T08:00:00.000Z",
       "id": 2
+    },
+    {
+      "employer": "Hike One",
+      "activity": "Design",
+      "date": "06-08-2018",
+      "from": "2018-08-06T09:00:00.000Z",
+      "to": "2018-08-06T15:45:00.000Z",
+      "id": 3
+    },
+    {
+      "employer": "Port of Rotterdam",
+      "activity": "Design",
+      "date": "06-08-2018",
+      "from": "2018-08-06T07:00:00.000Z",
+      "to": "2018-08-06T15:45:00.000Z",
+      "id": 5
     }
   ],
   "team-members": [
@@ -34,6 +42,106 @@
       "twitter": "/rikker",
       "facebook": "/rikBook",
       "picture": "/static/rik.jpg"
+    },
+    {
+      "employeeNumber": "HUM_007",
+      "currentEmployer": "Humanoids",
+      "profession": "Developer",
+      "startDate": "2018-08-06T07:00:00.000Z",
+      "firstName": "Henk",
+      "lastName": "de Vries",
+      "email": "henk@gmail.com",
+      "bio": "Houdt van lange strandwandelingen en leuke dingen doen met vrienden",
+      "address": "Dorpstraat 2",
+      "zipCode": "3333 NR",
+      "city": "Abkoude",
+      "twitter": "/henk",
+      "facebook": "/henkbook",
+      "picture": "/static/rik.jpg",
+      "id": 3
+    },
+    {
+      "employeeNumber": "HUM_007",
+      "currentEmployer": "Humanoids",
+      "profession": "Developer",
+      "startDate": "2018-08-06T07:00:00.000Z",
+      "firstName": "aaaa",
+      "lastName": "aaaaa",
+      "email": "rikfrieling@gmail.com",
+      "bio": "Houdt van lange strandwandelingen en leuke dingen doen met vrienden",
+      "address": "Hamburgerstraat 14bis",
+      "zipCode": "3512 NR",
+      "city": "Utrecht",
+      "twitter": "/rikker",
+      "facebook": "/rikBook",
+      "picture": "/static/rik.jpg",
+      "id": 4
+    },
+    {
+      "employeeNumber": "HUM_007",
+      "currentEmployer": "Humanoids",
+      "profession": "Developer",
+      "startDate": "2018-08-06T07:00:00.000Z",
+      "firstName": "zzz",
+      "lastName": "zzzzz",
+      "email": "rikfrieling@gmail.com",
+      "bio": "Houdt van lange strandwandelingen en leuke dingen doen met vrienden",
+      "address": "Hamburgerstraat 14bis",
+      "zipCode": "3512 NR",
+      "city": "Utrecht",
+      "twitter": "/rikker",
+      "facebook": "/rikBook",
+      "picture": "/static/rik.jpg",
+      "id": 5
+    },
+    {
+      "employeeNumber": "HUM_007",
+      "currentEmployer": "Humanoids",
+      "profession": "Developer",
+      "startDate": "2018-08-06T07:00:00.000Z",
+      "firstName": "AAA",
+      "lastName": "AAA",
+      "email": "rikfrieling@gmail.com",
+      "bio": "Houdt van lange strandwandelingen en leuke dingen doen met vrienden",
+      "address": "Hamburgerstraat 14bis",
+      "zipCode": "3512 NR",
+      "city": "Utrecht",
+      "twitter": "/rikker",
+      "facebook": "/rikBook",
+      "picture": "/static/rik.jpg",
+      "id": 6
+    },
+    {
+      "employeeNumber": "HUM_007",
+      "currentEmployer": "Humanoids",
+      "profession": "Developer",
+      "startDate": "2018-08-06T07:00:00.000Z",
+      "firstName": "ZZZ",
+      "lastName": "ZZZ",
+      "email": "rikfrieling@gmail.com",
+      "bio": "Houdt van lange strandwandelingen en leuke dingen doen met vrienden",
+      "address": "Hamburgerstraat 14bis",
+      "zipCode": "3512 NR",
+      "city": "Utrecht",
+      "twitter": "/rikker",
+      "facebook": "/rikBook",
+      "picture": "/static/rik.jpg",
+      "id": 7
+    }
+  ],
+  "clients": [
+    {
+      "id": 1,
+      "name": "Humanoids",
+      "kvk": 69529760,
+      "remarks": "Groot Handelsgebouw Unit D1.115.3",
+      "address": "Stationsplein 45",
+      "zipCode": "3013AK",
+      "city": "Rotterdam",
+      "phone": "010 2613201",
+      "email": "info@humanoids.nl",
+      "site": "www.humanoids.nl",
+      "logo": "static/humanoids.jpg"
     }
   ]
 }
