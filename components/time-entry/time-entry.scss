@@ -10,8 +10,12 @@
   flex-direction: row;
   font-size: $font-size-secondary;
   justify-content: space-between;
-  padding: 18px 30px;
+  padding: 18px 16px;
   width: 100%;
+
+  @include desktop {
+    padding: 18px 30px;
+  }
 
   &__section {
     align-items: center;
@@ -21,6 +25,10 @@
     &:last-child {
       display: block;
     }
+  }
+
+  &__time {
+    text-align: right;
   }
 
   &__time-calculated {
