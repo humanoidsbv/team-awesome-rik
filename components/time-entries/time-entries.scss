@@ -1,18 +1,26 @@
 @import "../../shared/styles/main";
 
-.date-row {
-  align-items: center;
-  display: flex;
-  font-size: 16px;
-  justify-content: space-between;
-  margin-bottom: 16px;
-  margin-top: 32px;
+.time-entries {
 
-  @include tablet {
-    font-size: 24px;
+  &__time-entry-header {
+    align-items: center;
+    color: $color-monochrome-18;
+    display: flex;
+    font-size: 16px;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    margin-top: 32px;
+
+    @include tablet {
+      font-size: 24px;
+    }
   }
 
-  & .time {
+  &__date {
+    color: $color-monochrome-18;
+  }
+
+  &__time {
     color: $color-monochrome-18;
   }
 }
