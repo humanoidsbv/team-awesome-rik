@@ -59,8 +59,8 @@ class ClientsOverview extends React.Component {
                 </button>
               </Link>
               <SelectBox
-                options={['First Name', 'Last Name']}
-                optionsValues={['firstName', 'lastName']}
+                options={['Company Name', 'City']}
+                optionsValues={['name', 'city']}
                 onChange={this.handleChangeSortBy}
                 value={sortBy}
               />
