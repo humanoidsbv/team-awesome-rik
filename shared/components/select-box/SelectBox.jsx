@@ -5,28 +5,24 @@ import './select-box.scss';
 
 const SelectBox = ({
   optionValues, options, onChange, value
-}) => {
-  const optionsList = options.map((option, index) => (
-    <option
-      key={`${index + option}`}
-      value={optionValues[index]}
-    >{option}
-    </option>
-  ));
-
-  return (
-    <div className="select-box__wrapper">
-      <select
-        className="select-box"
-        onChange={onChange}
-        type="select"
-        value={value}
-      >
-        {optionsList}
-      </select>
-    </div>
-  );
-};
+}) => (
+  <div className="select-box">
+    <select
+      className="select-box__button"
+      onChange={onChange}
+      type="select"
+      value={value}
+    >
+      {options.map((option, index) => (
+        <option
+          key={`${index + option}`}
+          value={optionValues[index]}
+        >{option}
+        </option>
+      ))}
+    </select>
+  </div>
+);
 
 SelectBox.propTypes = {
   options: PropTypes.arrayOf(PropTypes.string).isRequired,

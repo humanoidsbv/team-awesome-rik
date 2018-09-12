@@ -1,6 +1,6 @@
 @import "../../styles/main";
 
-.select-box__wrapper {
+.select-box {
   position: relative;
 
   &::after {
@@ -15,26 +15,26 @@
       width: 11px;
     }
   }
-}
 
-.select-box {
-  -moz-appearance: none; /* Firefox */
-  -webkit-appearance: none; /* Safari and Chrome */
-  appearance: none;
-  display: none;
-  margin-right: 10px;
+  &__button {
+    -moz-appearance: none; /* Firefox */
+    -webkit-appearance: none; /* Safari and Chrome */
+    appearance: none;
+    display: none;
+    margin-right: 10px;
 
-  @include desktop {
-    align-items: center;
-    background-color: inherit;
-    border: solid $default-border-height $color-monochrome-15;
-    border-radius: $default-border-radius;
-    color: $color-monochrome-18;
-    display: flex;
-    font-size: $font-size-primary;
-    height: 36px;
-    justify-content: center;
-    padding-left: 13px;
-    padding-right: 77px;
+    @include desktop {
+      align-items: center;
+      background-color: inherit;
+      border: solid $default-border-height $color-monochrome-15;
+      border-radius: $default-border-radius;
+      color: $color-monochrome-18;
+      display: flex;
+      font-size: $font-size-primary;
+      height: 36px;
+      justify-content: center;
+      padding-left: 13px;
+      padding-right: 77px;
+    }
   }
 }

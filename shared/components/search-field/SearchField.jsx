@@ -3,11 +3,9 @@ import React from 'react';
 import './search-field.scss';
 
 const SearchField = () => (
-  <div className="search-field__wrapper">
+  <div className="search-field">
     <input
-      className="search-field"
-      id="search-field"
-      name="searchField"
+      className="search-field__input"
       placeholder="Search"
     />
   </div>
