@@ -1,0 +1,35 @@
+@import "../../styles/main";
+
+.search-field__wrapper {
+  position: relative;
+
+  &::after {
+    @include desktop {
+      background: no-repeat url("/static/icons/magnifying-glass.svg");
+      content: "";
+      height: 16px;
+      margin-left: 36px;
+      position: absolute;
+      right: 14px;
+      top: 10px;
+      width: 16px;
+    }
+  }
+}
+
+.search-field {
+  @include desktop {
+    align-items: center;
+    background-color: inherit;
+    border: solid $default-border-height $color-monochrome-15;
+    border-radius: $default-border-radius;
+    color: $color-monochrome-18;
+    display: flex;
+    font-size: $font-size-primary;
+    height: 36px;
+    justify-content: center;
+    padding-left: 13px;
+    padding-right: 110px;
+    width: 100%;
+  }
+}

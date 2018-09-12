@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import TimeEntryForm from '../time-entry-form/TimeEntryForm';
 import TimeEntries from '../time-entries/TimeEntries';
+import SearchField from '../../shared/components/search-field/SearchField';
+import SelectBox from '../../shared/components/select-box/SelectBox';
 import './time-entry-overview.scss';
 
 class TimeEntryOverview extends React.Component {
@@ -48,33 +50,12 @@ class TimeEntryOverview extends React.Component {
             <h2 className="time-entry-overview__header-summation"> 12 entries </h2>
           </div>
           <div className="time-entry-overview__header-right-side">
-            <div className="time-entry-overview__select-box-wrapper">
-              <select
-                className="time-entry-overview__select-employer"
-                onChange={this.handleChange}
-                type="select"
-                value={activeFilter}
-
-              >
-                <option value="">
-                  All Employers
-                </option>
-                <option>
-                  Port of Rotterdam
-                </option>
-                <option>
-                  Hike One
-                </option>
-              </select>
-            </div>
-            <div className="time-entry-overview__search-wrapper">
-              <input
-                className="time-entry-overview__search"
-                id="search-time-entries"
-                name="searchTimeEntries"
-                value="Search"
-              />
-            </div>
+            <SelectBox
+              onChange={this.handleChange}
+              options={['All Employers', 'Port of Rotterdam', 'Hike One']}
+              value={activeFilter}
+            />
+            <SearchField />
           </div>
         </div>
         <div className="container">
