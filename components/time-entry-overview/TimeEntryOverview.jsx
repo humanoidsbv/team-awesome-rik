@@ -53,6 +53,7 @@ class TimeEntryOverview extends React.Component {
             <SelectBox
               onChange={this.handleChange}
               options={['All Employers', 'Port of Rotterdam', 'Hike One']}
+              optionsValues={['', 'Port of Rotterdam', 'Hike One']}
               value={activeFilter}
             />
             <SearchField />

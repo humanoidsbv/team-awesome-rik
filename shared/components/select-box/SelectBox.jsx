@@ -3,9 +3,15 @@ import PropTypes from 'prop-types';
 
 import './select-box.scss';
 
-const SelectBox = ({ options, onChange, value }) => {
+const SelectBox = ({
+  optionsValues, options, onChange, value
+}) => {
   const optionsList = options.map((option, index) => (
-    <option key={`${index + option}`}>{option}</option>
+    <option
+      key={`${index + option}`}
+      value={optionsValues[index]}
+    > {option}
+    </option>
   ));
 
   return (
@@ -24,6 +30,7 @@ const SelectBox = ({ options, onChange, value }) => {
 
 SelectBox.propTypes = {
   options: PropTypes.arrayOf(PropTypes.string).isRequired,
+  optionsValues: PropTypes.arrayOf(PropTypes.string).isRequired,
   onChange: PropTypes.func.isRequired,
   value: PropTypes.string.isRequired
 };
