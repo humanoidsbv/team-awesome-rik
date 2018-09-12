@@ -18,7 +18,7 @@
     display: flex;
     justify-content: space-between;
 
-    &--last {
+    &:last-child {
       display: block;
     }
   }
@@ -36,34 +36,35 @@
       }
     }
   }
-}
 
-.time-entry__delete-button {
-  -moz-transition: opacity .2s ease-in-out;
-  -webkit-transition: opacity .2s ease-in-out;
-  display: flex;
-  opacity: 0;
-  padding: 7px;
-  transition: opacity .2s ease-in-out;
+  &__delete-button {
+    -moz-transition: opacity .2s ease-in-out;
+    -webkit-transition: opacity .2s ease-in-out;
+    display: flex;
+    opacity: 0;
+    padding: 7px;
+    transition: opacity .2s ease-in-out;
 
-  @include desktop {
-    align-items: center;
-    background-color: $color-monochrome-17;
-    border-radius: $default-border-radius;
-    color: $color-letter-on-primary;
-    justify-content: space-around;
-    margin-left: 33px;
-    padding-top: 8px;
+    @include desktop {
+      align-items: center;
+      background-color: $color-monochrome-17;
+      border-radius: $default-border-radius;
+      color: $color-letter-on-primary;
+      justify-content: space-around;
+      margin-left: 33px;
+      padding-top: 8px;
+    }
   }
-}
 
-.time-entry__stop-sign {
-  background: url("/static/icons/forbid.svg") no-repeat center;
-  height: 16px;
-  width: 16px;
-}
+  &__stop-sign {
+    background: url("/static/icons/forbid.svg") no-repeat center;
+    height: 16px;
+    width: 16px;
+  }
 
-.time-entry__stop-text {
-  color: $color-monochrome-1;
-  padding-left: 7px;
+
+  &__stop-text {
+    color: $color-monochrome-1;
+    padding-left: 7px;
+  }
 }

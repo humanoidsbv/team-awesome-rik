@@ -18,27 +18,21 @@ const PageHeader = (
       </h1>
       <div className="page-header__divider" />
       <h2 className="page-header__summation">
-        {summation}
-      </h2>
-      <h2 className="page-header__summation-text">
-        {summationText}
+        {summation} {summationText}
       </h2>
     </section>
     <section className="page-header__section">
       {
-        !selectBoxes || selectBoxes.map(
+        selectBoxes && selectBoxes.map(
           (selectBox, index) => (
             <SelectBox
-              key={`${index + selectBox.value}`}
-              optionValues={selectBox.optionValues}
-              options={selectBox.options}
-              onChange={selectBox.onChange}
-              value={selectBox.value}
+              key={selectBox.options[index]}
+              {...selectBox}
             />
           )
         )
       }
-      { !displaySearchField || <SearchField /> }
+      { displaySearchField && <SearchField /> }
     </section>
   </header>
 );
