@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Link from 'next/link';
 
 import TeamMembers from '../team-members/TeamMembers';
+import SelectBox from '../../shared/components/select-box/SelectBox';
 import './team-members-overview.scss';
 
 class TeamMembersOverview extends React.Component {
@@ -61,32 +62,18 @@ class TeamMembersOverview extends React.Component {
                     New Humanoid
                 </button>
               </Link>
-              <select
-                className="team-member-overview__button-sort"
-                name="sortBy"
+              <SelectBox
+                options={['First Name', 'Last Name']}
+                optionsValues={['firstName', 'lastName']}
                 onChange={this.handleChangeSortBy}
                 value={sortBy}
-              >
-                <option value="firstName">
-                  First Name
-                </option>
-                <option value="lastName">
-                  Last Name
-                </option>
-              </select>
-              <select
-                className="team-member-overview__button-sort"
-                name="sortDirection"
+              />
+              <SelectBox
+                options={['Ascending', 'Descending']}
+                optionsValues={['ascending', 'descending']}
                 onChange={this.handleChangeSortDirection}
                 value={sortDirection}
-              >
-                <option value="ascending">
-                  Ascending
-                </option>
-                <option value="descending">
-                  Descending
-                </option>
-              </select>
+              />
             </span>
           </div>
           <TeamMembers teamMembers={teamMembers} />

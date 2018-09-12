@@ -32,30 +32,6 @@
     }
   }
 
-  &__button-sort {
-    display: none;
-
-    @include desktop {
-      align-items: center;
-      background-color: inherit;
-      border: solid $default-border-height $color-monochrome-15;
-      border-radius: $default-border-radius;
-      color: $color-monochrome-18;
-      display: flex;
-      font-size: $font-size-primary;
-      height: 36px;
-      justify-content: center;
-    }
-
-    &::after {
-      background: no-repeat url("/static/icons/arrow-down.svg");
-      content: "";
-      height: 5px;
-      margin-left: 36px;
-      width: 11px;
-    }
-  }
-
   &__button-new {
     align-items: baseline;
     background-image: linear-gradient(to bottom, $color-monochrome-13, $color-monochrome-14 98%);
