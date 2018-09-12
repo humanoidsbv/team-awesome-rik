@@ -1,6 +1,6 @@
 @import "../../styles/main";
 
-.search-field__wrapper {
+.search-field {
   position: relative;
 
   &::after {
@@ -15,21 +15,21 @@
       width: 16px;
     }
   }
-}
 
-.search-field {
-  @include desktop {
-    align-items: center;
-    background-color: inherit;
-    border: solid $default-border-height $color-monochrome-15;
-    border-radius: $default-border-radius;
-    color: $color-monochrome-18;
-    display: flex;
-    font-size: $font-size-primary;
-    height: 36px;
-    justify-content: center;
-    padding-left: 13px;
-    padding-right: 110px;
-    width: 100%;
+  &__input {
+    @include desktop {
+      align-items: center;
+      background-color: inherit;
+      border: solid $default-border-height $color-monochrome-15;
+      border-radius: $default-border-radius;
+      color: $color-monochrome-18;
+      display: flex;
+      font-size: $font-size-primary;
+      height: 36px;
+      justify-content: center;
+      padding-left: 13px;
+      padding-right: 110px;
+      width: 100%;
+    }
   }
 }

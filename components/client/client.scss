@@ -1,0 +1,150 @@
+@import "../../shared/styles/main";
+
+.client {
+  background-color: $color-monochrome-1;
+  border: solid $default-border-height $color-monochrome-7;
+  border-left: $color-monochrome-6 solid 4px;
+  border-radius: $default-border-radius;
+  display: flex;
+  flex-direction: column;
+  font-size: $font-size-secondary;
+  margin-top: 20px;
+  min-height: 82px;
+  width: 100%;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.client__top-row {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+.client-summary {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 20px;
+
+  .client__logo {
+    border-radius: 30px;
+    height: 50px;
+    width: 50px;
+  }
+
+  .name-city {
+    display: flex;
+    flex-direction: column;
+    margin-left: 25px;
+    text-align: left;
+
+    .city {
+      color: $color-monochrome-18;
+      font-size: $font-size-primary;
+    }
+  }
+}
+
+.client__container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.client__details-desktop {
+  display: none;
+
+  @include desktop {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+
+    .client__phone {
+      margin-right: 54px;
+
+      &-text {
+        color: $color-monochrome-18;
+        font-size: $font-size-primary;
+      }
+    }
+
+    .client__email-desktop {
+      margin-right: 54px;
+
+      &-text {
+        color: $color-monochrome-18;
+        font-size: $font-size-primary;
+      }
+    }
+
+    .client__website-desktop {
+      margin-right: 49px;
+
+      &-text {
+        color: $color-monochrome-18;
+        font-size: $font-size-primary;
+      }
+    }
+
+  }
+}
+
+.client__arrow-expand {
+  background: url("/static/icons/arrow-down-2.svg") no-repeat center;
+  border: none;
+  height: 20px;
+  margin-right: 22px;
+  width: 20px;
+
+  &--opened {
+    background: url("/static/icons/arrow-up.svg") no-repeat center;
+  }
+}
+
+.client__client-details-mobile--collapsed {
+  display: none;
+}
+
+.client__client-details-mobile--expanded {
+  display: flex;
+  flex-direction: column;
+  height: 168px;
+
+  .detail-header {
+    align-items: center;
+    background-color: $color-monochrome-8;
+    color: $color-monochrome-18;
+    display: flex;
+    font-size: $font-size-primary;
+    height: 36px;
+    margin-top: 15px;
+
+    &__text {
+      margin-left: 30px;
+    }
+  }
+
+  .email {
+    margin-left: 21px;
+    margin-top: 16px;
+
+    &__text {
+      color: $color-monochrome-18;
+      font-size: $font-size-primary;
+    }
+  }
+
+  .phone {
+    margin-left: 21px;
+    margin-top: 16px;
+
+    &__text {
+      color: $color-monochrome-18;
+      font-size: $font-size-primary;
+    }
+  }
+}
