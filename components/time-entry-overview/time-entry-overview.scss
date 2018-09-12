@@ -81,6 +81,23 @@
     }
   }
 
+  &__search-wrapper {
+    position: relative;
+
+    &::after {
+      @include desktop {
+        background: no-repeat url("/static/icons/magnifying-glass.svg");
+        content: "";
+        height: 16px;
+        margin-left: 36px;
+        position: absolute;
+        right: 14px;
+        top: 10px;
+        width: 16px;
+      }
+    }
+  }
+
   &__search {
     @include desktop {
       align-items: center;
@@ -97,12 +114,18 @@
       width: 100%;
     }
   }
+
+  &__page-title {
+    font-size: 24px;
+    margin-top: 33px;
+  }
 }
 
 
 
 
 .container {
+  font-family: $font-primary;
   margin: auto;
   max-width: 1170px;
   padding-left: $default-margin;

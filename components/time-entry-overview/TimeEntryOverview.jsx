@@ -67,15 +67,20 @@ class TimeEntryOverview extends React.Component {
                 </option>
               </select>
             </div>
-            <input
-              className="time-entry-overview__search"
-              id="search-time-entries"
-              name="searchTimeEntries"
-              value="Search"
-            />
+            <div className="time-entry-overview__search-wrapper">
+              <input
+                className="time-entry-overview__search"
+                id="search-time-entries"
+                name="searchTimeEntries"
+                value="Search"
+              />
+            </div>
           </div>
         </div>
         <div className="container">
+          <h2 className="time-entry-overview__page-title">
+            New time entry
+          </h2>
           <TimeEntryForm
             addTimeEntry={this.addTimeEntry}
             changeFormVisibility={this.changeFormVisibility}
