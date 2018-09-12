@@ -10,7 +10,7 @@ const SelectBox = ({
     <option
       key={`${index + option}`}
       value={optionsValues[index]}
-    > {option}
+    >{option}
     </option>
   ));
 
