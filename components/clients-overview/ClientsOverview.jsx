@@ -60,13 +60,13 @@ class ClientsOverview extends React.Component {
               </Link>
               <SelectBox
                 options={['Company Name', 'City']}
-                optionsValues={['name', 'city']}
+                optionValues={['name', 'city']}
                 onChange={this.handleChangeSortBy}
                 value={sortBy}
               />
               <SelectBox
                 options={['Ascending', 'Descending']}
-                optionsValues={['ascending', 'descending']}
+                optionValues={['ascending', 'descending']}
                 onChange={this.handleChangeSortDirection}
                 value={sortDirection}
               />

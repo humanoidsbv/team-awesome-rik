@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Router from 'next/router';
 import PropTypes from 'prop-types';
 
 import './client-form.scss';
@@ -52,6 +53,7 @@ class ClientForm extends React.Component {
       addClient({ ...formData });
       this.setState({ ...ClientForm.defaultState });
     }
+    Router.push('/clients');
   }
 
   render() {

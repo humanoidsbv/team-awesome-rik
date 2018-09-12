@@ -64,13 +64,13 @@ class TeamMembersOverview extends React.Component {
               </Link>
               <SelectBox
                 options={['First Name', 'Last Name']}
-                optionsValues={['firstName', 'lastName']}
+                optionValues={['firstName', 'lastName']}
                 onChange={this.handleChangeSortBy}
                 value={sortBy}
               />
               <SelectBox
                 options={['Ascending', 'Descending']}
-                optionsValues={['ascending', 'descending']}
+                optionValues={['ascending', 'descending']}
                 onChange={this.handleChangeSortDirection}
                 value={sortDirection}
               />
