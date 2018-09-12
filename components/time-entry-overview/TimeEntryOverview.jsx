@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 
 import TimeEntryForm from '../time-entry-form/TimeEntryForm';
 import TimeEntries from '../time-entries/TimeEntries';
-import SearchField from '../../shared/components/search-field/SearchField';
-import SelectBox from '../../shared/components/select-box/SelectBox';
+import PageHeader from '../../shared/components/page-header/PageHeader';
 import './time-entry-overview.scss';
 
 class TimeEntryOverview extends React.Component {
@@ -43,22 +42,19 @@ class TimeEntryOverview extends React.Component {
 
     return (
       <div className="time-entry-overview">
-        <div className="time-entry-overview__header">
-          <div className="time-entry-overview__header-left-side">
-            <h1 className="time-entry-overview__header-text"> Timesheets </h1>
-            <div className="time-entry-overview__header-divider" />
-            <h2 className="time-entry-overview__header-summation"> 12 entries </h2>
-          </div>
-          <div className="time-entry-overview__header-right-side">
-            <SelectBox
-              onChange={this.handleChange}
-              options={['All Employers', 'Port of Rotterdam', 'Hike One']}
-              optionValues={['', 'Port of Rotterdam', 'Hike One']}
-              value={activeFilter}
-            />
-            <SearchField />
-          </div>
-        </div>
+        <PageHeader
+          text="Timesheets"
+          summation={12}
+          summationText="Entries"
+          selectBoxes={[
+            {
+              onChange: this.handleChange,
+              options: ['All Employers', 'Port of Rotterdam', 'Hike One'],
+              optionValues: ['', 'Port of Rotterdam', 'Hike One'],
+              value: activeFilter
+            }]}
+          displaySearchField
+        />
         <div className="container">
           <h2 className="time-entry-overview__page-title">
             New time entry
