@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { convertTimeToIso } from '../../services/date-time/date-time';
+import SelectBox from '../../shared/components/select-box/SelectBox';
+import InputField from '../../shared/components/input-field/InputField';
 import './time-entry-form.scss';
 
 
@@ -15,8 +17,9 @@ class TimeEntryForm extends React.Component {
       to: ''
     },
     inputs: {
-      fromIsValid: false,
-      toIsValid: false
+      dateIsValid: true,
+      fromIsValid: true,
+      toIsValid: true
     },
     isFormVisible: false,
     isFormLoading: false
@@ -29,8 +32,6 @@ class TimeEntryForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = { ...TimeEntryForm.defaultState };
-    this.fromInput = React.createRef();
-    this.toInput = React.createRef();
     this.inputForm = React.createRef();
   }
 
@@ -55,13 +56,19 @@ class TimeEntryForm extends React.Component {
 
   checkValidity = ({ name }) => {
     if (name === 'from' || name === 'to') {
+      const { from, to } = this.state.formData;
       this.setElementValidity('from',
-        Date.parse(`11/20/1988 ${this.fromInput.current.value.replace('.', ':')}`)
-        < Date.parse(`11/20/1988 ${this.toInput.current.value.replace('.', ':')}`));
+        Date.parse(`11/20/1988 ${from.replace('.', ':')}`)
+        < Date.parse(`11/20/1988 ${to.replace('.', ':')}`));
       this.setElementValidity('to',
-        Date.parse(`11/20/1988 ${this.toInput.current.value.replace('.', ':')}`)
-        > Date.parse(`11/20/1988 ${this.fromInput.current.value.replace('.', ':')}`));
+        Date.parse(`11/20/1988 ${to.replace('.', ':')}`)
+        > Date.parse(`11/20/1988 ${from.replace('.', ':')}`));
     }
+  }
+
+  handleBlur = ({ target }) => {
+    this.setElementValidity(target.name, target.validity.valid);
+    this.checkValidity(target);
   }
 
   handleChange = ({ target }) => {
@@ -70,7 +77,7 @@ class TimeEntryForm extends React.Component {
         ...prevState.formData,
         [target.name]: target.value
       }
-    }), () => this.checkValidity(target));
+    }));
   }
 
   handleClick = () => {
@@ -95,7 +102,8 @@ class TimeEntryForm extends React.Component {
 
   render() {
     const { isFormVisible, isFormLoading, formData } = this.state;
-    const { fromIsValid, toIsValid } = this.state.inputs;
+    const { employer, activity } = this.state.formData;
+    const { dateIsValid, fromIsValid, toIsValid } = this.state.inputs;
     return (
       <React.Fragment>
         <button
@@ -126,82 +134,66 @@ class TimeEntryForm extends React.Component {
                       type="button"
                     />
                   </div>
-                  <select
-                    id="employer"
+                  <SelectBox
                     name="employer"
-                    className="form__input"
-                    onChange={(event) => this.handleChange(event)}
+                    onChange={this.handleChange}
+                    options={['Port of Rotterdam', 'Hike One']}
+                    optionValues={['Port of Rotterdam', 'Hike One']}
+                    value={employer}
                     required
-                  >
-                    <option>
-                      Port of Rotterdam
-                    </option>
-                    <option>
-                      Hike One
-                    </option>
-                  </select>
+                  />
                 </label>
               </div>
               <div className="form__list-item">
                 <label id="activity" htmlFor="activity">
                   ACTIVITY
-                  <select
-                    id="activity"
+                  <SelectBox
                     name="activity"
-                    className="form__input"
-                    onChange={(event) => this.handleChange(event)}
+                    options={['Design', 'Development']}
+                    optionValues={['Design', 'Development']}
+                    onChange={this.handleChange}
+                    value={activity}
                     required
-                  >
-                    <option>
-                      Design
-                    </option>
-                    <option>
-                      Development
-                    </option>
-                  </select>
+                  />
                 </label>
               </div>
               <div className="form__list-item">
-                <label id="date" htmlFor="date">
+                <label htmlFor="date">
                   Date
-                  <input
-                    id="date"
+                  <InputField
                     name="date"
-                    className="form__input form__input--date"
-                    onChange={(event) => this.handleChange(event)}
+                    isValid={dateIsValid}
+                    onBlur={this.handleBlur}
+                    onChange={this.handleChange}
                     value={formData.date}
                     required
                     pattern="(0[1-9]|[12][0-9]|3[01])[-](0[1-9]|1[0-2])[-]([0-9]{4})"
-                    ref={this.dateInput}
                   />
                 </label>
               </div>
               <div className="form__list-item form__list-item--half">
                 <label className="form__label-from" id="from" htmlFor="from">
                   FROM
-                  <input
-                    id="from"
+                  <InputField
+                    isValid={fromIsValid}
                     name="from"
-                    className={
-                      `form__input ${fromIsValid ? '' : 'invalid-input'}`}
-                    onChange={(event) => this.handleChange(event)}
-                    value={formData.from}
-                    required
+                    onBlur={this.handleBlur}
+                    onChange={this.handleChange}
                     pattern="([0-9]{2})[:\s.]([0-9]{2})"
-                    ref={this.fromInput}
+                    required
+                    value={formData.from}
                   />
                 </label>
                 <label id="to" htmlFor="to">
                   TO
-                  <input
-                    id="to"
+                  <InputField
+                    isValid={toIsValid}
                     name="to"
-                    className={`form__input ${toIsValid ? '' : 'form__input--invalid'}`}
-                    onChange={(event) => this.handleChange(event)}
-                    value={formData.to}
-                    required
+                    onBlur={this.handleBlur}
+                    onChange={this.handleChange}
                     pattern="([0-9]{2})[:\s.]([0-9]{2})"
-                    ref={this.toInput}
+                    required
+                    value={formData.to}
                   />
                 </label>
               </div>

@@ -17,24 +17,21 @@
   }
 
   &__button {
+    @include until-desktop {
+      width: 100%;
+    }
     -moz-appearance: none; /* Firefox */
     -webkit-appearance: none; /* Safari and Chrome */
+    align-items: center;
     appearance: none;
-    display: none;
+    background-color: inherit;
+    border: solid $default-border-height $color-monochrome-15;
+    border-radius: $default-border-radius;
+    color: $color-monochrome-18;
+    display: flex;
+    font-size: $font-size-primary;
+    justify-content: center;
     margin-right: 10px;
-
-    @include desktop {
-      align-items: center;
-      background-color: inherit;
-      border: solid $default-border-height $color-monochrome-15;
-      border-radius: $default-border-radius;
-      color: $color-monochrome-18;
-      display: flex;
-      font-size: $font-size-primary;
-      height: 36px;
-      justify-content: center;
-      padding-left: 13px;
-      padding-right: 77px;
-    }
+    padding: 9px 79px 9px 15px;
   }
 }

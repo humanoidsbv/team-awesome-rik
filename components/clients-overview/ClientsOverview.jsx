@@ -16,7 +16,7 @@ class ClientsOverview extends React.Component {
     clients: PropTypes.arrayOf(PropTypes.shape({
       id: PropTypes.number.isRequired,
       name: PropTypes.string.isRequired,
-      kvk: PropTypes.number.isRequired,
+      kvk: PropTypes.string.isRequired,
       remarks: PropTypes.string.isRequired,
       address: PropTypes.string.isRequired,
       zipCode: PropTypes.string.isRequired,

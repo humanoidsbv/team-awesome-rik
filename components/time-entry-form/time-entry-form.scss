@@ -45,14 +45,14 @@
 .form-container {
   margin-left: $default-margin;
   margin-right: $default-margin;
+  padding: 16px;
   width: 100%;
 
   @include desktop {
     align-items: center;
     display: flex;
     justify-content: space-between;
-    margin-left: 30px;
-    margin-right: 30px;
+    padding: 12px 30px 20px;
 
   }
 }

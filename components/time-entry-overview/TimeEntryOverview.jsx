@@ -29,9 +29,9 @@ class TimeEntryOverview extends React.Component {
     this.props.deleteTimeEntry(id);
   }
 
-  addTimeEntry = (newEntry) => (
-    this.props.addTimeEntry(newEntry)
-  )
+  addTimeEntry = (newEntry) => {
+    this.props.addTimeEntry(newEntry);
+  }
 
   handleChange = (event) => {
     this.props.filterTimeEntriesSuccess(event.target.value);
@@ -44,10 +44,11 @@ class TimeEntryOverview extends React.Component {
       <div className="time-entry-overview">
         <PageHeader
           text="Timesheets"
-          summation={12}
+          summation={timeEntries.length}
           summationText="Entries"
           selectBoxes={[
             {
+              name: 'timeEntryFilter',
               onChange: this.handleChange,
               options: ['All Employers', 'Port of Rotterdam', 'Hike One'],
               optionValues: ['', 'Port of Rotterdam', 'Hike One'],
