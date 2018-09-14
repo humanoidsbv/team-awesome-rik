@@ -22,10 +22,10 @@
   background-color: $color-primary;
   border: none;
   height: 20px;
-  padding-left: 0;
-  position: fixed;
+  position: absolute;
   right: 16px;
-  top: 16px;
+  top: 50%;
+  transform: (0, -50%);
   width: 20px;
 
   &__item {
