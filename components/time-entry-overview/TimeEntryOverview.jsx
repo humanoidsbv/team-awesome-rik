@@ -45,7 +45,8 @@ class TimeEntryOverview extends React.Component {
         <PageHeader
           text="Timesheets"
           summation={timeEntries.length}
-          summationText="Entries"
+          summationText="Entry"
+          summationTextPlural="Entries"
           selectBoxes={[
             {
               name: 'timeEntryFilter',
@@ -64,12 +65,10 @@ class TimeEntryOverview extends React.Component {
             addTimeEntry={this.addTimeEntry}
             changeFormVisibility={this.changeFormVisibility}
           />
-          <ul>
-            <TimeEntries
-              timeEntries={timeEntries}
-              onDelete={this.onDelete}
-            />
-          </ul>
+          <TimeEntries
+            timeEntries={timeEntries}
+            onDelete={this.onDelete}
+          />
         </div>
       </div>
     );

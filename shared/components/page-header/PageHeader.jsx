@@ -8,6 +8,7 @@ import './page-header.scss';
 const PageHeader = (
   {
     text, summation, summationText,
+    summationTextPlural,
     selectBoxes, displaySearchField
   }
 ) => (
@@ -18,7 +19,7 @@ const PageHeader = (
       </h1>
       <div className="page-header__divider" />
       <h2 className="page-header__summation">
-        {summation} {summationText}
+        {summation} {summation === 1 ? summationText : summationTextPlural}
       </h2>
     </section>
     <section className="page-header__section">
@@ -47,6 +48,7 @@ PageHeader.propTypes = {
   text: PropTypes.string.isRequired,
   summation: PropTypes.number.isRequired,
   summationText: PropTypes.string.isRequired,
+  summationTextPlural: PropTypes.string.isRequired,
   selectBoxes: PropTypes.arrayOf(PropTypes.shape({
     optionvalues: PropTypes.arrayOf(PropTypes.string),
     options: PropTypes.arrayOf(PropTypes.string),

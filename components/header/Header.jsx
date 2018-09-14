@@ -20,8 +20,8 @@ class Header extends React.Component {
 
     return (
       <header className="header">
-        <div className="header__title-bar">
-          <a href="/">
+        <section className="header__title-bar">
+          <a className="header__title" href="/">
             team awesome
           </a>
           <button
@@ -40,7 +40,7 @@ class Header extends React.Component {
               alt="cross"
             />
           </button>
-        </div>
+        </section>
         <NavBar isMenuOpen={isMenuOpen} toggleMenuOpen={toggleMenuOpen} />
         <button className="profile" type="button">
           <img className="logo" src="/static/logo.jpg" alt="logo" />

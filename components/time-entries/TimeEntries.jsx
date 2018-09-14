@@ -11,7 +11,7 @@ const TimeEntries = ({ timeEntries, onDelete }) => (
     const previousDate = index && convertTimeStampToDate(timeEntries[index - 1].from);
 
     return (
-      <li className="time-entries" key={timeEntry.id}>
+      <ul className="time-entries" key={timeEntry.id}>
         {(!index || date !== previousDate)
         && (
           <hgroup className="time-entries__time-entry-header">
@@ -27,7 +27,7 @@ const TimeEntries = ({ timeEntries, onDelete }) => (
           {...timeEntry}
           onDelete={onDelete}
         />
-      </li>
+      </ul>
     );
   })
 );

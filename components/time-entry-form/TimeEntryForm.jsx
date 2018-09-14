@@ -139,6 +139,7 @@ class TimeEntryForm extends React.Component {
                     onChange={this.handleChange}
                     options={['Port of Rotterdam', 'Hike One']}
                     optionValues={['Port of Rotterdam', 'Hike One']}
+                    type="form"
                     value={employer}
                     required
                   />
@@ -152,6 +153,7 @@ class TimeEntryForm extends React.Component {
                     options={['Design', 'Development']}
                     optionValues={['Design', 'Development']}
                     onChange={this.handleChange}
+                    type="form"
                     value={activity}
                     required
                   />
@@ -159,7 +161,7 @@ class TimeEntryForm extends React.Component {
               </div>
               <div className="form__list-item">
                 <label htmlFor="date">
-                  Date
+                  DATE
                   <InputField
                     name="date"
                     isValid={dateIsValid}

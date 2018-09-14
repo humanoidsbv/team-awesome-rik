@@ -71,15 +71,15 @@
   @include desktop {
     display: none;
     }
-
-  & a {
-    color: $color-letter-on-primary;
-    font-family: $font-titlebar;
-    font-size: $font-size-mobile;
-    height: $font-height-mobile;
-    text-decoration: none;
-   }
 }
+
+.header__title {
+  color: $color-letter-on-primary;
+  font-family: $font-titlebar;
+  font-size: $font-size-mobile;
+  height: $font-height-mobile;
+  text-decoration: none;
+ }
 
 .profile {
   border: none;
