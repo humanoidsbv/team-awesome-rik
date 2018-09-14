@@ -64,10 +64,12 @@ class TimeEntryOverview extends React.Component {
             addTimeEntry={this.addTimeEntry}
             changeFormVisibility={this.changeFormVisibility}
           />
-          <TimeEntries
-            timeEntries={timeEntries}
-            onDelete={this.onDelete}
-          />
+          <ul>
+            <TimeEntries
+              timeEntries={timeEntries}
+              onDelete={this.onDelete}
+            />
+          </ul>
         </div>
       </div>
     );

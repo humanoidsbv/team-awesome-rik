@@ -17,7 +17,7 @@ class TimeEntry extends React.Component {
   render() {
     const { employer, from, to } = this.props;
     return (
-      <div className="time-entry">
+      <li className="time-entry">
         <section className="time-entry__section">
           <h1 className="time-entry__employer">
             {employer}
@@ -41,7 +41,7 @@ class TimeEntry extends React.Component {
             {calculateTimestampDiff(from, to)}
           </h2>
         </section>
-      </div>
+      </li>
     );
   }
 }

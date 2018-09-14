@@ -87,6 +87,7 @@
     -webkit-mask: url("/static/icons/close.svg") no-repeat center;
     -webkit-mask-size: 7px 7px;
     background-color: $color-monochrome-10;
+    cursor: pointer;
     height: 7px;
     mask: url("/static/icons/close.svg") no-repeat center;
     padding: 10px;
