@@ -40,10 +40,8 @@ export const clientsSelector = createSelector(
 );
 
 export const clientsIdAndNameSelector = createSelector(clientsItemsSelector,
-  (clients) => ([...clients].map((client) => ({
-    id: client.id,
-    name: client.name
-  }))));
+  (clients) => (clients.map((client) => ({ id: client.id, name: client.name }))));
+
 
 export const initialState = {
   items: [],

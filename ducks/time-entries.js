@@ -1,5 +1,7 @@
 import { createSelector } from 'reselect';
 
+import { clientsIdAndNameSelector } from './clients';
+
 export const ADD_TIME_ENTRY = 'ADD_TIME_ENTRY';
 export const ADD_TIME_ENTRY_SUCCESS = 'ADD_TIME_ENTRY_SUCCESS';
 export const DELETE_TIME_ENTRY = 'DELETE_TIME_ENTRY';
@@ -19,10 +21,18 @@ export const timeEntryActiveFilterSelector = createSelector(timeEntriesRoot,
   (timeEntries) => timeEntries.activeFilter);
 
 export const timeEntriesSelector = createSelector(
-  [timeEntriesItemsSelector, timeEntryActiveFilterSelector],
-  (timeEntries, activeFilter) => (
+  [timeEntriesItemsSelector, timeEntryActiveFilterSelector, clientsIdAndNameSelector],
+  (timeEntries, activeFilter, clientsIdAndName) => (
     (!activeFilter
-      ? timeEntries
+      ? timeEntries.map(
+        (timeEntry) => (
+          {
+            ...timeEntry,
+            clientName: clientsIdAndName.find(
+              (client) => timeEntry.employer === client.id
+            ).name
+          })
+      )
       : timeEntries.filter((item) => item.employer === activeFilter))
       .sort((a, b) => {
         if (a.from > b.from) {

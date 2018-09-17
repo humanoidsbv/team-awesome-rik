@@ -14,13 +14,16 @@ class TimeEntry extends React.Component {
     }
   };
 
+
   render() {
-    const { employer, from, to } = this.props;
+    const {
+      clientName, from, to
+    } = this.props;
     return (
       <li className="time-entry">
         <section className="time-entry__section">
           <h1 className="time-entry__employer">
-            {employer}
+            {clientName}
           </h1>
           <button
             className="time-entry__delete-button"
@@ -47,10 +50,14 @@ class TimeEntry extends React.Component {
 }
 
 TimeEntry.propTypes = {
-  onDelete: PropTypes.func.isRequired,
-  employer: PropTypes.string.isRequired,
+  clientsIdAndName: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired
+  })).isRequired,
+  clientName: PropTypes.string.isRequired,
   from: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
+  onDelete: PropTypes.func.isRequired,
   to: PropTypes.string.isRequired
 };
 

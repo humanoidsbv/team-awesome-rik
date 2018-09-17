@@ -10,10 +10,15 @@ class TimeEntryOverview extends React.Component {
   static propTypes = {
     activeFilter: PropTypes.string.isRequired,
     addTimeEntry: PropTypes.func.isRequired,
+    clientsIdAndName: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired
+    })).isRequired,
     deleteTimeEntry: PropTypes.func.isRequired,
     filterTimeEntriesSuccess: PropTypes.func.isRequired,
     requestTimeEntries: PropTypes.func.isRequired,
     timeEntries: PropTypes.arrayOf(PropTypes.shape({
+      clientName: PropTypes.name,
       employer: PropTypes.string.isRequired,
       id: PropTypes.number.isRequired,
       from: PropTypes.string.isRequired,
@@ -22,6 +27,7 @@ class TimeEntryOverview extends React.Component {
   }
 
   componentDidMount() {
+    // this.props.requestClients();
     this.props.requestTimeEntries();
   }
 
@@ -38,7 +44,7 @@ class TimeEntryOverview extends React.Component {
   }
 
   render() {
-    const { activeFilter, timeEntries } = this.props;
+    const { activeFilter, clientsIdAndName, timeEntries } = this.props;
 
     return (
       <div className="time-entry-overview">
@@ -63,11 +69,13 @@ class TimeEntryOverview extends React.Component {
           </h2>
           <TimeEntryForm
             addTimeEntry={this.addTimeEntry}
+            clientsIdAndName={clientsIdAndName}
             changeFormVisibility={this.changeFormVisibility}
           />
           <TimeEntries
-            timeEntries={timeEntries}
+            clientsIdAndName={clientsIdAndName}
             onDelete={this.onDelete}
+            timeEntries={timeEntries}
           />
         </div>
       </div>

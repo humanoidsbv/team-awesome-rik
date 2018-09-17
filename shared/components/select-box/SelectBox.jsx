@@ -32,10 +32,16 @@ SelectBox.defaultProps = {
 SelectBox.propTypes = {
   name: PropTypes.string.isRequired,
   options: PropTypes.arrayOf(PropTypes.string).isRequired,
-  optionValues: PropTypes.arrayOf(PropTypes.string).isRequired,
+  optionValues: PropTypes.arrayOf(PropTypes.oneOfType(
+    [PropTypes.string,
+      PropTypes.number]
+  )).isRequired,
   onChange: PropTypes.func.isRequired,
   type: PropTypes.string,
-  value: PropTypes.string.isRequired
+  value: PropTypes.oneOfType(
+    [PropTypes.string,
+      PropTypes.number]
+  ).isRequired
 };
 
 export default SelectBox;

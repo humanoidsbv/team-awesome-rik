@@ -10,7 +10,7 @@ import './time-entry-form.scss';
 class TimeEntryForm extends React.Component {
   static defaultState = {
     formData: {
-      employer: 'Port of Rotterdam',
+      employer: 'apple',
       activity: 'Design',
       date: '',
       from: '',
@@ -26,7 +26,11 @@ class TimeEntryForm extends React.Component {
   };
 
   static propTypes = {
-    addTimeEntry: PropTypes.func.isRequired
+    addTimeEntry: PropTypes.func.isRequired,
+    clientsIdAndName: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired
+    })).isRequired
   };
 
   constructor(props) {
@@ -104,6 +108,7 @@ class TimeEntryForm extends React.Component {
     const { isFormVisible, isFormLoading, formData } = this.state;
     const { employer, activity } = this.state.formData;
     const { dateIsValid, fromIsValid, toIsValid } = this.state.inputs;
+    const { clientsIdAndName } = this.props;
     return (
       <React.Fragment>
         <button
@@ -137,8 +142,8 @@ class TimeEntryForm extends React.Component {
                   <SelectBox
                     name="employer"
                     onChange={this.handleChange}
-                    options={['Port of Rotterdam', 'Hike One']}
-                    optionValues={['Port of Rotterdam', 'Hike One']}
+                    options={clientsIdAndName.map((client) => client.name)}
+                    optionValues={clientsIdAndName.map((client) => client.id)}
                     type="form"
                     value={employer}
                     required
