@@ -27,7 +27,6 @@ class TimeEntryOverview extends React.Component {
   }
 
   componentDidMount() {
-    // this.props.requestClients();
     this.props.requestTimeEntries();
   }
 
@@ -57,8 +56,8 @@ class TimeEntryOverview extends React.Component {
             {
               name: 'timeEntryFilter',
               onChange: this.handleChange,
-              options: ['All Employers', 'Port of Rotterdam', 'Hike One'],
-              optionValues: ['', 'Port of Rotterdam', 'Hike One'],
+              options: ['All Employers', ...clientsIdAndName.map((client) => client.name)],
+              optionValues: ['', ...clientsIdAndName.map((client) => client.id)],
               value: activeFilter
             }]}
           displaySearchField

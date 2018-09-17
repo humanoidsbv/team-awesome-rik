@@ -33,7 +33,15 @@ export const timeEntriesSelector = createSelector(
             ).name
           })
       )
-      : timeEntries.filter((item) => item.employer === activeFilter))
+      : timeEntries.filter((item) => item.employer === activeFilter)).map(
+      (timeEntry) => (
+        {
+          ...timeEntry,
+          clientName: clientsIdAndName.find(
+            (client) => timeEntry.employer === client.id
+          ).name
+        })
+    )
       .sort((a, b) => {
         if (a.from > b.from) {
           return 1;
