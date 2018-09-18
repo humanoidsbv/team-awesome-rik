@@ -24,13 +24,17 @@ export const timeEntriesSelector = createSelector(
   [timeEntriesItemsSelector, timeEntryActiveFilterSelector, clientsIdAndNameSelector],
   (timeEntries, activeFilter, clientsIdAndName) => {
     const entriesWithClientName = timeEntries.map(
-      (timeEntry) => (
-        {
-          ...timeEntry,
-          clientName: clientsIdAndName.find(
-            (client) => timeEntry.employer === client.id
-          ).name
-        })
+      (timeEntry) => {
+        const client = clientsIdAndName.find(
+          (currentClient) => timeEntry.employer === currentClient.id
+        );
+
+        return (
+          {
+            ...timeEntry,
+            clientName: client === undefined ? 'Client not found' : client.name
+          });
+      }
     );
 
     return (
