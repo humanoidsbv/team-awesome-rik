@@ -22,18 +22,8 @@ export const timeEntryActiveFilterSelector = createSelector(timeEntriesRoot,
 
 export const timeEntriesSelector = createSelector(
   [timeEntriesItemsSelector, timeEntryActiveFilterSelector, clientsIdAndNameSelector],
-  (timeEntries, activeFilter, clientsIdAndName) => (
-    (!activeFilter
-      ? timeEntries.map(
-        (timeEntry) => (
-          {
-            ...timeEntry,
-            clientName: clientsIdAndName.find(
-              (client) => timeEntry.employer === client.id
-            ).name
-          })
-      )
-      : timeEntries.filter((item) => item.employer === activeFilter)).map(
+  (timeEntries, activeFilter, clientsIdAndName) => {
+    const entriesWithClientName = timeEntries.map(
       (timeEntry) => (
         {
           ...timeEntry,
@@ -41,7 +31,12 @@ export const timeEntriesSelector = createSelector(
             (client) => timeEntry.employer === client.id
           ).name
         })
-    )
+    );
+
+    return (
+      !activeFilter
+        ? entriesWithClientName
+        : entriesWithClientName.filter((item) => item.employer === activeFilter))
       .sort((a, b) => {
         if (a.from > b.from) {
           return 1;
@@ -50,8 +45,8 @@ export const timeEntriesSelector = createSelector(
           return -1;
         }
         return 0;
-      })
-  )
+      });
+  }
 );
 
 
