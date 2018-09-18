@@ -4,11 +4,12 @@ import PropTypes from 'prop-types';
 import './select-box.scss';
 
 const SelectBox = ({
-  optionValues, options, onChange, value
+  name, optionValues, options, onChange, type, value
 }) => (
-  <div className="select-box">
+  <div className={`select-box select-box${type ? `--${type}` : '--default'} `}>
     <select
-      className="select-box__button"
+      className={`select-box__button select-box__button${type ? `--${type}` : '--default'} `}
+      name={name}
       onChange={onChange}
       type="select"
       value={value}
@@ -24,10 +25,16 @@ const SelectBox = ({
   </div>
 );
 
+SelectBox.defaultProps = {
+  type: ''
+};
+
 SelectBox.propTypes = {
+  name: PropTypes.string.isRequired,
   options: PropTypes.arrayOf(PropTypes.string).isRequired,
   optionValues: PropTypes.arrayOf(PropTypes.string).isRequired,
   onChange: PropTypes.func.isRequired,
+  type: PropTypes.string,
   value: PropTypes.string.isRequired
 };
 

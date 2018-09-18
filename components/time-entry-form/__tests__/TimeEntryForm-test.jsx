@@ -15,8 +15,9 @@ test('is defaultstate is loaded in timeentryform', () => {
       to: ''
     },
     inputs: {
-      fromIsValid: false,
-      toIsValid: false
+      dateIsValid: true,
+      fromIsValid: true,
+      toIsValid: true
     },
     isFormVisible: false,
     isFormLoading: false

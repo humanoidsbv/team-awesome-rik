@@ -43,19 +43,30 @@
 }
 
 .form-container {
-  margin-left: $default-margin;
-  margin-right: $default-margin;
+  padding: 0 16px 32px;
   width: 100%;
 
   @include desktop {
     align-items: center;
     display: flex;
     justify-content: space-between;
-    margin-left: 30px;
-    margin-right: 30px;
+    padding: 12px 30px 20px;
 
   }
 }
+
+.time-entry-form {
+  display: flex;
+  flex-direction: column;
+
+  @include desktop {
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 75%;
+  }
+}
+
 
 .form {
   background-color: $color-monochrome-8;
@@ -87,6 +98,7 @@
     -webkit-mask: url("/static/icons/close.svg") no-repeat center;
     -webkit-mask-size: 7px 7px;
     background-color: $color-monochrome-10;
+    cursor: pointer;
     height: 7px;
     mask: url("/static/icons/close.svg") no-repeat center;
     padding: 10px;
@@ -98,24 +110,11 @@
     }
   }
 
-  &__input {
-    background-image: linear-gradient(to top, $color-monochrome-16, $color-monochrome-1);
-    border: solid $default-border-height $color-monochrome-15;
-    border-radius: $default-border-radius;
-    font-size: $font-size-primary;
-    height: 36px;
-    margin-top: 12px;
-    width: 100%;
-
-    &:invalid,
-    &--invalid {
-      border: solid $default-border-height $color-monochrome-17;
-    }
-  }
 
   &__list-item {
     font-size: $font-size-primary;
     margin-top: 16px;
+    text-transform: uppercase;
 
     @include desktop {
       margin-bottom: 20px;
@@ -149,17 +148,6 @@
   }
 }
 
-.time-entry-form {
-  display: flex;
-  flex-direction: column;
-
-  @include desktop {
-    align-items: center;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 75%;
-  }
-}
 
 .first-row {
   align-items: center;

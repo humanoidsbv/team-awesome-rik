@@ -22,10 +22,10 @@
   background-color: $color-primary;
   border: none;
   height: 20px;
-  padding-left: 0;
-  position: fixed;
+  position: absolute;
   right: 16px;
-  top: 16px;
+  top: 50%;
+  transform: translate(0, -50%);
   width: 20px;
 
   &__item {
@@ -71,17 +71,18 @@
   @include desktop {
     display: none;
     }
-
-  & a {
-    color: $color-letter-on-primary;
-    font-family: $font-titlebar;
-    font-size: $font-size-mobile;
-    height: $font-height-mobile;
-    text-decoration: none;
-   }
 }
 
+.header__title {
+  color: $color-letter-on-primary;
+  font-family: $font-titlebar;
+  font-size: $font-size-mobile;
+  height: $font-height-mobile;
+  text-decoration: none;
+ }
+
 .profile {
+  border: none;
   display: none;
 
 
@@ -103,7 +104,7 @@
     & .picture {
       border-radius: 18px;
       height: 32px;
-      margin-left:  18px;
+      margin-left:  19px;
       width: 32px;
 
     }

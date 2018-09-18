@@ -91,6 +91,12 @@
   }
 }
 
+@mixin until-desktop {
+  @media #{$max-sm} {
+    @content;
+  }
+}
+
 @mixin desktop {
   @media #{$gt-sm} {
     @content;

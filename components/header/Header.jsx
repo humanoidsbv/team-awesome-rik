@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
-import NavBar from './header-nav-bar/HeaderNavBar';
+import HeaderNavBar from './header-nav-bar/HeaderNavBar';
 import './header.scss';
 
 class Header extends React.Component {
@@ -20,8 +20,8 @@ class Header extends React.Component {
 
     return (
       <header className="header">
-        <div className="header__title-bar">
-          <a href="/">
+        <section className="header__title-bar">
+          <a className="header__title" href="/">
             team awesome
           </a>
           <button
@@ -40,8 +40,8 @@ class Header extends React.Component {
               alt="cross"
             />
           </button>
-        </div>
-        <NavBar isMenuOpen={isMenuOpen} toggleMenuOpen={toggleMenuOpen} />
+        </section>
+        <HeaderNavBar isMenuOpen={isMenuOpen} toggleMenuOpen={toggleMenuOpen} />
         <button className="profile" type="button">
           <img className="logo" src="/static/logo.jpg" alt="logo" />
           <img className="picture" src="/static/rik.jpg" alt="pic" />

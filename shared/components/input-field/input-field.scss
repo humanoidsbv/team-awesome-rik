@@ -1,0 +1,17 @@
+@import "../../styles/main";
+
+.input-field {
+  background-image: linear-gradient(to top, $color-monochrome-16, $color-monochrome-1);
+  border: solid $default-border-height $color-monochrome-15;
+  border-radius: $default-border-radius;
+  font-size: $font-size-primary;
+  height: 36px;
+  margin-top: 12px;
+  padding: 9px 15px;
+  width: 100%;
+
+  &--invalid {
+    border: solid $default-border-height $color-monochrome-17;
+  }
+
+}

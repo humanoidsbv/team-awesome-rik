@@ -11,23 +11,23 @@ const TimeEntries = ({ timeEntries, onDelete }) => (
     const previousDate = index && convertTimeStampToDate(timeEntries[index - 1].from);
 
     return (
-      <React.Fragment key={timeEntry.id}>
+      <ul className="time-entries" key={timeEntry.id}>
         {(!index || date !== previousDate)
         && (
-          <div className="date-row">
-            <span>
+          <hgroup className="time-entries__time-entry-header">
+            <h3 className="time-entries__date">
               {date}
-            </span>
-            <span className="time">
+            </h3>
+            <h3 className="time-entries__time">
               {calculateTotalTimePerDay(timeEntries, date)}
-            </span>
-          </div>
+            </h3>
+          </hgroup>
         )}
         <TimeEntry
           {...timeEntry}
           onDelete={onDelete}
         />
-      </React.Fragment>
+      </ul>
     );
   })
 );

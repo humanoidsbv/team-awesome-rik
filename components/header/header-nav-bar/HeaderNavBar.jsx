@@ -21,12 +21,12 @@ class HeaderNavBar extends React.Component {
         <ul className="main-nav__nav-list">
           <li className="main-nav__item main-nav__item--active">
             <Link href="/time-entries">
-              <a>Timesheets</a>
+              <a className="main-nav__link">Timesheets</a>
             </Link>
           </li>
           <li className="main-nav__item">
             <Link href="/team-members">
-              <a>Team Members</a>
+              <a className="main-nav__link">Team Members</a>
             </Link>
           </li>
           <li className="main-nav__item">
@@ -34,7 +34,7 @@ class HeaderNavBar extends React.Component {
           </li>
           <li className="main-nav__item">
             <Link href="/clients">
-              <a>Clients</a>
+              <a className="main-nav__link">Clients</a>
             </Link>
           </li>
           <li className="main-nav__item">

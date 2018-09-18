@@ -3,12 +3,17 @@
 .select-box {
   position: relative;
 
+  @include desktop {
+    margin-right: 10px;
+  }
+
   &::after {
     @include desktop {
       background: no-repeat url("/static/icons/arrow-down.svg");
       content: "";
       height: 5px;
       margin-left: 36px;
+      pointer-events: none;
       position: absolute;
       right: 17px;
       top: 17px;
@@ -16,25 +21,33 @@
     }
   }
 
-  &__button {
-    -moz-appearance: none; /* Firefox */
-    -webkit-appearance: none; /* Safari and Chrome */
-    appearance: none;
-    display: none;
-    margin-right: 10px;
+  &--form {
+    margin-top: 12px;
 
     @include desktop {
-      align-items: center;
-      background-color: inherit;
-      border: solid $default-border-height $color-monochrome-15;
-      border-radius: $default-border-radius;
-      color: $color-monochrome-18;
-      display: flex;
-      font-size: $font-size-primary;
-      height: 36px;
-      justify-content: center;
-      padding-left: 13px;
-      padding-right: 77px;
+      margin-right: 0;
+    }
+  }
+
+  &__button {
+    @include until-desktop {
+      width: 100%;
+    }
+    -moz-appearance: none; /* Firefox */
+    -webkit-appearance: none; /* Safari and Chrome */
+    align-items: center;
+    appearance: none;
+    background-color: inherit;
+    border: solid $default-border-height $color-monochrome-15;
+    border-radius: $default-border-radius;
+    color: $color-monochrome-18;
+    display: flex;
+    font-size: $font-size-primary;
+    justify-content: center;
+    padding: 9px 79px 9px 15px;
+
+    &--form {
+      background-color: $color-monochrome-1;
     }
   }
 }
