@@ -8,7 +8,7 @@ test('is defaultstate is loaded in timeentryform', () => {
 
   expect(timeEntryForm.state()).toEqual({
     formData: {
-      employer: 'apple',
+      clientId: 'apple',
       activity: 'Design',
       date: '',
       from: '',

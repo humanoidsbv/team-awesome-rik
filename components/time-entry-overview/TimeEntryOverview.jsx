@@ -19,7 +19,7 @@ class TimeEntryOverview extends React.Component {
     requestTimeEntries: PropTypes.func.isRequired,
     timeEntries: PropTypes.arrayOf(PropTypes.shape({
       clientName: PropTypes.name,
-      employer: PropTypes.string.isRequired,
+      clientId: PropTypes.string.isRequired,
       id: PropTypes.number.isRequired,
       from: PropTypes.string.isRequired,
       to: PropTypes.string.isRequired
@@ -56,7 +56,7 @@ class TimeEntryOverview extends React.Component {
             {
               name: 'timeEntryFilter',
               onChange: this.handleChange,
-              options: ['All Employers', ...clientsIdAndName.map((client) => client.name)],
+              options: ['All Clients', ...clientsIdAndName.map((client) => client.name)],
               optionValues: ['', ...clientsIdAndName.map((client) => client.id)],
               value: activeFilter
             }]}

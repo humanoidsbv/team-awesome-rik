@@ -10,7 +10,7 @@ import './time-entry-form.scss';
 class TimeEntryForm extends React.Component {
   static defaultState = {
     formData: {
-      employer: 'apple',
+      clientId: 'apple',
       activity: 'Design',
       date: '',
       from: '',
@@ -110,7 +110,7 @@ class TimeEntryForm extends React.Component {
 
   render() {
     const { isFormVisible, isFormLoading, formData } = this.state;
-    const { employer, activity } = this.state.formData;
+    const { clientId, activity } = this.state.formData;
     const { dateIsValid, fromIsValid, toIsValid } = this.state.inputs;
     const { clientsIdAndName } = this.props;
     return (
@@ -132,10 +132,10 @@ class TimeEntryForm extends React.Component {
           <div className="form-container">
             <div className="time-entry-form">
               <div className="form__list-item">
-                <label id="employer" htmlFor="employer">
+                <label id="client" htmlFor="client">
                   <div className="first-row">
                     <label>
-                      EMPLOYER
+                      CLIENT
                     </label>
                     <button
                       className="form__button-close"
@@ -144,12 +144,12 @@ class TimeEntryForm extends React.Component {
                     />
                   </div>
                   <SelectBox
-                    name="employer"
+                    name="client"
                     onChange={this.handleChange}
                     options={clientsIdAndName.map((client) => client.name)}
                     optionValues={clientsIdAndName.map((client) => client.id)}
                     type="form"
-                    value={employer}
+                    value={clientId}
                     required
                   />
                 </label>

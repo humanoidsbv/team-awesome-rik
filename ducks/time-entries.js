@@ -26,7 +26,7 @@ export const timeEntriesSelector = createSelector(
     const entriesWithClientName = timeEntries.map(
       (timeEntry) => {
         const client = clientsIdAndName.find(
-          (currentClient) => timeEntry.employer === currentClient.id
+          (currentClient) => timeEntry.clientId === currentClient.id
         );
 
         return (
@@ -40,7 +40,7 @@ export const timeEntriesSelector = createSelector(
     return (
       !activeFilter
         ? entriesWithClientName
-        : entriesWithClientName.filter((item) => item.employer === activeFilter))
+        : entriesWithClientName.filter((item) => item.clientId === activeFilter))
       .sort((a, b) => {
         if (a.from > b.from) {
           return 1;

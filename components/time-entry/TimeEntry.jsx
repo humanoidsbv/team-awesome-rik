@@ -22,7 +22,7 @@ class TimeEntry extends React.Component {
     return (
       <li className="time-entry">
         <section className="time-entry__section">
-          <h1 className="time-entry__employer">
+          <h1 className="time-entry__client">
             {clientName}
           </h1>
           <button
