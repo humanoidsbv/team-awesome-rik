@@ -6,9 +6,9 @@ import './select-box.scss';
 const SelectBox = ({
   name, optionValues, options, onChange, type, value
 }) => (
-  <div className={`select-box ${type ? `select-box--${type}` : ''} `}>
+  <div className={`select-box select-box${type ? `--${type}` : '--default'} `}>
     <select
-      className={`select-box__button ${type ? `select-box__button--${type}` : ''} `}
+      className={`select-box__button select-box__button${type ? `--${type}` : '--default'} `}
       name={name}
       onChange={onChange}
       type="select"

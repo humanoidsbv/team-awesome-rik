@@ -135,7 +135,7 @@ class TimeEntryForm extends React.Component {
                 <label id="client" htmlFor="client">
                   <div className="first-row">
                     <label>
-                      CLIENT
+                      client
                     </label>
                     <button
                       className="form__button-close"
@@ -156,7 +156,7 @@ class TimeEntryForm extends React.Component {
               </div>
               <div className="form__list-item">
                 <label id="activity" htmlFor="activity">
-                  ACTIVITY
+                  activity
                   <SelectBox
                     name="activity"
                     options={['Design', 'Development']}
@@ -170,7 +170,7 @@ class TimeEntryForm extends React.Component {
               </div>
               <div className="form__list-item">
                 <label htmlFor="date">
-                  DATE
+                  date
                   <InputField
                     name="date"
                     isValid={dateIsValid}
@@ -184,7 +184,7 @@ class TimeEntryForm extends React.Component {
               </div>
               <div className="form__list-item form__list-item--half">
                 <label className="form__label-from" id="from" htmlFor="from">
-                  FROM
+                  from
                   <InputField
                     isValid={fromIsValid}
                     name="from"
@@ -196,7 +196,7 @@ class TimeEntryForm extends React.Component {
                   />
                 </label>
                 <label id="to" htmlFor="to">
-                  TO
+                  to
                   <InputField
                     isValid={toIsValid}
                     name="to"

@@ -15,12 +15,12 @@ const TimeEntries = ({ clientsIdAndName, timeEntries, onDelete }) => (
         {(!index || date !== previousDate)
         && (
           <hgroup className="time-entries__time-entry-header">
-            <h1 className="time-entries__date">
+            <h3 className="time-entries__date">
               {date}
-            </h1>
-            <h2 className="time-entries__time">
+            </h3>
+            <h3 className="time-entries__time">
               {calculateTotalTimePerDay(timeEntries, date)}
-            </h2>
+            </h3>
           </hgroup>
         )}
         <TimeEntry

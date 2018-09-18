@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
-import NavBar from './header-nav-bar/HeaderNavBar';
+import HeaderNavBar from './header-nav-bar/HeaderNavBar';
 import './header.scss';
 
 class Header extends React.Component {
@@ -41,7 +41,7 @@ class Header extends React.Component {
             />
           </button>
         </section>
-        <NavBar isMenuOpen={isMenuOpen} toggleMenuOpen={toggleMenuOpen} />
+        <HeaderNavBar isMenuOpen={isMenuOpen} toggleMenuOpen={toggleMenuOpen} />
         <button className="profile" type="button">
           <img className="logo" src="/static/logo.jpg" alt="logo" />
           <img className="picture" src="/static/rik.jpg" alt="pic" />
