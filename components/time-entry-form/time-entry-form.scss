@@ -114,6 +114,7 @@
   &__list-item {
     font-size: $font-size-primary;
     margin-top: 16px;
+    text-transform: uppercase;
 
     @include desktop {
       margin-bottom: 20px;
