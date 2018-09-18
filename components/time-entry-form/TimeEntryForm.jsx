@@ -30,8 +30,12 @@ class TimeEntryForm extends React.Component {
     clientsIdAndName: PropTypes.arrayOf(PropTypes.shape({
       id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired
-    })).isRequired
+    }))
   };
+
+  static defaultProps = {
+    clientsIdAndName: []
+  }
 
   constructor(props) {
     super(props);

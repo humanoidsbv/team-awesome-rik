@@ -72,7 +72,6 @@ class TimeEntryOverview extends React.Component {
             changeFormVisibility={this.changeFormVisibility}
           />
           <TimeEntries
-            clientsIdAndName={clientsIdAndName}
             onDelete={this.onDelete}
             timeEntries={timeEntries}
           />

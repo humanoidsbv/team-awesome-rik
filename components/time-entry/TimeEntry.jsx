@@ -50,10 +50,6 @@ class TimeEntry extends React.Component {
 }
 
 TimeEntry.propTypes = {
-  clientsIdAndName: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired
-  })).isRequired,
   clientName: PropTypes.string.isRequired,
   from: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
