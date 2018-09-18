@@ -71,12 +71,12 @@ class TeamMembersOverview extends React.Component {
           ]}
           displaySearchField
         />
-        <div className="container">
+        <section className="container">
           <div className="team-members-overview">
             <div className="team-member-overview__header">
-              <span className="team-member-overview__text">
+              <h1 className="team-member-overview__text">
                 All Humanoids
-              </span>
+              </h1>
               <span className="team-member-overview__header-buttons">
                 <Link href="add-team-member">
                   <button
@@ -90,7 +90,7 @@ class TeamMembersOverview extends React.Component {
             </div>
             <TeamMembers teamMembers={teamMembers} />
           </div>
-        </div>
+        </section>
       </React.Fragment>
     );
   }
