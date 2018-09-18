@@ -10,11 +10,16 @@ class TimeEntryOverview extends React.Component {
   static propTypes = {
     activeFilter: PropTypes.string.isRequired,
     addTimeEntry: PropTypes.func.isRequired,
+    clientsIdAndName: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired
+    })).isRequired,
     deleteTimeEntry: PropTypes.func.isRequired,
     filterTimeEntriesSuccess: PropTypes.func.isRequired,
     requestTimeEntries: PropTypes.func.isRequired,
     timeEntries: PropTypes.arrayOf(PropTypes.shape({
-      employer: PropTypes.string.isRequired,
+      clientName: PropTypes.name,
+      clientId: PropTypes.string.isRequired,
       id: PropTypes.number.isRequired,
       from: PropTypes.string.isRequired,
       to: PropTypes.string.isRequired
@@ -38,7 +43,7 @@ class TimeEntryOverview extends React.Component {
   }
 
   render() {
-    const { activeFilter, timeEntries } = this.props;
+    const { activeFilter, clientsIdAndName, timeEntries } = this.props;
 
     return (
       <div className="time-entry-overview">
@@ -51,8 +56,8 @@ class TimeEntryOverview extends React.Component {
             {
               name: 'timeEntryFilter',
               onChange: this.handleChange,
-              options: ['All Employers', 'Port of Rotterdam', 'Hike One'],
-              optionValues: ['', 'Port of Rotterdam', 'Hike One'],
+              options: ['All Clients', ...clientsIdAndName.map((client) => client.name)],
+              optionValues: ['', ...clientsIdAndName.map((client) => client.id)],
               value: activeFilter
             }]}
           displaySearchField
@@ -63,11 +68,12 @@ class TimeEntryOverview extends React.Component {
           </h2>
           <TimeEntryForm
             addTimeEntry={this.addTimeEntry}
+            clientsIdAndName={clientsIdAndName}
             changeFormVisibility={this.changeFormVisibility}
           />
           <TimeEntries
-            timeEntries={timeEntries}
             onDelete={this.onDelete}
+            timeEntries={timeEntries}
           />
         </div>
       </div>

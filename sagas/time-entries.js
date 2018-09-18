@@ -1,5 +1,6 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 import { deleteTimeEntry, postTimeEntry, getTimeEntries } from '../services/time-entries-api/time-entries-api';
+import { getClients } from '../services/clients-api/clients-api';
 
 import {
   ADD_TIME_ENTRY, addTimeEntrySuccess,
@@ -7,7 +8,13 @@ import {
   REQUEST_TIME_ENTRIES, requestTimeEntriesSucces
 } from '../ducks/time-entries';
 
+import {
+  requestClientsSucces
+} from '../ducks/clients';
+
 function* onGetTimeEntries() {
+  const clientResponse = yield call(getClients);
+  yield put(requestClientsSucces(clientResponse));
   const response = yield call(getTimeEntries);
   yield put(requestTimeEntriesSucces(response));
 }
