@@ -1,14 +1,42 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { TimeEntryModel } from '../../ducks/time-entries';
+import { clientIdAndName } from '../../ducks/clients';
 import { convertTimeToIso } from '../../services/date-time/date-time';
 import SelectBox from '../../shared/components/select-box/SelectBox';
 import InputField from '../../shared/components/input-field/InputField';
 import './time-entry-form.scss';
 
+interface inputsModel {
+  dateIsValid: boolean;
+  fromIsValid: boolean;
+  toIsValid: boolean;
+}
 
-class TimeEntryForm extends React.Component {
-  static defaultState = {
+interface TimeEntryFormDefaultState {
+  formData: TimeEntryModel;
+  inputs: inputsModel;
+  isFormLoading: boolean;
+  isFormVisible: boolean;
+}
+
+interface TimeEntryFormState {
+  formData: TimeEntryModel;
+  inputs: inputsModel;
+  isFormLoading: boolean;
+  isFormVisible: boolean;
+}
+
+interface TimeEntryFormProps {
+  addTimeEntry;
+  clientsIdAndName: clientIdAndName[];
+}
+
+class TimeEntryForm extends React.Component<TimeEntryFormProps, TimeEntryFormState> {
+   inputForm: React.RefObject<HTMLFormElement>;
+
+  static defaultState: TimeEntryFormDefaultState = {
     formData: {
       clientId: 'apple',
       activity: 'Design',

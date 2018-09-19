@@ -45,6 +45,10 @@ export const clientsIdAndNameSelector = createSelector(
   )
 );
 
+export interface clientIdAndName {
+  id: string;
+  name: string;
+}
 
 export const initialState = {
   items: [],

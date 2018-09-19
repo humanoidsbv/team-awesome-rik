@@ -5,7 +5,7 @@ import { calculateTotalTimePerDay, convertTimeStampToDate } from '../../services
 import './time-entries.scss';
 
 
-const TimeEntries = ({ clientsIdAndName, timeEntries, onDelete }) => (
+const TimeEntries = ({ timeEntries, onDelete }) => (
   timeEntries.map((timeEntry, index) => {
     const date = convertTimeStampToDate(timeEntry.from);
     const previousDate = index && convertTimeStampToDate(timeEntries[index - 1].from);
@@ -25,7 +25,6 @@ const TimeEntries = ({ clientsIdAndName, timeEntries, onDelete }) => (
         )}
         <TimeEntry
           {...timeEntry}
-          clientsIdAndName={clientsIdAndName}
           onDelete={onDelete}
         />
       </ul>
