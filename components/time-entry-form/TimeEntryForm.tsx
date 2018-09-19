@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import { TimeEntryModel } from '../../ducks/time-entries';
 import { clientIdAndName } from '../../ducks/clients';
@@ -52,18 +51,6 @@ class TimeEntryForm extends React.Component<TimeEntryFormProps, TimeEntryFormSta
     isFormVisible: false,
     isFormLoading: false
   };
-
-  static propTypes = {
-    addTimeEntry: PropTypes.func.isRequired,
-    clientsIdAndName: PropTypes.arrayOf(PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired
-    }))
-  };
-
-  static defaultProps = {
-    clientsIdAndName: []
-  }
 
   constructor(props) {
     super(props);
