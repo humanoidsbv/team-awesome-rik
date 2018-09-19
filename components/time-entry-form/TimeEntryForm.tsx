@@ -8,7 +8,7 @@ import SelectBox from '../../shared/components/select-box/SelectBox';
 import InputField from '../../shared/components/input-field/InputField';
 import './time-entry-form.scss';
 
-interface inputsModel {
+interface inputTypes {
   dateIsValid: boolean;
   fromIsValid: boolean;
   toIsValid: boolean;
@@ -16,14 +16,14 @@ interface inputsModel {
 
 interface TimeEntryFormDefaultState {
   formData: TimeEntryModel;
-  inputs: inputsModel;
+  inputs: inputTypes;
   isFormLoading: boolean;
   isFormVisible: boolean;
 }
 
 interface TimeEntryFormState {
   formData: TimeEntryModel;
-  inputs: inputsModel;
+  inputs: inputTypes;
   isFormLoading: boolean;
   isFormVisible: boolean;
 }
@@ -36,7 +36,7 @@ interface TimeEntryFormProps {
 class TimeEntryForm extends React.Component<TimeEntryFormProps, TimeEntryFormState> {
    inputForm: React.RefObject<HTMLFormElement>;
 
-  static defaultState: TimeEntryFormDefaultState = {
+  private defaultState: TimeEntryFormDefaultState = {
     formData: {
       clientId: 'apple',
       activity: 'Design',
@@ -67,14 +67,14 @@ class TimeEntryForm extends React.Component<TimeEntryFormProps, TimeEntryFormSta
 
   constructor(props) {
     super(props);
-    this.state = { ...TimeEntryForm.defaultState };
+    this.state = { ...this.defaultState };
     this.inputForm = React.createRef();
   }
 
   getFormValidity = () => {
     const { inputs } = this.state;
     return (this.inputForm.current
-      && Array.from(this.inputForm.current.elements).every((element) => element.validity.valid))
+      && Array.from(this.inputForm.current.elements).every((element: HTMLInputElement) => element.validity.valid))
       && (inputs.fromIsValid && inputs.toIsValid);
   }
 
@@ -133,7 +133,7 @@ class TimeEntryForm extends React.Component<TimeEntryFormProps, TimeEntryFormSta
     }));
 
     addTimeEntry({ ...formData, ...convertTimeToIso(date, from, to) });
-    this.setState({ ...TimeEntryForm.defaultState });
+    this.setState({ ...this.defaultState });
   }
 
   render() {
