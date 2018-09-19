@@ -22,6 +22,9 @@
   },
   "homepage": "https://team-awesome-rik.now.sh",
   "dependencies": {
+    "@babel/core": "^7.1.0",
+    "@types/react": "^16.4.14",
+    "@types/react-dom": "^16.0.7",
     "@zeit/next-sass": "^0.2.0",
     "@zeit/next-typescript": "^1.1.0",
     "babel-eslint": "^8.2.6",
@@ -36,7 +39,8 @@
     "redux": "^4.0.0",
     "redux-devtools-extension": "^2.13.5",
     "redux-saga": "^0.16.0",
-    "reselect": "^3.0.1"
+    "reselect": "^3.0.1",
+    "set-immediate-shim": "^2.0.0"
   },
   "devDependencies": {
     "babel-jest": "^23.6.0",

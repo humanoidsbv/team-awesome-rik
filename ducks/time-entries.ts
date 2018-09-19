@@ -60,6 +60,7 @@ export interface TimeEntryModel {
   from: string;
   to: string;
   id?: number;
+  clientName?: string;
 }
 
 

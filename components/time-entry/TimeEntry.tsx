@@ -1,11 +1,18 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { calculateTimestampDiff, convertTimeStampToTime } from '../../services/date-time/date-time';
 
+import { TimeEntryModel } from '../../ducks/time-entries';
+import { calculateTimestampDiff, convertTimeStampToTime } from '../../services/date-time/date-time';
 import './time-entry.scss';
 
+interface TimeEntryTypes {
+  id?: TimeEntryModel["id"];
+  from: TimeEntryModel["from"];
+  to: TimeEntryModel["to"];
+  clientName?: TimeEntryModel["clientName"];
+  onDelete;
+}
 
-class TimeEntry extends React.Component {
+class TimeEntry extends React.Component<TimeEntryTypes, null> {
   handleClick = () => {
     const { id, onDelete } = this.props;
     const result = window.confirm('Are you sure you want to delete this item?');
@@ -48,13 +55,5 @@ class TimeEntry extends React.Component {
     );
   }
 }
-
-TimeEntry.propTypes = {
-  clientName: PropTypes.string.isRequired,
-  from: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired,
-  onDelete: PropTypes.func.isRequired,
-  to: PropTypes.string.isRequired
-};
 
 export default TimeEntry;
