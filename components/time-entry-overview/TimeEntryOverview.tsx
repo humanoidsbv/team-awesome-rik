@@ -17,7 +17,7 @@ interface TimeEntryOverviewProps {
   timeEntries: TimeEntryModel[];
 }
 
-class TimeEntryOverview extends React.Component<TimeEntryOverviewProps, null> {
+class TimeEntryOverview extends React.Component<TimeEntryOverviewProps> {
 
   componentDidMount() {
     this.props.requestTimeEntries();

@@ -10,7 +10,7 @@ interface TimeEntriesPropTypes {
   onDelete;
 }
 
-class  TimeEntries extends React.Component<TimeEntriesPropTypes, null>{
+class  TimeEntries extends React.Component<TimeEntriesPropTypes>{
   render(){
     const { timeEntries, onDelete } = this.props;
 
@@ -33,7 +33,7 @@ class  TimeEntries extends React.Component<TimeEntriesPropTypes, null>{
               </hgroup>
             )}
             <TimeEntry
-              {...timeEntry}
+              timeEntry = {timeEntry}
               onDelete={onDelete}
             />
           </ul>

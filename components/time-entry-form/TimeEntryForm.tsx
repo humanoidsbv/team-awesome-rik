@@ -7,22 +7,15 @@ import SelectBox from '../../shared/components/select-box/SelectBox';
 import InputField from '../../shared/components/input-field/InputField';
 import './time-entry-form.scss';
 
-interface inputTypes {
+interface InputTypes {
   dateIsValid: boolean;
   fromIsValid: boolean;
   toIsValid: boolean;
 }
 
-interface TimeEntryFormDefaultState {
-  formData: TimeEntryModel;
-  inputs: inputTypes;
-  isFormLoading: boolean;
-  isFormVisible: boolean;
-}
-
 interface TimeEntryFormState {
   formData: TimeEntryModel;
-  inputs: inputTypes;
+  inputs: InputTypes;
   isFormLoading: boolean;
   isFormVisible: boolean;
 }
@@ -35,7 +28,7 @@ interface TimeEntryFormProps {
 class TimeEntryForm extends React.Component<TimeEntryFormProps, TimeEntryFormState> {
    inputForm: React.RefObject<HTMLFormElement>;
 
-  private defaultState: TimeEntryFormDefaultState = {
+  private defaultState: TimeEntryFormState = {
     formData: {
       clientId: 'apple',
       activity: 'Design',
