@@ -3,7 +3,7 @@ import React from 'react';
 import { TimeEntryModel } from '../../ducks/time-entries';
 import { clientIdAndName } from '../../ducks/clients';
 import TimeEntryForm from '../time-entry-form/TimeEntryForm';
-import TimeEntries from '../time-entries/TimeEntries.tsx';
+import TimeEntries from '../time-entries/TimeEntries';
 import PageHeader from '../../shared/components/page-header/PageHeader';
 import './time-entry-overview.scss';
 
