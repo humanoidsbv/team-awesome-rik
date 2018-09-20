@@ -9,7 +9,8 @@
     "lint": "eslint --ext js,jsx .",
     "start": "next start",
     "test": "jest",
-    "test-watch": "jest --watch"
+    "test-watch": "jest --watch",
+    "storybook": "start-storybook -p 9001 -c .storybook -s shared/"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,10 @@
   "homepage": "https://team-awesome-rik.now.sh",
   "dependencies": {
     "@babel/core": "^7.1.0",
+    "babel-core": "^7.0.0-beta",
+    "babel-runtime": "^6.26.0",
+    "@storybook/addon-actions": "^3.4.11",
+    "@storybook/react": "^3.4.11",
     "@types/react": "^16.4.14",
     "@types/react-dom": "^16.0.7",
     "@zeit/next-sass": "^0.2.0",
