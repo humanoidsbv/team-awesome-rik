@@ -1,6 +1,7 @@
 const path = require('path');
 module.exports = (baseConfig, configType) => {
   baseConfig.resolve.modules.push(path.resolve(__dirname, '..'));
+  
   baseConfig.module.rules.push(
     {
       test: /\.scss$/,
