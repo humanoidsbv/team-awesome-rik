@@ -2,20 +2,20 @@
 An app to log hours worked for a client, created as a demo project.
 
 # Getting started
-  Clone (https://github.com/humanoidsbv/team-awesome-rik)[the project] and type `npm i` followed by `npm run dev` in console.
+  Clone [the project](https://github.com/humanoidsbv/team-awesome-rik) and type `npm i` followed by `npm run dev` in console.
 
 # Prerequisites
-  (https://nodejs.org/en/)[NodeJS]
+  [NodeJS](https://nodejs.org/en/)
 
 
 # Deployment
 Built With
 
-    *(https://github.com/zeit/next.js)[NextJS] - Server-side rendering framework built on top of WebPack
-    *(https://redux.js.org/)[Redux] - JS library for global state management
-    *(https://travis-ci.org/)[Travis] - Continuous Integration tool
-    *(https://zeit.co/now)[Now] - serverless deployment
-    *(https://https://github.com/storybooks/storybook)[StoryBook] - Overview of generic components
+    *[NextJS](https://github.com/zeit/next.js) - Server-side rendering framework built on top of WebPack
+    *[Redux](https://redux.js.org/) - JS library for global state management
+    *[Travis](https://travis-ci.org/) - Continuous Integration tool
+    *[Now](https://zeit.co/now) - serverless deployment
+    *[StoryBook](https://https://github.com/storybooks/storybook) - Overview of generic components
 
 
 # Running the tests
