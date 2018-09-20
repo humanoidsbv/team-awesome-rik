@@ -20,6 +20,7 @@
         }],
     "react/destructuring-assignment": "off",
     "jsx-a11y/anchor-is-valid": "off",
-    "react/jsx-one-expression-per-line": "off"
+    "react/jsx-one-expression-per-line": "off",
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
   }
 }
