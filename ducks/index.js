@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
 import { clientsReducer } from './clients.ts';
-import { timeEntriesReducer } from './time-entries';
+import { timeEntriesReducer } from './time-entries.ts';
 import { teamMembersReducer } from './team-members';
 import { headerReducer } from './header';
 

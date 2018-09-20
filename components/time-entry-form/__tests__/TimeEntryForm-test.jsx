@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import TimeEntryForm from '../TimeEntryForm';
+import TimeEntryForm from '../TimeEntryForm.tsx';
 
 test('is defaultstate is loaded in timeentryform', () => {
   const timeEntryForm = shallow(<TimeEntryForm />);

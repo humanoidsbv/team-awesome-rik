@@ -218,9 +218,9 @@ class TeamMemberForm extends React.Component {
                 </label>
               </div>
               <div className="team-member-form__personal-socials">
-                <label className="team-member-form__label">
+                <p className="team-member-form__label">
                   Social Profiles
-                </label>
+                </p>
                 <div className="team-member-form__personal-row">
                   <span className="team-member-form__personal-twitter-logo">
                     <img
