@@ -5,6 +5,6 @@ import SearchField from '../shared/components/search-field/SearchField';
 
 
 storiesOf('SearchField', module)
-  .add('with text', () => (
+  .add('Search', () => (
     <SearchField />
   ));

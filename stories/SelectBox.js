@@ -5,12 +5,22 @@ import SelectBox from '../shared/components/select-box/SelectBox';
 
 
 storiesOf('SelectBox', module)
-  .add('with text', () => (
+  .add('SelectBox', () => (
     <SelectBox
-      name='box'
+      name='selectClient'
       onChange={this.handleChange}
-      options={['All Clients']}
-      optionValues={['']}
+      options={['All Clients', 'Humanoids', 'Reinforcements']}
+      optionValues={['', 'huma', 'rein']}
       value='filter'
+    />
+  ))
+  .add('SelectBox in form', () => (
+    <SelectBox
+      name='selectTeamMember'
+      onChange={this.handleChange}
+      options={['Rik Frieling', 'Henk de Vries']}
+      optionValues={['1', '2']}
+      value='filter'
+      type='form'
     />
   ));
