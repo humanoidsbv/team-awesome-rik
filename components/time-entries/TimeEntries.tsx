@@ -5,12 +5,14 @@ import { TimeEntryModel } from '../../ducks/time-entries';
 import { calculateTotalTimePerDay, convertTimeStampToDate } from '../../services/date-time/date-time';
 import './time-entries.scss';
 
-interface TimeEntriesTypes {
+interface TimeEntriesPropTypes {
   timeEntries: TimeEntryModel[];
   onDelete;
 }
 
-const TimeEntries = ({ timeEntries, onDelete }: TimeEntriesTypes) => (
+class  TimeEntries extends React.Component<TimeEntryPropTypes, null>{
+  render(){
+    return(
   timeEntries.map(( timeEntry: TimeEntryModel, index) => {
     const date = convertTimeStampToDate(timeEntry.from);
     const previousDate = index && convertTimeStampToDate(timeEntries[index - 1].from);
@@ -36,5 +38,8 @@ const TimeEntries = ({ timeEntries, onDelete }: TimeEntriesTypes) => (
     );
   })
 );
+)
+}
+}
 
 export default TimeEntries;

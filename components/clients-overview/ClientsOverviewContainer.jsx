@@ -6,7 +6,7 @@ import {
   changeSortDirection, requestClients,
   clientsSortBySelector, clientsSortDirectionSelector,
   sortClients, clientsSelector
-} from '../../ducks/clients';
+} from '../../ducks/clients.ts';
 import ClientsOverview from './ClientsOverview';
 
 const ClientsOverviewContainer = (props) => (

@@ -6,11 +6,11 @@ import {
   ADD_TIME_ENTRY, addTimeEntrySuccess,
   DELETE_TIME_ENTRY, deleteTimeEntrySuccess,
   REQUEST_TIME_ENTRIES, requestTimeEntriesSucces
-} from '../ducks/time-entries';
+} from '../ducks/time-entries.ts';
 
 import {
   requestClientsSucces
-} from '../ducks/clients';
+} from '../ducks/clients.ts';
 
 function* onGetTimeEntries() {
   const clientResponse = yield call(getClients);
