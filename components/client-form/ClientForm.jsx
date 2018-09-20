@@ -199,20 +199,21 @@ class ClientForm extends React.Component {
                 </label>
               </div>
               <div className="client-form__general-contact-details">
-                <label className="client-form__label">
+                <p
+                  className="client-form__label"
+                >
                   Contact Details
-                </label>
+                </p>
                 <div className="client-form__general-row">
                   <span className="client-form__general-light-logo">
                     <img
                       className="client-form__general-svg"
                       src="/static/icons/phone.svg"
-                      alt="Phone"
+                      alt="phone"
                     />
                   </span>
                   <input
                     className="client-form__input client-form__input-contact"
-                    name="phone"
                     id="phone"
                     onChange={this.handleChange}
                     value={formData.phone}

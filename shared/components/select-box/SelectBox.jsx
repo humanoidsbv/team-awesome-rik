@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './select-box.scss';
 
 const SelectBox = ({
-  name, optionValues, options, onChange, type, value
+  name, optionValues, options, onChange, type, value, ...props
 }) => (
   <div className={`select-box select-box${type ? `--${type}` : '--default'} `}>
     <select
@@ -13,6 +13,7 @@ const SelectBox = ({
       onChange={onChange}
       type="select"
       value={value}
+      {...props}
     >
       {options.map((option, index) => (
         <option

@@ -1,30 +1,23 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
+import { TimeEntryModel } from '../../ducks/time-entries';
+import { clientIdAndName } from '../../ducks/clients';
 import TimeEntryForm from '../time-entry-form/TimeEntryForm';
 import TimeEntries from '../time-entries/TimeEntries';
 import PageHeader from '../../shared/components/page-header/PageHeader';
 import './time-entry-overview.scss';
 
-class TimeEntryOverview extends React.Component {
-  static propTypes = {
-    activeFilter: PropTypes.string.isRequired,
-    addTimeEntry: PropTypes.func.isRequired,
-    clientsIdAndName: PropTypes.arrayOf(PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired
-    })).isRequired,
-    deleteTimeEntry: PropTypes.func.isRequired,
-    filterTimeEntriesSuccess: PropTypes.func.isRequired,
-    requestTimeEntries: PropTypes.func.isRequired,
-    timeEntries: PropTypes.arrayOf(PropTypes.shape({
-      clientName: PropTypes.name,
-      clientId: PropTypes.string.isRequired,
-      id: PropTypes.number.isRequired,
-      from: PropTypes.string.isRequired,
-      to: PropTypes.string.isRequired
-    })).isRequired
-  }
+interface TimeEntryOverviewProps {
+  activeFilter: string;
+  addTimeEntry;
+  clientsIdAndName: clientIdAndName[];
+  deleteTimeEntry;
+  filterTimeEntriesSuccess;
+  requestTimeEntries;
+  timeEntries: TimeEntryModel[];
+}
+
+class TimeEntryOverview extends React.Component<TimeEntryOverviewProps> {
 
   componentDidMount() {
     this.props.requestTimeEntries();
@@ -69,7 +62,6 @@ class TimeEntryOverview extends React.Component {
           <TimeEntryForm
             addTimeEntry={this.addTimeEntry}
             clientsIdAndName={clientsIdAndName}
-            changeFormVisibility={this.changeFormVisibility}
           />
           <TimeEntries
             onDelete={this.onDelete}

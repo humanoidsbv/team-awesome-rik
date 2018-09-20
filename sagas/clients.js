@@ -5,7 +5,7 @@ import {
   ADD_CLIENT, addClientSuccess,
   DELETE_CLIENT, deleteClientSuccess,
   REQUEST_CLIENTS, requestClientsSucces
-} from '../ducks/clients';
+} from '../ducks/clients.ts';
 
 function* onGetClients() {
   const response = yield call(getClients);

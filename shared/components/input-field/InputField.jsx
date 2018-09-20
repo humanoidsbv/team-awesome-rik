@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './input-field.scss';
 
 const InputField = ({
-  name, isValid, onBlur, onChange, value, pattern
+  name, isValid, onBlur, onChange, value, pattern, ...props
 }) => (
   <input
     className={
@@ -15,13 +15,15 @@ const InputField = ({
     value={value}
     required
     pattern={pattern}
+    {...props}
   />
 );
 
 InputField.defaultProps = {
   isValid: true,
   onBlur: () => '',
-  pattern: ''
+  pattern: '',
+  required: false
 };
 
 InputField.propTypes = {
@@ -30,6 +32,7 @@ InputField.propTypes = {
   onBlur: PropTypes.func,
   onChange: PropTypes.func.isRequired,
   pattern: PropTypes.string,
+  required: PropTypes.bool,
   value: PropTypes.string.isRequired
 };
 

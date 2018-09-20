@@ -1,14 +1,34 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
+import { TimeEntryModel } from '../../ducks/time-entries';
+import { clientIdAndName } from '../../ducks/clients';
 import { convertTimeToIso } from '../../services/date-time/date-time';
 import SelectBox from '../../shared/components/select-box/SelectBox';
 import InputField from '../../shared/components/input-field/InputField';
 import './time-entry-form.scss';
 
+interface InputTypes {
+  dateIsValid: boolean;
+  fromIsValid: boolean;
+  toIsValid: boolean;
+}
 
-class TimeEntryForm extends React.Component {
-  static defaultState = {
+interface TimeEntryFormState {
+  formData: TimeEntryModel;
+  inputs: InputTypes;
+  isFormLoading: boolean;
+  isFormVisible: boolean;
+}
+
+interface TimeEntryFormProps {
+  addTimeEntry;
+  clientsIdAndName: clientIdAndName[];
+}
+
+class TimeEntryForm extends React.Component<TimeEntryFormProps, TimeEntryFormState> {
+   inputForm: React.RefObject<HTMLFormElement>;
+
+  private defaultState: TimeEntryFormState = {
     formData: {
       clientId: 'apple',
       activity: 'Design',
@@ -25,28 +45,16 @@ class TimeEntryForm extends React.Component {
     isFormLoading: false
   };
 
-  static propTypes = {
-    addTimeEntry: PropTypes.func.isRequired,
-    clientsIdAndName: PropTypes.arrayOf(PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired
-    }))
-  };
-
-  static defaultProps = {
-    clientsIdAndName: []
-  }
-
   constructor(props) {
     super(props);
-    this.state = { ...TimeEntryForm.defaultState };
+    this.state = { ...this.defaultState };
     this.inputForm = React.createRef();
   }
 
   getFormValidity = () => {
     const { inputs } = this.state;
     return (this.inputForm.current
-      && Array.from(this.inputForm.current.elements).every((element) => element.validity.valid))
+      && Array.from(this.inputForm.current.elements).every((element: HTMLInputElement) => element.validity.valid))
       && (inputs.fromIsValid && inputs.toIsValid);
   }
 
@@ -105,7 +113,7 @@ class TimeEntryForm extends React.Component {
     }));
 
     addTimeEntry({ ...formData, ...convertTimeToIso(date, from, to) });
-    this.setState({ ...TimeEntryForm.defaultState });
+    this.setState({ ...this.defaultState });
   }
 
   render() {

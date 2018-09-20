@@ -6,10 +6,10 @@ import {
   addTimeEntry, deleteTimeEntry,
   filterTimeEntriesSuccess, requestTimeEntries,
   timeEntryActiveFilterSelector, timeEntriesSelector
-} from '../../ducks/time-entries';
+} from '../../ducks/time-entries.ts';
 
-import { requestClients, clientsIdAndNameSelector } from '../../ducks/clients';
-import TimeEntryOverview from './TimeEntryOverview';
+import { requestClients, clientsIdAndNameSelector } from '../../ducks/clients.ts';
+import TimeEntryOverview from './TimeEntryOverview.tsx';
 
 const TimeEntryOverviewContainer = (props) => (
   <TimeEntryOverview {...props} />

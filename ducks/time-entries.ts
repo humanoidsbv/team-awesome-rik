@@ -53,6 +53,16 @@ export const timeEntriesSelector = createSelector(
   }
 );
 
+export interface TimeEntryModel {
+  clientId: string;
+  activity: string;
+  date: string;
+  from: string;
+  to: string;
+  id?: number;
+  clientName?: string;
+}
+
 
 export const initialState = {
   items: [],
