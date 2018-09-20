@@ -11,14 +11,17 @@ storiesOf('PageHeader', module)
       summation={1}
       summationText="Entry"
       summationTextPlural="Entries"
-      selectBoxes={[
-        {
-          name: 'timeEntryFilter',
-          onChange: () => { console.log('change'); },
-          options: ['All Clients', 'Humanoids', 'Reinforcements'],
-          optionValues: ['', 'huma', 'rein'],
-          value: ''
-        }]}
+      selectBoxes={
+        [
+          {
+            name: 'timeEntryFilter',
+            onChange: () => { console.log('change'); },
+            options: ['All Clients', 'Humanoids', 'Reinforcements'],
+            optionValues: ['', 'huma', 'rein'],
+            value: ''
+          }
+        ]
+      }
       displaySearchField
     />
   ));
