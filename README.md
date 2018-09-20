@@ -2,38 +2,35 @@
 An app to log hours worked for a client, created as a demo project.
 
 # Getting started
-  Clone <a href="https://github.com/humanoidsbv/team-awesome-rik">the project</a> and type
-  >  npm i
-
-  in console.
+  Clone [https://github.com/humanoidsbv/team-awesome-rik"](the project) and type `npm i` followed by `npm run dev` in console.
 
 # Prerequisites
-  <a href="https://nodejs.org/en/"> NodeJS </a>
+  [https://nodejs.org/en/"](NodeJS)
 
 
 # Deployment
 Built With
-  <ul>
-    <li><a href="https://github.com/zeit/next.js">NextJS</a> - Server-side rendering framework built on top of WebPack</li>
-    <li><a href="https://redux.js.org/">Redux - JS</a> library for global state management</li>
-    <li><a href="https://travis-ci.org/">Travis</a> - Continuous Integration tool</li>
-    <li><a href="https://zeit.co/now">Now</a> - serverless deployment</li>
-  </ul>
+
+    *[https://github.com/zeit/next.js"](NextJS) - Server-side rendering framework built on top of WebPack
+    *[https://redux.js.org/"](Redux) - JS library for global state management
+    *[https://travis-ci.org/"](Travis) - Continuous Integration tool
+    *[https://zeit.co/now"](Now) - serverless deployment
+
 
 # Running the tests
   Tests are for practice and demo purposes at the moment, coverage is virtually none existent but if so inclined use:
-  >npm run test
+  `npm run test`
 
 # Authors
 Rik Frieling
 
 # Acknowledgments
- <ul>
-  <li><a href="https://github.com/humanoidsbv/team-awesome-jelle">Jelle Bouwman</a> - coding partner</li>
-  <li><a href="https://github.com/boris-arkenaar">Boris Arkenaar</a> - helpline</li>
-  <li><a href="http://www.aronmartin.com/index.html">Aron Martin</a> - css helpline</li>
-  <li><a href="https://github.com/RobbinHabermehl">Robbin Habermehl</a> - helpline and provider of coffee maker</li>
- </ul>
+
+  *[https://github.com/humanoidsbv/team-awesome-jelle"](Jelle Bouwman) - coding partner
+  *[https://github.com/boris-arkenaar"](Boris Arkenaar) - helpline
+  *[http://www.aronmartin.com/index.html"](Aron Martin) - css helpline
+  *[https://github.com/RobbinHabermehl"](Robbin Habermehl) - helpline and provider of coffee maker
+
 
 License
   This project is licensed under the ISC License
