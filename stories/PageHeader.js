@@ -14,7 +14,7 @@ storiesOf('PageHeader', module)
       selectBoxes={[
         {
           name: 'timeEntryFilter',
-          onChange: ()=>{console.log('change');},
+          onChange: () => { console.log('change'); },
           options: ['All Clients', 'Humanoids', 'Reinforcements'],
           optionValues: ['', 'huma', 'rein'],
           value: ''
