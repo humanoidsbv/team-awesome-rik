@@ -11,11 +11,11 @@ An app to log hours worked for a client, created as a demo project.
 # Deployment
 Built With
 
-    - [NextJS](https://github.com/zeit/next.js) - Server-side rendering framework built on top of WebPack
-    - [Redux](https://redux.js.org/) - JS library for global state management
-    - [Travis](https://travis-ci.org/) - Continuous Integration tool
-    - [Now](https://zeit.co/now) - serverless deployment
-    - [StoryBook](https://https://github.com/storybooks/storybook) - Overview of generic components
+* [NextJS](https://github.com/zeit/next.js) - Server-side rendering framework built on top of WebPack
+* [Redux](https://redux.js.org/) - JS library for global state management
+* [Travis](https://travis-ci.org/) - Continuous Integration tool
+* [Now](https://zeit.co/now) - serverless deployment
+* [StoryBook](https://https://github.com/storybooks/storybook) - Overview of generic components
 
 
 # Running the tests
