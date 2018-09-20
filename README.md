@@ -11,11 +11,11 @@ An app to log hours worked for a client, created as a demo project.
 # Deployment
 Built With
 
-    *[NextJS](https://github.com/zeit/next.js) - Server-side rendering framework built on top of WebPack
-    *[Redux](https://redux.js.org/) - JS library for global state management
-    *[Travis](https://travis-ci.org/) - Continuous Integration tool
-    *[Now](https://zeit.co/now) - serverless deployment
-    *[StoryBook](https://https://github.com/storybooks/storybook) - Overview of generic components
+    /[NextJS](https://github.com/zeit/next.js) - Server-side rendering framework built on top of WebPack
+    /[Redux](https://redux.js.org/) - JS library for global state management
+    /[Travis](https://travis-ci.org/) - Continuous Integration tool
+    /[Now](https://zeit.co/now) - serverless deployment
+    /[StoryBook](https://https://github.com/storybooks/storybook) - Overview of generic components
 
 
 # Running the tests
@@ -30,10 +30,10 @@ Rik Frieling
 
 # Acknowledgments
 
-  *(https://github.com/humanoidsbv/team-awesome-jelle)(Jelle Bouwman) - coding partner
-  *(https://github.com/boris-arkenaar)(Boris Arkenaar) - helpline
-  *(http://www.aronmartin.com/index.html)(Aron Martin) - css helpline
-  *(https://github.com/RobbinHabermehl)(Robbin Habermehl) - helpline and provider of coffee maker
+  /[Jelle Bouwman](https://github.com/humanoidsbv/team-awesome-jelle) - coding partner
+  /[Boris Arkenaar](https://github.com/boris-arkenaar) - helpline
+  /[Aron Martin](http://www.aronmartin.com/index.html) - css helpline
+  /[Robbin Habermehl](https://github.com/RobbinHabermehl) - helpline and provider of coffee maker
 
 
 License
