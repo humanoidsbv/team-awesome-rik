@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 
 import {
   addClient, clientsSelector
-} from '../../ducks/clients';
+} from '../../ducks/clients.ts';
 import ClientForm from './ClientForm';
 
 const ClientFormContainer = (props) => (

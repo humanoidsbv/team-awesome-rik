@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 
-import { clientsIdAndNameSelector } from './clients';
+import { clientsIdAndNameSelector } from './clients.ts';
 
 export const ADD_TIME_ENTRY = 'ADD_TIME_ENTRY';
 export const ADD_TIME_ENTRY_SUCCESS = 'ADD_TIME_ENTRY_SUCCESS';
