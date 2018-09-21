@@ -20,37 +20,33 @@ const timeEntriesItemsSelector = createSelector(timeEntriesRoot,
 export const timeEntryActiveFilterSelector = createSelector(timeEntriesRoot,
   (timeEntries) => timeEntries.activeFilter);
 
+const addNamesToEntries = (timeEntries, clientsIdAndName) => (
+  timeEntries.map(
+    (timeEntry) => {
+      const client = clientsIdAndName.find(
+        (currentClient) => timeEntry.clientId === currentClient.id
+      );
+
+      return (
+        {
+          ...timeEntry,
+          clientName: client === undefined ? 'Client not found' : client.name
+        });
+    }
+  )
+);
+
 export const timeEntriesSelector = createSelector(
   [timeEntriesItemsSelector, timeEntryActiveFilterSelector, clientsIdAndNameSelector],
-  (timeEntries, activeFilter, clientsIdAndName) => {
-    const entriesWithClientName = timeEntries.map(
-      (timeEntry) => {
-        const client = clientsIdAndName.find(
-          (currentClient) => timeEntry.clientId === currentClient.id
-        );
-
-        return (
-          {
-            ...timeEntry,
-            clientName: client === undefined ? 'Client not found' : client.name
-          });
-      }
-    );
-
-    return (
-      !activeFilter
-        ? entriesWithClientName
-        : entriesWithClientName.filter((item) => item.clientId === activeFilter))
-      .sort((a, b) => {
-        if (a.from > b.from) {
-          return 1;
-        }
-        if (a.from < b.from) {
-          return -1;
-        }
-        return 0;
-      });
-  }
+  (timeEntries, activeFilter, clientsIdAndName) => (
+    !activeFilter
+      ? addNamesToEntries(timeEntries, clientsIdAndName)
+      : addNamesToEntries(
+        (timeEntries.filter((item) => item.clientId === activeFilter)
+          .sort((a, b) => a.from.localeCompare(b.from))
+        ), clientsIdAndName
+      )
+  )
 );
 
 
