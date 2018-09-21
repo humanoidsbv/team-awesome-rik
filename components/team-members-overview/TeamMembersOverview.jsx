@@ -4,6 +4,7 @@ import Link from 'next/link';
 
 import TeamMembers from '../team-members/TeamMembers';
 import PageHeader from '../../shared/components/page-header/PageHeader';
+import ComponentHeader from '../../shared/components/component-header/ComponentHeader';
 import './team-members-overview.scss';
 
 class TeamMembersOverview extends React.Component {
@@ -70,6 +71,10 @@ class TeamMembersOverview extends React.Component {
             }
           ]}
           displaySearchField
+        />
+
+        <ComponentHeader
+          text="All Humanoids"
         />
         <section className="container">
           <div className="team-members-overview">
