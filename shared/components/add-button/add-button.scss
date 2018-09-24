@@ -1,0 +1,32 @@
+@import "../../styles/main";
+
+.add-button {
+  align-items: baseline;
+  background-image: linear-gradient(to bottom, $color-monochrome-13, $color-monochrome-14 98%);
+  border: solid $default-border-height $color-monochrome-12;
+  border-radius: $default-border-radius;
+  display: flex;
+  height: 36px;
+  justify-content: center;
+  padding: 7px 21px 8px 14px;
+  width: 100%;
+
+  @include desktop {
+    margin-right: 12px;
+    width: auto;
+  }
+
+  &::before {
+    background-image: url("/static/icons/plus.svg");
+    content: "";
+    height: 10px;
+    margin-right: 15px;
+    width: 10px;
+  }
+
+  &__text {
+    color: $color-letter-on-primary;
+    font-family: $font-primary;
+    font-size: $font-size-primary;
+  }
+}

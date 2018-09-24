@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Link from 'next/link';
 
 import TeamMembers from '../team-members/TeamMembers';
 import PageHeader from '../../shared/components/page-header/PageHeader';
@@ -54,45 +53,38 @@ class TeamMembersOverview extends React.Component {
           summation={teamMembers.length}
           summationText="Humanoid"
           summationTextPlural="Humanoids"
-          selectBoxes={[
-            {
-              name: 'humanoidFilter',
-              onChange: this.handleChangeSortBy,
-              options: ['First Name', 'Last Name'],
-              optionValues: ['firstName', 'lastName'],
-              value: sortBy
-            },
-            {
-              name: 'filterDirection',
-              onChange: this.handleChangeSortDirection,
-              options: ['Ascending', 'Descending'],
-              optionValues: ['ascending', 'descending'],
-              value: sortDirection
-            }
-          ]}
           displaySearchField
         />
+        <section className="team-members-overview">
+          <div className="team-members-overview__component-header">
+            <ComponentHeader
+              text="All Humanoids"
+              addButtons={[
+                {
+                  buttonText: 'New Humanoid',
+                  link: 'add-team-member'
+                }
 
-        <ComponentHeader
-          text="All Humanoids"
-        />
-        <section className="container">
-          <div className="team-members-overview">
-            <div className="team-member-overview__header">
-              <h1 className="team-member-overview__text">
-                All Humanoids
-              </h1>
-              <span className="team-member-overview__header-buttons">
-                <Link href="add-team-member">
-                  <button
-                    className="team-member-overview__button-new"
-                    type="button"
-                  >
-                      New Humanoid
-                  </button>
-                </Link>
-              </span>
-            </div>
+              ]}
+              selectBoxes={[
+                {
+                  name: 'humanoidFilter',
+                  onChange: this.handleChangeSortBy,
+                  options: ['First Name', 'Last Name'],
+                  optionValues: ['firstName', 'lastName'],
+                  value: sortBy
+                },
+                {
+                  name: 'filterDirection',
+                  onChange: this.handleChangeSortDirection,
+                  options: ['Ascending', 'Descending'],
+                  optionValues: ['ascending', 'descending'],
+                  value: sortDirection
+                }
+              ]}
+            />
+          </div>
+          <div className="team-members-overview__container">
             <TeamMembers teamMembers={teamMembers} />
           </div>
         </section>

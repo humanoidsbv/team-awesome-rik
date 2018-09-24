@@ -1,0 +1,31 @@
+@import "../../styles/main";
+
+.component-header {
+  display: flex;
+
+  @include desktop {
+    align-items: baseline;
+    justify-content: space-between;
+    margin-top: 29px;
+  }
+
+  &__buttons {
+    width: 100%;
+
+    @include desktop {
+      align-items: baseline;
+      display: flex;
+      justify-content: flex-end;
+      width: auto;
+    }
+  }
+
+  &__title {
+    display: none;
+    font-size: 24px;
+
+    @include desktop {
+      display: block;
+    }
+  }
+}
