@@ -10,7 +10,7 @@ import './time-entry-form.scss';
 class TimeEntryForm extends React.Component {
   static defaultState = {
     formData: {
-      employer: 'Port of Rotterdam',
+      clientId: 'apple',
       activity: 'Design',
       date: '',
       from: '',
@@ -26,8 +26,16 @@ class TimeEntryForm extends React.Component {
   };
 
   static propTypes = {
-    addTimeEntry: PropTypes.func.isRequired
+    addTimeEntry: PropTypes.func.isRequired,
+    clientsIdAndName: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired
+    }))
   };
+
+  static defaultProps = {
+    clientsIdAndName: []
+  }
 
   constructor(props) {
     super(props);
@@ -102,8 +110,9 @@ class TimeEntryForm extends React.Component {
 
   render() {
     const { isFormVisible, isFormLoading, formData } = this.state;
-    const { employer, activity } = this.state.formData;
+    const { clientId, activity } = this.state.formData;
     const { dateIsValid, fromIsValid, toIsValid } = this.state.inputs;
+    const { clientsIdAndName } = this.props;
     return (
       <React.Fragment>
         <button
@@ -123,10 +132,10 @@ class TimeEntryForm extends React.Component {
           <div className="form-container">
             <div className="time-entry-form">
               <div className="form__list-item">
-                <label id="employer" htmlFor="employer">
+                <label id="client" htmlFor="client">
                   <div className="first-row">
                     <label>
-                      employer
+                      client
                     </label>
                     <button
                       className="form__button-close"
@@ -135,12 +144,12 @@ class TimeEntryForm extends React.Component {
                     />
                   </div>
                   <SelectBox
-                    name="employer"
+                    name="client"
                     onChange={this.handleChange}
-                    options={['Port of Rotterdam', 'Hike One']}
-                    optionValues={['Port of Rotterdam', 'Hike One']}
+                    options={clientsIdAndName.map((client) => client.name)}
+                    optionValues={clientsIdAndName.map((client) => client.id)}
                     type="form"
-                    value={employer}
+                    value={clientId}
                     required
                   />
                 </label>

@@ -40,7 +40,7 @@ const PageHeader = (
 
 
 PageHeader.defaultProps = {
-  selectBoxes: '',
+  selectBoxes: [],
   displaySearchField: false
 };
 

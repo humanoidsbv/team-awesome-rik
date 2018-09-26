@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Link from 'next/link';
 
 import TeamMembers from '../team-members/TeamMembers';
-import SelectBox from '../../shared/components/select-box/SelectBox';
+import PageHeader from '../../shared/components/page-header/PageHeader';
+import ComponentHeader from '../../shared/components/component-header/ComponentHeader';
 import './team-members-overview.scss';
 
 class TeamMembersOverview extends React.Component {
@@ -47,38 +47,48 @@ class TeamMembersOverview extends React.Component {
   render() {
     const { teamMembers, sortBy, sortDirection } = this.props;
     return (
-      <div className="container">
-        <div className="team-members-overview">
-          <div className="team-member-overview__header">
-            <span className="team-member-overview__text">
-              All Humanoids
-            </span>
-            <span className="team-member-overview__header-buttons">
-              <Link href="add-team-member">
-                <button
-                  className="team-member-overview__button-new"
-                  type="button"
-                >
-                    New Humanoid
-                </button>
-              </Link>
-              <SelectBox
-                options={['First Name', 'Last Name']}
-                optionValues={['firstName', 'lastName']}
-                onChange={this.handleChangeSortBy}
-                value={sortBy}
-              />
-              <SelectBox
-                options={['Ascending', 'Descending']}
-                optionValues={['ascending', 'descending']}
-                onChange={this.handleChangeSortDirection}
-                value={sortDirection}
-              />
-            </span>
+      <React.Fragment>
+        <PageHeader
+          text="TeamMembers"
+          summation={teamMembers.length}
+          summationText="Humanoid"
+          summationTextPlural="Humanoids"
+          displaySearchField
+        />
+        <section className="team-members-overview">
+          <div className="team-members-overview__component-header">
+            <ComponentHeader
+              text="All Humanoids"
+              addButtons={[
+                {
+                  buttonText: 'New Humanoid',
+                  link: 'add-team-member'
+                }
+
+              ]}
+              selectBoxes={[
+                {
+                  name: 'humanoidFilter',
+                  onChange: this.handleChangeSortBy,
+                  options: ['First Name', 'Last Name'],
+                  optionValues: ['firstName', 'lastName'],
+                  value: sortBy
+                },
+                {
+                  name: 'filterDirection',
+                  onChange: this.handleChangeSortDirection,
+                  options: ['Ascending', 'Descending'],
+                  optionValues: ['ascending', 'descending'],
+                  value: sortDirection
+                }
+              ]}
+            />
           </div>
-          <TeamMembers teamMembers={teamMembers} />
-        </div>
-      </div>
+          <div className="team-members-overview__container">
+            <TeamMembers teamMembers={teamMembers} />
+          </div>
+        </section>
+      </React.Fragment>
     );
   }
 }
