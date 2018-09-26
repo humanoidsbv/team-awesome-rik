@@ -25,81 +25,83 @@ class TeamMember extends React.Component {
     } = this.props;
     const { showDetails } = this.state;
     return (
-      <div
+      <li
         className="team-member"
         onClick={this.handleClick}
         onKeyDown={this.handleClick}
         role="button"
         tabIndex="0"
       >
-        <div className="team-member__top-row">
-          <div className="employee-summary">
+        <section className="team-member__top-row">
+          <div className="team-member__summary">
             <img
-              className="employee-picture"
+              className="team-member__picture"
               src={picture}
               alt={`${firstName} ${lastName}`}
             />
-            <div className="name-profession">
-              <div className="employee-name">
+            <hgroup className="team-member__detail">
+              <h3 className="team-member__name">
                 {`${firstName} ${lastName}`}
-              </div>
-              <div className="profession">
+              </h3>
+              <h3 className="team-member__detail-label">
                 { profession }
-              </div>
-            </div>
+              </h3>
+            </hgroup>
           </div>
-          <div className="employee-container">
-            <div className="employee-details-desktop">
-              <div className="employee-number">
-                {employeeNumber}
-                <div className="employee-number__text">
-                  Employee number
-                </div>
-              </div>
-              <div className="current-employer-desktop">
-                {currentEmployer}
-                <div className="current-employer-desktop__text">
-                  Current employer
-                </div>
-              </div>
-              <div className="start-date-desktop">
-                {this.getStartDate()}
-                <div className="start-date-desktop__text">
-                  Starting date
-                </div>
-              </div>
-            </div>
+          <hgroup className="team-member__details-desktop">
+            <h3 className="team-member__detail">
+              {employeeNumber}
+              <span className="team-member__detail-label">
+                Employee number
+              </span>
+            </h3>
+            <h3 className="team-member__detail">
+              {currentEmployer}
+              <span className="team-member__detail-label">
+                Current employer
+              </span>
+            </h3>
+            <h3 className="team-member__detail">
+              {this.getStartDate()}
+              <span className="team-member__detail-label">
+                Starting date
+              </span>
+            </h3>
             <span
-              className={`employee__arrow-expand
-                employee__arrow-expand${showDetails ? '--opened' : '--closed'}
+              className={`team-member__arrow-expand
+                team-member__arrow-expand${showDetails ? '--opened' : '--closed'}
               `}
             />
-          </div>
-        </div>
-        <div className={`team-member__employee-details-mobile${showDetails ? '--expanded' : '--collapsed'}`}>
-          <div className="detail-header">
-            <div className="detail-header__text">
+          </hgroup>
+        </section>
+        <section className={`team-member-dropdown
+          team-member-dropdown${showDetails ? '--expanded' : '--collapsed'}`}
+        >
+          <div className="team-member-dropdown__divider">
+            <h4 className="team-member-dropdown__divider-text">
               Detailed information about
               {' '}
               {firstName}
-            </div>
+            </h4>
           </div>
-          <div className="current-employer">
-            <div>
-              {currentEmployer}
-            </div>
-            <div className="current-employer__text">
-              Current employer
-            </div>
+          <div className="team-member-dropdown__info">
+            <hgroup className="team-member-dropdown__detail">
+              <h3>
+                {currentEmployer}
+              </h3>
+              <h4 className="team-member__detail-label">
+                Current client
+              </h4>
+            </hgroup>
+            <hgroup className="team-member-dropdown__detail">
+              {this.getStartDate()}
+              <h4 className="team-member__detail-label">
+                Starting date
+              </h4>
+            </hgroup>
           </div>
-          <div className="start-date">
-            {this.getStartDate()}
-            <div className="start-date__text">
-              Starting date
-            </div>
-          </div>
-        </div>
-      </div>
+        </section>
+      </li>
     );
   }
 }
