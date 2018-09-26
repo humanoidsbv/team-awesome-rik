@@ -14,7 +14,7 @@ class ClientsOverview extends React.Component {
     sortDirection: PropTypes.string.isRequired,
     sortClients: PropTypes.func.isRequired,
     clients: PropTypes.arrayOf(PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
       kvk: PropTypes.string.isRequired,
       remarks: PropTypes.string.isRequired,
